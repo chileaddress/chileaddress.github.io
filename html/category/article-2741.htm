@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2741.htm" />
+    <title>Java的虚拟线程（协程）特性开启预览阶段，多线程开发的难度将大大降低 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Java的虚拟线程（协程）特性开启预览阶段，多线程开发的难度将大大降低</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<p>高并发、多线程一直是<strong>Java</strong>编程中的难点，也是面试题中的要点。<strong>Java</strong>开发者也一直在尝试使用多线程来解决应用服务器的并发问题。但是多线程并不容易，为此一个新的技术出现了，这就是虚拟线程。</p> <h2 id="传统多线程的痛点">传统多线程的痛点</h2> <p>但是编写多线程代码是非常不容易的，难以控制的执行顺序，共享变量的线程安全性，异常的可观察性等等都是多线程编程的难点。</p> <p>如果每个请求在请求的持续时间内都在一个线程中处理，那么为了提高应用程序的吞吐量，线程的数量必须随着吞吐量的增长而增长。不幸的是线程是稀缺资源，创建一个线程的代价是昂贵的，即使引入了池化技术也无法降低新线程的创建成本，而且 JDK 当前的线程实现将应用程序的吞吐量限制在远低于硬件可以支持的水平。</p> <p>为此很多开发人员转向了异步编程，例如<code>CompletableFuture</code>或者现在正热的反应式框架。但是这些技术要么摆脱不了“回调地狱”，要么缺乏可观测性。</p> <p>解决这些痛点、增强Java平台的和谐，实现每个请求使用独立线程（thread-per-request style）这种风格成为必要之举。能否实现一种“成本低廉”的虚拟线程来映射到系统线程以减少对系统线程的直接操作呢？思路应该是没问题的！于是Java社区发起了关于虚拟线程的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://openjdk.java.net/jeps/425"  target="_blank" rel="nofollow">JEP 425</a>提案。</p> <h2 id="虚拟线程">虚拟线程</h2> <p>虚拟线程（<strong>virtual threads</strong>）应该非常廉价而且可以无需担心系统硬件资源被大量创建，并且不应该被池化。应该为每个应用程序任务创建一个新的虚拟线程。因此，大多数虚拟线程将是短暂的并且具有浅层调用堆栈，只执行单个任务<strong>HTTP</strong> 客户端调用或单个<strong>JDBC</strong> 查询。与之对应的<strong>平台线程（ Platform Threads，也就是现在传统的JVM线程 ）</strong>是重量级且昂贵的，因此通常必须被池化。它们往往寿命长，有很深的调用堆栈，并且在许多任务之间共享。</p> <p>总而言之，虚拟线程保留了与 Java 平台的设计相协调的、可靠的独立请求线程（thread-per-request style），同时优化了硬件的利用。使用虚拟线程不需要学习新概念，甚至需要改掉现在操作多线程的习惯，使用更加容易上手的<strong>API</strong>、兼容以前的多线程设计、并且丝毫不会影响代码的拓展性。</p> <h3 id="平台线程和虚拟线程的不同">平台线程和虚拟线程的不同</h3> <p>为了更好理解这一个设计，草案对这两种线程进行了比较。</p> <h4 id="现在的线程">现在的线程</h4> <p>现在每个<code>java.lang.Thread</code>都是一个平台线程，平台线程在底层操作系统线程上运行 Java 代码，并在代码的整个生命周期内捕获操作系统线程。平台线程数受限于 OS 线程数。</p> <blockquote> <p>平台线程并不会因为加入虚拟线程而退出历史舞台。</p> </blockquote> <h4 id="未来的虚拟线程">未来的虚拟线程</h4> <p>虚拟线程是由 JDK 而不是操作系统提供的线程的轻量级实现。它们是用户模式线程的一种形式，在其他多线程语言中已经成功（比如Golang中的协程和Erlang中的进程）。 虚拟线程采用 M:N 调度，其中大量 (M) 虚拟线程被调度为在较少数量 (N) 的 OS 线程上运行。 JDK 的虚拟线程调度程序是一种<code>ForkJoinPool</code>工作窃取的机制，以 FIFO 模式运行。</p> <p>我们可以很随意地创建10000个虚拟线程：</p> <pre><code class="language-java">// 预览代码 try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {     IntStream.range(0, 10_000).forEach(i -&gt; {         executor.submit(() -&gt; {             Thread.sleep(Duration.ofSeconds(1));             return i;         });     }); }</code></pre> <p>无需担心硬件资源是否扛得住，反过来如果你使用<code>Executors.newCachedThreadPool()</code>创建10000个平台线程，在大多数操作系统上很容易因资源不足而崩溃。</p> <h5 id="为吞吐量而设计">为吞吐量而设计</h5> <p>但是这里依然要说明一点，<strong>虚拟线程并是为了提升执行速度而设计</strong>。它并不比平台线程速度快，它们的存在是为了提供规模（更高的吞吐量），而不是速度（更低的延迟）。它们的数量可能比平台线程多得多，因此根据利特尔定律，它们可以实现更高吞吐量所需的更高并发性。</p> <p>换句话说，虚拟线程可以显着提高应用程序吞吐量</p> <ul> <li> <p>并发任务的数量很高（超过几千个），并且</p> </li> <li> <p>工作负载不受 CPU 限制，因为在这种情况下，拥有比处理器内核多得多的线程并不能提高吞吐量。</p> </li> </ul> <p>虚拟线程有助于提高传统服务器应用程序的吞吐量，正是因为此类应用程序包含大量并发任务，这些任务花费大量的时间等待。</p> <h5 id="增强可观测性">增强可观测性</h5> <p>编写清晰的代码并不是全部。对正在运行的程序状态的清晰表示对于故障排除、维护和优化也很重要，JDK 长期以来一直提供调试、分析和监视线程的机制。 在虚拟线程中也会增强代码的可观测性，让开发人员更好地调试代码。</p> <h2 id="新的线程api">新的线程API</h2> <p>为此增加了新的线程API设计，目前放出的部分如下：</p> <ul> <li> <p><code>Thread.Builder</code> 线程构建器。</p> </li> <li> <p><code>ThreadFactory</code> 能批量构建相同特性的线程工厂。</p> </li> <li> <p><code>Thread.ofVirtual()</code> 创建一个虚拟线程。</p> </li> <li> <p><code>Thread.ofPlatform()</code> 创建一个平台线程。</p> </li> <li> <p><code>Thread.startVirtualThread(Runnable)</code> 一种创建然后启动虚拟线程的便捷方式。</p> </li> <li> <p><code>Thread.isVirtual()</code> 测试线程是否是虚拟线程。</p> </li> </ul> <blockquote> <p>还有很多就不一一演示了，有兴趣的自行去看<strong>JEP425</strong>。</p> </blockquote> <h2 id="总结">总结</h2> <p><strong>JEP425</strong>还有很多的细节，基于我个人理解能力的不足只能解读这么多了。协程在Java社区已经呼唤了很久了，现在终于有了实质性的动作，这是一个令人振奋的好消息。不过这个功能涉及的东西还是很多的，包括平台线程的兼容性、对<code>ThreadLocal</code>的一些影响、对<strong>JUC</strong>的影响。可能需要多次预览才能最终落地。胖哥可能赶不上那个时候了，不过很多年轻的同学应该能够赶上。</p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2740.htm">js模块 &#8211; amd cmd commonjs esm umd</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2742.htm">常用python编程模板汇总</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2773.htm" title="Hyperledger Fabric 2.2 学习笔记：测试网络test-network">Hyperledger Fabric 2.2 学习笔记：测试网络test-network</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2771.htm" title="井字棋 C++">井字棋 C++</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2816.htm" title="SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码">SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2779.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

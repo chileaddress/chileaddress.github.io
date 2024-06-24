@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2648.htm" />
+    <title>Shell基础用户自定义变量 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Shell基础用户自定义变量</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#1%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89" rel="nofollow">1、变量定义</a></li> <li><a href="#2%E5%8F%98%E9%87%8F%E8%B0%83%E7%94%A8" rel="nofollow">2、变量调用</a></li> <li><a href="#3%E5%8F%98%E9%87%8F%E7%9A%84%E4%BF%AE%E6%94%B9" rel="nofollow">3、变量的修改</a></li> <li><a href="#4%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F" rel="nofollow">4、查看变量</a> <ul> <li><a href="#1-u%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E" rel="nofollow">（1）<code>-u</code>选项说明：</a></li> <li><a href="#2-x%E9%80%89%E9%A1%B9%E8%AF%B4%E6%98%8E" rel="nofollow">（2）<code>-x</code>选项说明：</a></li> <li><a href="#3set%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E" rel="nofollow">（3）<code>set</code>命令说明：</a></li> </ul> </li> <li><a href="#5%E5%8F%98%E9%87%8F%E5%88%A0%E9%99%A4" rel="nofollow">5、变量删除</a></li> </ul> </div> <h2 id="1变量定义">1、变量定义</h2> <ul> <li>变量正确定义。<br /> 格式：<code>变量名="变量值"</code></p> <pre><code class="language-shell"># 两种方式都可以 [root@localhost ~]# name=zhenniubi  [root@localhost ~]# name="zhen niubi"</code></pre> </li> <li>变量名不能用数字开头。 <pre><code class="language-shell">[root@localhost ~]# 2name="zhen niubi" -bash：2name=zhen niubi:command not found</code></pre> </li> <li>等号左右两侧不能有空格。 <pre><code class="language-shell">[root@localhost ~]# name = "zhenniubi" -bash:name:command not found</code></pre> </li> <li>变量的值如果有空格，必须用引号包含。 <pre><code class="language-shell">[root@localhost ~]# name=zhen niubi -bash:niubi:command not found</code></pre> </li> </ul> <h2 id="2变量调用">2、变量调用</h2> <p>调用变量用<code>$</code>符号。</p> <pre><code class="language-shell">#定义变量name [root@localhost ~ ] # name="zhen niubi"  #输出变量name的值 [root@localhost ~ ] # echo $name zhen niubi</code></pre> <h2 id="3变量的修改">3、变量的修改</h2> <p>Shell中变量值的修改，是以覆盖的形式完成的，以后最后一次对该变量的赋值为准。</p> <pre><code class="language-shell">#之前定义好的变量 [root@localhost ~]# name=ailin [root@localhost ~]#  [root@localhost ~]# echo $name ailin  #修改后的变量值 [root@localhost ~]# name=cangls [root@localhost ~]#  [root@localhost ~]# echo $name cangls</code></pre> <h2 id="4查看变量">4、查看变量</h2> <p>命令格式：</p> <pre><code class="language-shell">[root@localhost ~]# set [选项]</code></pre> <p>选项：</p> <ul> <li><code>-u</code>：如果设定此选项，调用未声明变量时会报错（默认无任何提示）（很常用）。</li> <li><code>-x</code>：如果设定此选项，在命令执行之前，会把命令先输出一次。（不建议使用）</li> </ul> <h3 id="1-u选项说明">（1）<code>-u</code>选项说明：</h3> <p>在当前系统下从没有定义过<code>age</code>字段（变量），直接输出<code>age</code>变量的值，如下图可以看到没有任何值。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7a298c4c53ce74354bbbb2196ea6964c.jpg" alt="Shell基础用户自定义变量"></p> <p>如果我给<code>age</code>字段定义一个空值，在查看<code>age</code>字段，如下图，可以看到依旧没有任何输出。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/00e172a92ad240130dafa635a7e7eba1.jpg" alt="Shell基础用户自定义变量"></p> <p>那么综上所述，查看一个变量时没有任何输出，是有两种可能的。一种是<code>age</code>变量不存在，一种是<code>age</code>变量的值为空。在Java中，变量没有被定义和变量值为空完全是两个不同的概念，在Shell中也一样，我们一定要对此进行区分。</p> <p>如果我执行了<code>set -u</code>命令，就可以对上面两种情况进行区分。</p> <pre><code class="language-shell">#直接执行`set -u`命令 [root@localhost ~ ] # set -u  #输出一个未定义变量，显示addr变量不存在。 [root@localhost ~]# echo $addr -bash: addr: unbound variable  #给addr变量定义一个空值， #在查看变量，可以看到变量的值为空。 [root@localhost ~]# addr="" [root@localhost ~]# echo $addr  [root@localhost ~]#</code></pre> <blockquote> <p>注意：在命令行中执行<code>set -u</code>命令，这种方式是临时生效的，需要永久生效，就需要写入环境变量配置文件中。（如何配置，看以后的环境变量配置内容）</p> </blockquote> <blockquote> <p>总结：当设置了<code>-u</code>选项后，如果调用没有设定的变量会有报错。默认是没有在何输出的。</p> </blockquote> <h3 id="2-x选项说明">（2）<code>-x</code>选项说明：</h3> <p>就字面意思，如果设定了<code>-x</code>选项，会在每个命令执行之前，先把命令输出一次</p> <pre><code class="language-shell">[root@localhost ~ ] # set -x [root@localhost ~ ] # ls + ls --color=auto  anaconda-ks.cfg install.log install.log.syslog sh tdir test testfile</code></pre> <p>如果不新登陆系统，会一直这样，因为上面说了，在命令行中直接执行是临时生效的。并不推荐执行此选项，命令结果看起来很乱。</p> <h3 id="3set命令说明">（3）<code>set</code>命令说明：</h3> <p>直接使用<code>set</code>命令，不加任何选项，会查询系统中所有的变量，包含用户自定义变量和环境变量。（其实是一部分）</p> <p>系统的另一部分变量，用<code>env</code>命令来查看。两个命令看到的变量会有重叠，但是<code>env</code>命令查看不到自定义变量的。（查了一下，网上介绍的也很模糊，就是两个命令就能够查到系统中全部的变量，<code>set</code>多用于查看系统的用户自定义变量，<code>env</code>多用于查询系统的环境变量。）</p> <blockquote> <p>总结：</p> <ul> <li><code>set</code>：用来显示当前Shell的变量，包括当前用户的变量。<br /> 每个Shell有自己特有的变量，这个和用户变量是不同的，当前用户变量和你用什么Shell无关，不管你用什么Shell，每个Shell都有自定义的Shell，也就是自己Shell的变量。这种变量不同Shell是不同的，这些变量只有<code>set</code>才会显示，是<code>bash</code>特有的。这种变量也只对本Shell有效, 不能传递给子Shell。（就相当于Java中的局部变量）。</li> <li><code>env</code>：用来显示环境变量，也叫显示当前用户的变量，环境变量可传递给子Shell。（就相当于Java中的全局变量）</li> </ul> </blockquote> <h2 id="5变量删除">5、变量删除</h2> <pre><code class="language-shell">[root@localhost ~]# unset 变量名</code></pre> <blockquote> <p>不需要在变量名前加<code>$</code>符号，只有在调用变量值的时候需要在变量名前加<code>$</code>符号。</p> </blockquote> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2647.htm">安装引入axios</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2649.htm">python2 连接hdfs 解决kerberos认证</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2782.htm" title="Vue的v-for和v-bind实现列表颜色切换">Vue的v-for和v-bind实现列表颜色切换</a></li>
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2769.htm" title="数据库事务的四大特性和隔离级别">数据库事务的四大特性和隔离级别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2813.htm" title="FreeRTOS实时操作系统的任务通知方法_操作系统">FreeRTOS实时操作系统的任务通知方法_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

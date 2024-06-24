@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2622.htm" />
+    <title>vue 项目安装 node-sass 失败报错的解决办法 附nvm使用方法 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>vue 项目安装 node-sass 失败报错的解决办法 附nvm使用方法</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>直接通过npm install 安装会报错</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/6ce7f2493f01b26f09a2a9e4a6ff84b7.jpg"></p> <p>这个时候看下node版本 node -v</p> <p>E:\workspace\myproject&gt;node -v<br /> v16.14.1</p> <p>我的版本是v16.14.1 这个时候我们安装下 nvm 这个是一个node版本管理工具</p> <p>安装包下载地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/coreybutler/nvm-windows/releases"  title="https://github.com/coreybutler/nvm-windows/releases" rel="nofollow">https://github.com/coreybutler/nvm-windows/releases</a>， windows系统下载nvm-setup.zip安装包&nbsp; &nbsp;或者百度一下 下载安装也可以&nbsp; 一路回车 安装完成就可以了。</p> <p>再次打开命令行窗口 一定要用管理员身份运行 否则会有乱码</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/49ddbfaa3a8f2a169afdef919b339d0f.jpg"></p> <p>&nbsp;打开后看下可以 nvm 版本&nbsp;&nbsp;nvm verson</p> <p>E:\workspace\myproject&gt;nvm verson</p> <p>Running version 1.1.9.</p> <p>可以看到已经安装成功了 ，可以用nvm 切换node版本，我这安装这个版本&nbsp; nvm use 14.16.1</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220607/4ad0d8a8390b8b5632a63cc4bf1158b1.jpg"></p> <p>&nbsp;这个切换完成后 开始安装 yarn&nbsp; 直接通过npm安装就可以了&nbsp;npm install -g yarn</p> <pre><code class="language-bash">C:\Windows\system32&gt;yarn -v 1.22.18</code></pre> <p>说明已经安装成功</p> <p>然后 yarn install</p> <p>结果</p> <pre><code class="language-javascript">success Saved lockfile. Done in 68.03s.</code></pre> <p><strong>安装成功</strong></p> <p>启动命令</p> <pre><code class="language-javascript">yarn run serve   DONE  Compiled successfully in 18704ms                                                                     上午11:06:01     App running at:   - Local:   http://localhost:8080/   - Network: http://192.168.0.24:8080/    Note that the development build is not optimized.   To create a production build, run yarn build.</code></pre> <p><strong>启动成功</strong></p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2621.htm">SpringCloud Feign整合Sentinel</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2623.htm">利用ref获取单个元素或者组件，ref</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/html/category/article-2769.htm" title="数据库事务的四大特性和隔离级别">数据库事务的四大特性和隔离级别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2776.htm" title="java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></li>
+                        <li class="py-2"><a href="/html/category/article-2763.htm" title="Spring Boot 2.4 新特性一键构建Docker镜像">Spring Boot 2.4 新特性一键构建Docker镜像</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2792.htm" title="toString() 和 new String()用法区别">toString() 和 new String()用法区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

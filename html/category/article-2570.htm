@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2570.htm" />
+    <title>python小项目&#8211;2048游戏 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>python小项目&#8211;2048游戏</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code>import curses import random from itertools import chain   class GameField(object):     def __init__(self, width=4, height=4, win_score=2048):         self.width = width         self.height = height         self.score = 0  # 当前得分         self.highscore = 0  # 最高分         self.win_score = win_score         # 存储判断各个方向是否可移动的函数?         self.moves = {}         self.moves['Left'] = self.is_move_left         self.moves['Right'] = self.is_move_right         self.moves['Up'] = self.is_move_up         self.moves['Down'] = self.is_move_down         #  # 存储执行各个方向移动的函数?         self.movesDict = {}         self.movesDict['Left'] = self.move_left         self.movesDict['Right'] = self.move_right         self.movesDict['Up'] = self.move_up         self.movesDict['Down'] = self.move_down      # 重置棋盘， 重新开始游戏时， 执行的操作;     def reset(self):         # 2). 是否要更新最高分, 当前分数为0；         if self.score &gt; self.highscore:             self.highscore = self.score         self.score = 0          # 3). 创建棋盘的数据， 默认情况下时4*4， 数值全为0；         self.field = [[0 for j in range(self.height)] for i in range(self.width)]          self.random_create()         self.random_create()      # 开始游戏时， 棋盘数据会随机生成2或者4，     def random_create(self):         # field[0][2] = 2         while True:             firstIndex = random.choice(range(self.height))             secondIndex = random.choice(range(self.width))             if self.field[firstIndex][secondIndex] == 0:                 value = random.choice([2, 4, 2, 2, 2])                 self.field[firstIndex][secondIndex] = value                 break      # 画棋盘     def draw(self, stdstr):         def draw_sep():             # print("+-----" * 4 + '+')             stdstr.addstr("+-----" * self.width + '+' + '\n')          # 2. 画每一行的格子         def draw_one_row(row):  # [0, 2, 0, 0]   |    |  2  |    |    |             stdstr.addstr("".join(['|  %d  ' % (item) if item != 0 else '|     ' for item in row]) + '|\n')          stdstr.clear()         stdstr.addstr(''.center(42, "*")+'\n')         stdstr.addstr('2048游戏'.center(40, '*')+'\n')         stdstr.addstr(''.center(42, '*')+'\n')         # 3. 绘制棋盘         for row in self.field:             draw_sep()             draw_one_row(row)         draw_sep()         stdstr.addstr("\n当前分数: %s" % (self.score))         stdstr.addstr("\n当前最高分数: %s" % (self.highscore))         stdstr.addstr(" \n游戏帮助: 上下左右键  (R)estart E(xit) ")         if self.is_win():             stdstr.addstr("\n游戏胜利\n")         if self.is_gameover():             stdstr.addstr("游戏失败\n")      def is_win(self):         # return max(chain(*self.field)) &gt;= 2048         return max(chain(*self.field)) &gt;= self.win_score      def is_gameover(self):         return not any([self.is_move_left(self.field),                         self.is_move_right(self.field),                         self.is_move_up(self.field),                         self.is_move_down(self.field)])       def is_row_left(self, row):  # [0, 2,2,0]         # 任意两个元素可以向左移动？         def is_change(index):  # index时索引值， [0,1,2,3]             # - 如果第一个数值为0， 第二个数值不为0， 则说明可以向左移动；             if row[index] == 0 and row[index + 1] != 0:                 return True             # - 如果第一个数值不为0， 第二个数值与第一个元素相等， 则说明可以向左移动；             if row[index] != 0 and row[index + 1] == row[index]:                 return True             return False          # 只要这一行的任意两个元素可以向左移动， 则返回True;         return any([is_change(index) for index in range(self.width-1)])        def invert(self, field):         """矩阵的反转"""         return [row[::-1] for row in field]       def transpose(self, field):         """实现矩阵的转置"""         # zip: 实现         # *field对列表进行解包;         return [ list(row) for row in zip(*field)]        def is_move_left(self, field):         # 只要棋盘的任意一行可以向左移动， 就返回True；         return any([self.is_row_left(row) for row in field])     def is_move_right(self, field):         # 对棋盘的每一行元素进行反转;         invertField = self.invert(field)         return  self.is_move_left(invertField)      def is_move_up(self, field):         # 对棋盘的每一行元素进行转置;         transposeField = self.transpose(field)         return  self.is_move_left( transposeField)      def is_move_down(self, field):         # 判断能否向下移动, 也就是对于元素进行转置, 判断转置后的棋盘能否向右移动;         # 对棋盘的每一行元素进行反转;         transposeField = self.transpose(field)         return self.is_move_right(transposeField)      # 1). 先把这一行的非0 数字向前放， 0向后放；   ==== [2, 2, 2, 2]     def tight(self, row):  # [2,0,2,0]         return sorted(row, key=lambda x: 1 if x == 0 else 0)      # 2). 依次循环判断两个数是否相等， 如果相等， 第一个*2， 第二个数为0；  【4， 0， 4， 0】     def merge(self, row):         for index in range(self.width-1):             if row[index] == row[index + 1]:                 row[index] *= 2                 row[index + 1] = 0                 # 如果合并完成， 分数增加row[index]                 self.score += row[index]         return row      def move_row_left(self, row):         return self.tight(self.merge(self.tight(row)))      def move_left(self, field):          return [self.move_row_left(row) for row in field]      def move_right(self, field):         field = self.invert(field)         return self.invert(self.move_left(field))      def move_up(self, field):         field = self.transpose(field)         return self.transpose(self.move_left(field))      def move_down(self, field):         field = self.transpose(field)         return self.transpose(self.move_right(field))       def move(self, direction):         # 1). 判断这个方向是否可以移动?         # 2). 执行移动的操作         # 3). 再随机生成一个2或者4          # 确保是上下左右的按键         if direction in self.moves:             # 1).判断这个方向是否可以移动?             if self.moves[direction](self.field):                 self.field = self.movesDict[direction](self.field)                 self.random_create()         else:             return False   def get_user_action(stdstr):     # 获取用户键盘输入的内容     action = stdstr.getch()     if action == curses.KEY_UP:         return 'Up'     if action == curses.KEY_DOWN:         return 'Down'     if action == curses.KEY_LEFT:         # stdstr.addstr("left")         return 'Left'     if action == curses.KEY_RIGHT:         # stdstr.addstr("right")         return 'Right'     # 获取字母r的ASCII码     if action == ord('r'):         # stdstr.addstr("重新开始")         return 'Restart'     if action == ord('e'):         # stdstr.addstr("退  出")         return 'Exit'   def main(stdstr):     game_field = GameField(width=6, height=6, win_score=8)      def init():         game_field.reset()         game_field.draw(stdstr)         return 'Game'      def game():         # 重新绘制棋盘         game_field.draw(stdstr)         action = get_user_action(stdstr)         if action == 'Restart':             return 'Init'         if action == 'Exit':             return 'Exit'         if game_field.move(action):             # move函数             if game_field.is_win():                 return 'Win'             if game_field.is_gameover():                 return 'Gameover'         return 'Game'      def not_game():         action = get_user_action(stdstr)         if action == 'Restart':             return 'Init'         if action == 'Exit':             return 'Exit'      state = 'Init'      state_dict = {         'Init': init,         'Game': game,         'Win':not_game,         'Gameover':not_game,         'Exit': exit     }      while True:         state = state_dict[state]()           # if state == 'Init':         #     # 通过初始化函数， 进入游戏状态;         #     state = init()         # if state == 'Game':         #     # 执行game函数， 判断用户的操作；         #     # 1). 继续游戏; (upo, down, left, right)         #     # 2). 重新开始；(R)         #     # 3). 退出;(Q)         #         #     state = game()         #         # if state == 'Win':         #     # 没有进行游戏， 只有两种状态;         #     # 1). 重新开始；(R)         #     # 2). 退出;(Q)         #     state = not_game()         # if state == 'Gameover':         #     state = not_game()         # if state == 'Exit':         #     exit()  curses.wrapper(main) </code></pre> <p>重新开始之后会保存最高分<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/7492ccfe9fa411e1b9e14924ac469103.jpg" alt="python小项目--2048游戏"></p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2569.htm">centos 7 mini版 rpm 安装mysql5.7过程</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2571.htm">c# Semaphore（信号量）</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2806.htm" title="存储用户密码应该使用什么加密算法">存储用户密码应该使用什么加密算法</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2807.htm" title="vue生命周期 钩子函数">vue生命周期 钩子函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-2792.htm" title="toString() 和 new String()用法区别">toString() 和 new String()用法区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2802.htm" title="vue在进行增删改操作后刷新页面">vue在进行增删改操作后刷新页面</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

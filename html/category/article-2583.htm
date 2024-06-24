@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2583.htm" />
+    <title>Postman正确使用姿势 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Postman正确使用姿势</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h1 id="tid-3YCTBi">前言：</h1> <p>请各大网友尊重本人原创知识分享，谨记本人博客：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://home.cnblogs.com/u/bgyb/"  target="_blank" rel="nofollow">南国以南i</a></p> <h1>简介：</h1> <p>Postman是一个接口测试工具,在做接口测试的时候,Postman相当于一个客户端,它可以模拟用户发起的各类HTTP请求,将请求数据发送至服务端,获取对应的响应结果, 从而验证响应中的结果数据是否和预期值相匹配;并确保开发人员能够及时处理接口中的bug,进而保证产品上线之后的稳定性和安全性。 它主要是用来模拟各种HTTP请求的(如:get/post/delete/put..等等),Postman与浏览器的区别在于有的浏览器不能输出Json格式,而Postman更直观接口返回的结果。</p> <h1>背景：</h1> <p>当我们使用Postman做接口测试时，不免某些接口请求前需要获取token参数，验证请求是否有效。</p> <p><strong>问题引申：</strong>当我们获取到token后需要手动添加到请求头里面，一旦token过期了，需要重新获取token，需要手动替换请求头中的token。周而复始麻烦的很！！！</p> <p><strong>解决思路：</strong>设置Postman中全局变量，将参数返回值token设置全局变量，便于其他接口调用</p> <h2>Test 简介</h2> <p data-pid="Uk6j-YO1">在 postman 中封装了我们常见的<strong><span style="color: rgba(255, 0, 0, 1)">断言(Tests)</span></strong>，当然<strong><span style="color: rgba(255, 0, 0, 1)">Tests</span></strong> 除了可以作为断言，还可以当做后置处理器</p> <ul> <li data-pid="JLqHmXmA">获取当前接口的响应，传递给下一个接口</li> <li data-pid="JLqHmXmA">控制多个接口间的执行顺序</li> </ul> <p><span style="font-size: 18px">一、【登入接口】获取token</span></p> <p><span style="font-size: 16px">1.1 设置全局变量</span></p> <p>设置全局参数，添加请求【登入接口】的请求参数</p> <p><img decoding="async" src="https://img2022.cnblogs.com/blog/1867541/202204/1867541-20220418104959886-1932419468.png" alt="Postman正确使用姿势"></p> <p><span style="font-size: 16px">1.2 调用全局参数</span></p> <p><img decoding="async" src="https://img2022.cnblogs.com/blog/1867541/202204/1867541-20220418104512433-1448914884.png" alt="Postman正确使用姿势"></p> <p><span style="font-size: 18px">二、【查询接口】并入token</span></p> <p><span style="font-size: 16px">2.1 【查询接口】token验证</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5079b2f37c9ddd61e885dd90e8397444.jpg" alt="Postman正确使用姿势"></p> <p><span style="font-size: 16px">&nbsp;2.2 【登录接口】中使用Tests语句自动添加环境变量</span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">把返回值解析成json字符串</span><span style="color: rgba(0, 0, 255, 1)">var</span> res =<span style="color: rgba(0, 0, 0, 1)"> JSON.parse(responseBody)</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">参数填充</span> postman.setEnvironmentVariable("authorization"<span style="color: rgba(0, 0, 0, 1)">,res.value.token);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">简写</span><span style="color: rgba(0, 128, 0, 1)"> //</span><span style="color: rgba(0, 128, 0, 1)">pm.environment.set("authorization", res.value.token);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">自动设置值</span><span style="color: rgba(0, 128, 0, 1)"> //</span><span style="color: rgba(0, 128, 0, 1)">postman.setGlobalVariable("authorization",res.value.token)</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/92eff6b5b366236210d9892431e7df97.jpg" alt="Postman正确使用姿势"></p> <p><span style="font-size: 16px">&nbsp;发送请求运行后，再次查看【登入请求】，全局参数已自动添加token值</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1e4706fe747ef19383a89fe30cb79821.jpg" alt="Postman正确使用姿势"></p> <p><span style="font-size: 16px">2.3 【查询接口】中引用参数值</span></p> <p><span style="font-size: 16px">引用参数值，实现每执行【登入接口】请求，完成token自动赋值替换</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/960feb3db89474975279a7c6789cde1e.jpg" alt="Postman正确使用姿势"></p> <h2>Tests 中常用方法</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">1、设置环境变量</span> postman.setEnvironmentVariable("key", "value"<span style="color: rgba(0, 0, 0, 1)">); 或 pm.environment.set(</span>"key", "value"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">2、设置全局变量</span> postman.setGlobalVariable("gv", "111111"<span style="color: rgba(0, 0, 0, 1)">); 或 pm.globals.set(</span>"g", "2222"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">3、检查resonse body中是否包含某个string</span> tests["结果：Body matches string"] = responseBody.has("string_you_want_to_search"<span style="color: rgba(0, 0, 0, 1)">);   或   pm.test(</span>"结果：Body is correct",<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> () {       pm.response.to.have.body(</span>"response_body_string"<span style="color: rgba(0, 0, 0, 1)">);   });</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">4、验证Status code状态响应码是否是某个值</span> tests["Successful POST request"] = responseCode.code === 200 || responseCode.code === 202<span style="color: rgba(0, 0, 0, 1)">;   或   pm.test(</span>"Successful POST request",<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> () {       pm.expect(pm.response.code).to.be.oneOf([</span>200,202<span style="color: rgba(0, 0, 0, 1)">]);   });</span></pre> </div> <h2>Pre-request Script&nbsp;简介</h2> <div> <ul> <li>Pre-request Script是集合中请求发送之前需要执行的代码片段</li> <li>请求参数中包含一个随机数或者请求header中包括一个时间戳，或者你的请求参数需要加密</li> </ul> </div> <p><span style="font-size: 18px">一、【登录接口】请求发起前处理</span></p> <p>使用Pre-request Script语句对密码进行加密请求</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">var</span> body_json =<span style="color: rgba(0, 0, 0, 1)"> {</span>"userCode" : "admin"<span style="color: rgba(0, 0, 0, 1)">,</span>"passwd" : "123456"<span style="color: rgba(0, 0, 0, 1)">     } pwd</span>= body_json["passwd"]<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 获取passwd的值</span><span style="color: rgba(0, 0, 255, 1)">var</span> pwd = CryptoJS.MD5(pwd).toString()<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> md5加密pwd变量</span> body_json["passwd"] = pwd<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 设置passwd为加密后的密码</span><span style="color: rgba(0, 0, 0, 1)"> console.log(body_json)</span><span style="color: rgba(0, 0, 255, 1)">var</span> body_str = JSON.stringify(body_json)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> converts objects to strings</span> pm.environment.set('request_body', body_str)<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 把处理后的body赋值给参数request_body，在body中输入{{request_body}}</span></pre> </div> <p>样例：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/053f6891b1cff2d0d76a0f65a2131a7d.jpg" alt="Postman正确使用姿势"></p> <h2>Pre-request Script 中常用方法</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 清除全局变量</span> pm.globals.unset("variable_key"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 清除环境变量</span> pm.environment.unset("variable_key"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 获取全局变量</span> pm.globals.get("variable_key"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取一个变量</span> pm.variables.get("variable_key"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 获取环境变量</span> pm.environment.get("variable_key"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">发送一个请求</span> pm.sendRequest("https://postman-echo.com/get",<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> (err, response) {     console.log(response.json()); });</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置环境变量</span> pm.globals.set("variable_key", "variable_value");</pre> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2582.htm">基于Debian搭建Hyperledger Fabric 2.4开发环境及运行简单案例</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2584.htm">SpringBoot快速开发利器：CLI 属实真牛逼！</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2786.htm" title=".NET Core(.NET6)中gRPC注册到Consul详解">.NET Core(.NET6)中gRPC注册到Consul详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2784.htm" title="C++基础之C++中的输入输出">C++基础之C++中的输入输出</a></li>
+                        <li class="py-2"><a href="/html/category/article-2788.htm" title="《C语言及程序设计》程序阅读——宏定义">《C语言及程序设计》程序阅读——宏定义</a></li>
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2813.htm" title="FreeRTOS实时操作系统的任务通知方法_操作系统">FreeRTOS实时操作系统的任务通知方法_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-2763.htm" title="Spring Boot 2.4 新特性一键构建Docker镜像">Spring Boot 2.4 新特性一键构建Docker镜像</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

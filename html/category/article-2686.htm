@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2686.htm" />
+    <title>权威分析@RequestParam和@RequestPart 的区别（官方文档） - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>权威分析@RequestParam和@RequestPart 的区别（官方文档）</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-dracula"> <p>一、今天写了两个文件上传的接口用到了@RequestParam和@RequestPart<br /><strong>@RequestPart</strong></p> <pre class="prettyprint"><code class="hljs java"><span class="hljs-javadoc">/**      * 单文件上传      *<span class="hljs-javadoctag"> @param</span> file      *<span class="hljs-javadoctag"> @param</span> bucket      *<span class="hljs-javadoctag"> @return</span>      */</span><span class="hljs-annotation">@RequestMapping</span>(<span class="hljs-string">"uploadFile"</span>)<span class="hljs-keyword">public</span> JsonResult<span class="hljs-title">uploadFile</span>(@<span class="hljs-title">RequestPart</span>("file") MultipartFile file, @RequestParam String bucket){          String fileUrl = aliossService.uploadFile(file, bucket);         Map&lt;String,String&gt; result =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();         result.put(<span class="hljs-string">"fileUrl"</span>,fileUrl);<span class="hljs-keyword">return</span> success(result);     }</code></pre> <p><strong>@RequestParam</strong></p> <pre class="prettyprint"><code class="hljs java"><span class="hljs-javadoc">/**      * 上传字符串      *<span class="hljs-javadoctag"> @param</span> stringFile      *<span class="hljs-javadoctag"> @param</span> bucket      *<span class="hljs-javadoctag"> @return</span>      */</span><span class="hljs-annotation">@RequestMapping</span>(<span class="hljs-string">"uploadStringFile"</span>)<span class="hljs-keyword">public</span> JsonResult<span class="hljs-title">uploadStringFile</span>(@<span class="hljs-title">RequestParam</span>("stringFile") String stringFile, @<span class="hljs-title">RequestParam</span>("bucket") String bucket){          String fileUrl = aliossService.uploadStringFile(stringFile, bucket);         Map&lt;String,String&gt; result =<span class="hljs-keyword">new</span> HashMap&lt;&gt;();         result.put(<span class="hljs-string">"fileUrl"</span>,fileUrl);<span class="hljs-keyword">return</span> success(result);     }</code></pre> <p>二、比较一下他们的区别吧<br /> @RequestPart<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/c85208679f3adaf13d7244344b4ba3f7.jpg" alt="权威分析@RequestParam和@RequestPart 的区别（官方文档）"></p> <p>译文：<br /> 1.@RequestPart这个注解用在multipart/form-data表单提交请求的方法上。<br /> 2.支持的请求方法的方式MultipartFile，属于Spring的MultipartResolver类。这个请求是通过http协议传输的。<br /> 3.@RequestParam也同样支持multipart/form-data请求。<br /> 4.他们最大的不同是，当请求方法的请求参数类型不再是String类型的时候。<br /> 5.@RequestParam适用于name-valueString类型的请求域，@RequestPart适用于复杂的请求域（像JSON，XML）。</p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2685.htm">动态矩阵（指针与堆内存分配）</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2687.htm">Intellij IDEA下载安装配置GIT详细教程 [超详细]</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2782.htm" title="Vue的v-for和v-bind实现列表颜色切换">Vue的v-for和v-bind实现列表颜色切换</a></li>
+                        <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2797.htm" title="Centos7 离线安装 KVM，并安装 Csr1000v">Centos7 离线安装 KVM，并安装 Csr1000v</a></li>
+                        <li class="py-2"><a href="/html/category/article-2807.htm" title="vue生命周期 钩子函数">vue生命周期 钩子函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

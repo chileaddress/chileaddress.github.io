@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2814.htm" />
+    <title>DataLoader 和 Dataset - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>DataLoader 和 Dataset</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-dracula"> <p><strong>Dataset</strong>是一个<strong>包装类</strong>，用来将数据包装为Dataset类，然后传入<strong>DataLoader</strong>中，我们再使用DataLoader这个类来更加快捷的对数据进行操作。</p> <p>DataLoader是一个比较重要的类，它为我们提供的常用操作有：batch_size(每个batch的大小), shuffle(是否进行shuffle操作), num_workers(加载数据的时候使用几个子进程)<br /> 当我们集成了一个 Dataset类之后，我们需要重写 len 方法，该方法提供了dataset的大小； getitem 方法， 该方法支持从 0 到 len(self)的索引</p> <pre><code class="prism language-python"><span class="token keyword">from</span> torch<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>data <span class="token keyword">import</span> Dataset <span class="token keyword">class</span> <span class="token class-name">PTB</span><span class="token punctuation">(</span>Dataset<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token triple-quoted-string string">"""battery dataset."""</span>     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data_dir<span class="token punctuation">,</span> split<span class="token punctuation">,</span>battery_dataset<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token triple-quoted-string string">"""         Args:             csv_file (string): Path to the csv file with annotations.             data_dir (string): data path0         """</span>         <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>data_dir <span class="token operator">=</span> data_dir         <span class="token keyword">try</span><span class="token punctuation">:</span>             <span class="token keyword">for</span> <span class="token builtin">file</span> <span class="token keyword">in</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span>self<span class="token punctuation">.</span>data_dir<span class="token punctuation">)</span><span class="token punctuation">:</span>                 <span class="token comment"># print("file",os.path.join(data_dir,file))</span>                 df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>data_dir<span class="token punctuation">,</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"gbk"</span><span class="token punctuation">)</span>                  <span class="token comment"># self.battery_frame = df.values</span>                 <span class="token comment"># # print("self.battery_frame",self.battery_frame)</span>                 <span class="token comment"># # print("self.battery_frame",self.battery_frame.shape)</span>                 <span class="token comment"># battery_dataset.append(self.battery_frame)</span>                  windows<span class="token operator">=</span><span class="token number">32</span>                 windows_move<span class="token operator">=</span><span class="token number">1</span>                 <span class="token keyword">if</span> df<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&gt;=</span>windows<span class="token punctuation">:</span>                     self<span class="token punctuation">.</span>battery_frame <span class="token operator">=</span> df<span class="token punctuation">.</span>values                     <span class="token comment"># print("self.battery_frame",self.battery_frame)</span>                     <span class="token comment"># print("self.battery_frame",self.battery_frame.shape)</span>                                          feature_num <span class="token operator">=</span> self<span class="token punctuation">.</span>battery_frame<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">-</span>windows<span class="token operator">+</span>windows_move                     <span class="token keyword">for</span> index <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>feature_num<span class="token punctuation">,</span>windows_move<span class="token punctuation">)</span><span class="token punctuation">:</span>                         feature_df <span class="token operator">=</span> self<span class="token punctuation">.</span>battery_frame<span class="token punctuation">[</span>index<span class="token punctuation">:</span><span class="token punctuation">(</span>index <span class="token operator">+</span> windows<span class="token punctuation">)</span><span class="token punctuation">]</span>                                         battery_dataset<span class="token punctuation">.</span>append<span class="token punctuation">(</span>feature_df<span class="token punctuation">)</span>                     self<span class="token punctuation">.</span>battery_dataset <span class="token operator">=</span> battery_dataset         <span class="token keyword">except</span> RuntimeError<span class="token punctuation">:</span>             <span class="token keyword">pass</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>battery_dataset<span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token comment">#返回文件数据的数目</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>battery_dataset<span class="token punctuation">)</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>battery_dataset<span class="token punctuation">)</span>         <span class="token comment"># return 1800000</span>     <span class="token keyword">def</span> <span class="token function">__getitem__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token comment">#接收一个索引，返回一个样本(tensor维度相同)</span>         <span class="token keyword">print</span> <span class="token punctuation">(</span>idx<span class="token punctuation">)</span>         <span class="token comment"># battery = self.battery_frame.get_chunk(128).as_matrix().astype('float')</span>         <span class="token comment"># battery = self.battery_dataset[idx].as_matrix().astype('float')</span>         battery <span class="token operator">=</span> self<span class="token punctuation">.</span>battery_dataset<span class="token punctuation">[</span>idx<span class="token punctuation">]</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"__getitem__"</span><span class="token punctuation">,</span>battery<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>          <span class="token keyword">return</span> battery </code></pre> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2813.htm">FreeRTOS实时操作系统的任务通知方法_操作系统</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2815.htm">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2763.htm" title="Spring Boot 2.4 新特性一键构建Docker镜像">Spring Boot 2.4 新特性一键构建Docker镜像</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2782.htm" title="Vue的v-for和v-bind实现列表颜色切换">Vue的v-for和v-bind实现列表颜色切换</a></li>
+                        <li class="py-2"><a href="/html/category/article-2768.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2806.htm" title="存储用户密码应该使用什么加密算法">存储用户密码应该使用什么加密算法</a></li>
+                        <li class="py-2"><a href="/html/category/article-2792.htm" title="toString() 和 new String()用法区别">toString() 和 new String()用法区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

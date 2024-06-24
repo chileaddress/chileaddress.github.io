@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2642.htm" />
+    <title>C++中动态库和静态库的使用 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>C++中动态库和静态库的使用</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <h1>一.什么是库文件</h1> <blockquote> <p>库文件是计算机上的一类文件，可以简单的把库文件看成一种代码仓库，它提供给使用者一些可以直接拿来用的变量、函数或类。</p> <p>◼ 库是特殊的一种程序，编写库的程序和编写一般的程序区别不大，只是库不能单独运行。 ◼ 库文件有两种，静态库和动态库（共享库），区别是：静态库在程序的链接阶段被复制 到了程序中；动态库在链接阶段没有被复制到程序中，而是程序在运行时由系统动态加 载到内存中供程序调用。</p> <p>◼ 库的好处：1.代码保密 2.方便部署和分发</p> </blockquote> <h1>二.静态库</h1> <p>静态库、动态库区别来自链接阶段如何处理，链接成可执行程序。分别称为静态链接方式和动态链接方式。</p> <p>静态库会在程序链接时被打包到可执行文件中，如果修改了静态库，整个可执行文件都需要重新编译。</p> <h2>2.1静态库制作方法</h2> <p><img fetchpriority="high" decoding="async" alt="" height="372" src="http://img.555519.xyz/uploads/20230217/28717a7851479372db87ee48f8c14ab0.jpg"></p> <h2>2.2静态库制作过程</h2> <p><img decoding="async" alt="" height="496" src="http://img.555519.xyz/uploads/20230217/c54d62d9707d094375f86d5c3e279706.jpg"></p> <h2>2.3静态库优缺点</h2> <p><img decoding="async" alt="" height="573" src="http://img.555519.xyz/uploads/20230217/d59cb30b2abb8058cc34f141bedf6a4b.jpg"></p> <h1>三.动态库</h1> <h2>2.1动态库制作方法</h2> <p><img loading="lazy" decoding="async" alt="" height="381" src="http://img.555519.xyz/uploads/20230217/24a540f809a22fae787aaf5aee07d343.jpg"></p> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="499" src="http://img.555519.xyz/uploads/20230217/d204bbcb3725c157c3274e5f42c33a85.jpg"></p> <p>&nbsp;</p> <h2>&nbsp;3.2动态库加载方式</h2> <p><img loading="lazy" decoding="async" alt="" height="547" src="http://img.555519.xyz/uploads/20230217/87f8e563f78b0ab02752743c41afdb8a.jpg"></p> <blockquote> <p>&nbsp;所以在定义动态库之后，需要将其绝对位置加载到系统的环境变量LD_LIBRARY_PATH中或将其移动到系统默认文件夹/lib/,/usr/lib/，或者将其路径添加至/etc/ld.so.cache文件列表。DT_RPATH不可修改，所以不用管。</p> </blockquote> <h2>3.3添加环境变量的方法</h2> <blockquote> <h2>采用如下命令可以临时添加，终端关闭后会失效</h2> <pre><code class="language-bash">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:动态库绝对路径</code></pre> <p>非root用户添加，修改~/.bashrc文件，在文件最下方添加上述命令，并通过 source ~/.bashrc更新文件。</p> <p>root用户为所有用户添加，即全部用户都能使用，修改/etc/profile文件，将上述命令添加至文件最下方，并source /etc/profile更新文件</p> </blockquote> <h2>3.4动态库的优缺点</h2> <h2>&nbsp;<img loading="lazy" decoding="async" alt="" height="569" src="http://img.555519.xyz/uploads/20230217/3d8fb373ea52bae6fd20b48a6b708465.jpg"><br /> </h2> <p>&nbsp;</p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2641.htm">PyTorch的自动求导机制详细解析，PyTorch的核心魔法</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2643.htm">springboot项目 Feign调用时，@RequestBody 接受字符串(String),json字符串多出引号</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2799.htm" title="整理了25个Pandas实用技巧（上）">整理了25个Pandas实用技巧（上）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2780.htm" title="Redis缓存过期策略">Redis缓存过期策略</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/html/category/article-2792.htm" title="toString() 和 new String()用法区别">toString() 和 new String()用法区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

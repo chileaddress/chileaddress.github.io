@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2725.htm" />
+    <title>javaScript中Number数字类型方法入门_在线工具 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>javaScript中Number数字类型方法入门_在线工具</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h3 id="前言"><strong>前言</strong></h3> <p>Number和Math都属于JavaScript中的内置对象，Number数字类型作为基础数据类型，我们在开发过程中会经常用到，包括数字精度的格式化，还有字符串转换成数字等操作。</p> <h2 id="number数字"><strong>Number数字</strong></h2> <h4 id="自带属性值"><strong>自带属性值</strong></h4> <pre><code> Number.EPSILON 两个可表示(representable)数之间的最小间隔。  Number.MAX_SAFE_INTEGER JavaScript 中最大的安全整数 (2^53 - 1)。  Number.MAX_VALUE 能表示的最大正数。最小的负数是 -MAX_VALUE。  Number.MIN_SAFE_INTEGER JavaScript 中最小的安全整数 (-(2^53 - 1)).  Number.MIN_VALUE 能表示的最小正数即最接近 0 的正数 (实际上不会变成 0)。最大的负数是 -MIN_VALUE。   Number.NaN 特殊的“非数字”值。   Number.NEGATIVE_INFINITY 特殊的负无穷大值，在溢出时返回该值。  Number.POSITIVE_INFINITY 特殊的正无穷大值，在溢出时返回该值。  </code></pre> <h4 id="基础使用"><strong>基础使用</strong></h4> <p>new Number实例化数字对象和Number强转数字字符串，两个值的并不相等</p> <pre><code>var value1 = new Number("123"); this.value1 = value1; console.log(`value1 === 123 is ${value1 === 123}`); // value1 === 123 is false  var value2 = Number("123"); this.value2 = value2; console.log(`value2 === 123 is ${value2 === 123}`); // value2 === 123 is true     // 判断Number类型 console.log(value1 instanceof Number); console.log(value2 instanceof Number);  </code></pre> <h5 id="number将转换字符串为数字"><strong>Number将转换字符串为数字</strong></h5> <pre><code> Number("123"); // 123 Number("12.3"); // 12.3 Number("12.00"); // 12 Number("123e-1"); // 12.3 Number(""); // 0 Number(null); // 0 Number("0x11"); // 17 Number("0b11"); // 3 Number("0o11"); // 9 Number("foo"); // NaN Number("100a"); // NaN Number("-Infinity"); //-Infinity  </code></pre> <h5 id="number判断数字是否是nan"><strong>Number判断数字是否是NAN</strong></h5> <pre><code> let number1 = new Number("123"); let number2 = 123; let number3 = "string"; let number4 = null; console.log(Number.isNaN(number1)); //  false console.log(Number.isNaN(number2)); //  false console.log(Number.isNaN(number3)); //  false console.log(Number.isNaN(number4)); //  false console.log(Number.isNaN(NaN)); //  true  </code></pre> <h5 id="numberisfinite-是否是一个有穷数"><strong>Number.isFinite 是否是一个有穷数</strong></h5> <pre><code>console.log(Number.isFinite(1 / 0)); // false console.log(Number.isFinite(10 / 5)); // true console.log(Number.isFinite(0 / 0)); // false  </code></pre> <h5 id="numberisinteger-判断给定的参数是否为整数"><strong>Number.isInteger 判断给定的参数是否为整数</strong></h5> <pre><code> function checkInteger(x, y) {   if (Number.isInteger(y / x)) {     return "整数";   }   return "非整数"; } console.log(checkInteger(5, 10)); // "整数" console.log(checkInteger(5, 11)); // "非整数"  </code></pre> <h5 id="numberissafeinteger-判断传入的参数值是否是一个安全整数safe-integer"><strong>Number.isSafeInteger 判断传入的参数值是否是一个“安全整数”（safe integer）</strong></h5> <p><strong>备注：</strong></p> <p>Number.isSafeInteger() 方法用来判断传入的参数值是否是一个“安全整数”（safe integer）。<br /> 一个安全整数是一个符合下面条件的整数：<br /> 可以准确地表示为一个IEEE-754双精度数字,<br /> 其IEEE-754表示不能是舍入任何其他整数以适应IEEE-754表示的结果。.<br /> 比如，2^53 - 1 是一个安全整数，它能被精确表示，在任何 IEEE-754 舍入模式（rounding mode）下，没有其他整数舍入结果为该整数。作为对比，2^53 就不是一个安全整数，它* 能够使用 IEEE-754 表示，但是 2^53 + 1 不能使用 IEEE-754 直接表示，在就近舍入（round-to-nearest）和向零舍入中，会被舍入为 2^53。<br /> 安全整数范围为 -(2^53 - 1)到 2^53 - 1 之间的整数，包含 -(2^53 - 1)和 2^53 - 1。</p> <pre><code>Number.isSafeInteger(3); // true Number.isSafeInteger(Math.pow(2, 53)); // false Number.isSafeInteger(Math.pow(2, 53) - 1); // true Number.isSafeInteger(NaN); // false Number.isSafeInteger(Infinity); // false Number.isSafeInteger("3"); // false Number.isSafeInteger(3.1); // false Number.isSafeInteger(3.0); // true  </code></pre> <h5 id="numberparsefloat-将字符串数字转成数字类型"><strong>Number.parseFloat 将字符串数字转成数字类型</strong></h5> <p><strong>备注：</strong></p> <ul> <li>方法可以把一个字符串解析成浮点数。该方法与全局的 parseFloat() 函数相同，并且处于 ECMAScript 6 规范中（用于全局变量的模块化）。</li> <li>给定值被解析成浮点数，如果无法被解析成浮点数，则返回NaN</li> </ul> <pre><code> function checkFloat(r) {   return parseFloat(r); } console.log(checkFloat(4.567)); // 4.567 console.log(checkFloat("4.567abcdefgh")); // 4.567 console.log(checkFloat("abcdefgh")); // NaN   </code></pre> <h5 id="numberparseint-将数字字符串转成整数"><strong>Number.parseInt 将数字字符串转成整数</strong></h5> <pre><code>/**  *  * Number.parseInt()  * 方法依据指定基数 [ 参数 radix 的值]，把字符串 [ 参数 string 的值] 解析成整数。  * @params string：要解析的值。 如果此参数不是字符串，则使用ToString抽象操作将其转换为字符串。忽略此参数中的前导空格。  * @params radix：一个介于2到36之间的整数，代表字符串的基数(数学数字系统中的基)。小心-这并不是默认为10。  * 从给定字符串中解析的整数。如果基数小于11，且第一个非空白字符不能转换为数字，则返回NaN。  *  * */   function checkInt(x, base) {   const parsed = parseInt(x, base);   if (isNaN(parsed)) {     return 0;   }   return parsed * 100; } console.log(checkInt(" 0xF", 16)); // 1500 console.log(checkInt("321", 2)); // 0  </code></pre> <h5 id="numberprototypetofixed-把数字转换为字符串返回小数点后有指定位数的数字"><strong>Number.prototype.toFixed() 把数字转换为字符串，返回小数点后有指定位数的数字</strong></h5> <pre><code> var numObj = 5.123456; var n = numObj.toFixed(2); // 5.12   </code></pre> <h5 id="numberprototypetoprecision-以指定的精度返回该数值对象的字符串表示"><strong>Number.prototype.toPrecision() 以指定的精度返回该数值对象的字符串表示</strong></h5> <pre><code> var numObj = 5.123456; console.log("numObj.toPrecision()  is " + numObj.toPrecision()); // 输出 5.123456 console.log("numObj.toPrecision(5) is " + numObj.toPrecision(5)); // 输出 5.1235 console.log("numObj.toPrecision(2) is " + numObj.toPrecision(2)); // 输出 5.1 console.log("numObj.toPrecision(1) is " + numObj.toPrecision(1)); // 输出 5 // 注意：在某些情况下会以指数表示法返回 console.log((1234.5).toPrecision(2)); // "1.2e+3"  </code></pre> <h5 id="number-转换-date-对象"><strong>Number 转换 Date 对象</strong></h5> <pre><code> var d = new Date("December 17, 1995 03:24:00"); console.log(Number(d));  </code></pre> <h4 id="结尾"><strong>结尾</strong></h4> <p>在Number数字类型中，使用最多的应该是：</p> <ul> <li>isNaN判断数字是否是非数字NAN</li> <li>parseFloat将数字字符串转成数字类型</li> <li>parseInt 解析字符串转成整数</li> <li>toPrecision作为数字的方法，返回该数值的指定精度，包含小数位</li> <li>toFixed 返回指定小数点精度的数字，需要注意和toPrecision区分开来</li> </ul> <h4 id="源码地址">源码地址</h4> <ul> <li> <h5 id="码云-httpsgiteecomlewyonvue-note"> <strong>码云</strong> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/lewyon/vue-note"  target="_blank"  rel="nofollow">https://gitee.com/lewyon/vue-note</a><br /> </h5> </li> <li> <h5 id="githup-httpsgithubcomakari16vue-note"> <strong>githup</strong> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/akari16/vue-note"  target="_blank"  rel="nofollow">https://github.com/akari16/vue-note</a><br /> </h5> </li> </ul> <p>文章个人博客地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://lewyon.xyz/numberFun.html"  target="_blank"  rel="nofollow">javaScript中Number数字类型基本方法入门</a></p> <p>欢迎关注公众号：程序猿布欧，不定期更新一些前端入门文章</p> <p>创作不易，转载请注明出处和作者。</p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2724.htm">python神经网络tf.name_scope和tf.variable_scope函数区别_python</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2726.htm">springBoot过滤器和拦截器使用</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2792.htm" title="toString() 和 new String()用法区别">toString() 和 new String()用法区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
+                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2806.htm" title="存储用户密码应该使用什么加密算法">存储用户密码应该使用什么加密算法</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

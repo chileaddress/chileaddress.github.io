@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2611.htm" />
+    <title>对称加解密算法的填充模式 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>对称加解密算法的填充模式</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <h1>对称算法</h1> <p>对称算法一般分为流加密（按照单个bit位或byte字节进行运算）和块加密（根据特定长度分块进行运算）两种类型。</p> <p>常见的对称算法基本都属于块加密算法，它们的分块长度也不同：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;8字节：DES算法、3DES算法</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;16字节：AES算法、SM1算法、SSF33算法、SM4算法、SM6算法</p> <h1><strong>填充模式</strong></h1> <p><strong>&nbsp; PKCS5 Padding&nbsp; Mode(在BC包中和PKCS7是一致的)</strong></p> <p>一种基于口令的加密标准（PKCS#5）中定义的填充模式。若数据长度L，对称算法的分块长度B，则需填充B-(L%B)个字节的B-</p> <p>(L%B)。如使用SM1加密9个字节的数据，此时L=9，B=16，则需填充7个字节的0x07；若L=16，则需填充16个字节的0x10。</p> <p>填充前：0x12&nbsp;0x34&nbsp;0x56&nbsp;0x78&nbsp;0x90&nbsp;0xab&nbsp;0xcd&nbsp;0xef&nbsp;0x01</p> <p>填充后：0x12&nbsp;0x34&nbsp;0x56&nbsp;0x78&nbsp;0x90&nbsp;0xab&nbsp;0xcd&nbsp;0xef&nbsp;0x01&nbsp;0x07&nbsp;0x07&nbsp;0x07&nbsp;0x07&nbsp;0x07&nbsp;0x07&nbsp;0x07（填充7个0x07）</p> <p><strong>SSL&nbsp;3&nbsp;Padding&nbsp;Mode</strong></p> <p>SSL3定义的填充方式是：若数据长度L，对称算法的分块长度B，则需填充B-(L%B)个字节的B-(L%B)-1。如使用SM1加密9个字节</p> <p>的数据，此时L=9，B=16，则需填充7个字节的0x06；若L=16，则需填充16个字节的0x0f。正好是PKCS#5填充数字减1。</p> <p>填充前：0x12&nbsp;0x34&nbsp;0x56&nbsp;0x78&nbsp;0x90&nbsp;0xab&nbsp;0xcd&nbsp;0xef&nbsp;0x01</p> <p>填充后：0x12&nbsp;0x34&nbsp;0x56&nbsp;0x78&nbsp;0x90&nbsp;0xab&nbsp;0xcd&nbsp;0xef&nbsp;0x01&nbsp;0x06&nbsp;0x06&nbsp;0x06&nbsp;0x06&nbsp;0x06&nbsp;0x06&nbsp;0x06（填充7个0x06）</p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2610.htm">computed怎么使用_Vue中mixin怎么理解？</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2612.htm">深入理解nodejs的异步IO与事件模块机制</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2769.htm" title="数据库事务的四大特性和隔离级别">数据库事务的四大特性和隔离级别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2782.htm" title="Vue的v-for和v-bind实现列表颜色切换">Vue的v-for和v-bind实现列表颜色切换</a></li>
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

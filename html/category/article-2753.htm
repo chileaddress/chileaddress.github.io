@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2753.htm" />
+    <title>Go 语言入门之Go 计时器介绍_Golang - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Go 语言入门之Go 计时器介绍_Golang</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">引言</a></li> <li><a href="#_label1" rel="nofollow">Go 的计时器</a></li> <li><a href="#_label2" rel="nofollow">Ticker 计时器是如何工作的？</a></li> <li><a href="#_label3" rel="nofollow">Ticker 使用方式</a></li> <li><a href="#_label4" rel="nofollow">总结</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>引言</h2> <p>一般来说，很多时候我们面临这样一种情况，即我们需要运行时间记录器，它不断向我们显示当前时间或在给定的时间间隔内保持执行一定的代码和平，在这种情况下，我们应该使用 ​<code>​Ticker​</code>​​，使用这个我们需要使用 go 语言的 ​<code>​time​</code>​​ 包，我们有一个名为 ​<code>​NewTicker()​</code>​​ 的方法，它允许我们停止和启动时间代码，我们需要通过传递 ​<code>​chan​</code>​​ 和 ​<code>​bool​</code>​ 作为将使用的参数来创建一个代码通道检查它是否打开，如果通道打开意味着计时器将继续。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>Go 的计时器</h2> <p><strong>Go 提供了非常简单的语法来实现一个计时器，定时器的结构体定义：</strong></p> <div class="ay1code"> <pre class="brush:go;">type Ticker struct {  C &lt;-chan Time // 抛出来的channel，给上层系统使用，实现计时  r runtimeTimer // 给系统管理使用的定时器，系统通过该字段确定定时器是否到时，如果到时，调用对应的函数向C中推送当前时间。  }</pre> </div> <p>Ticker对外仅暴露一个 <strong>channel</strong>，指定的时间到来时就往该 channel 中写入系统时间，也即一个事件。</p> <p><strong>Ticker 的使用方式也很简单，代码如下：</strong></p> <div class="ay1code"> <pre class="brush:go;">import time  TimeTicker := time.NewTicker(1 * time.Second)  TimeTicker.Stop()</pre> </div> <ul> <li>​<code>​time​</code>​​ : 如果想要使用​<code>​time​</code>​ 中的计时器，那么需要将其导入代码中</li> <li>​<code>​NewTicker()​</code>​​ 函数：这个很好理解，新建一个计时器，然后该计时器以时间表达式作为参数，比如一秒​<code>​1*time.Second​</code>​​ ，而不是直接传入​<code>​1​</code>​​ ，也可以传入其他时间方式，比如​<code>​2*time.Millisecond​</code>​</li> <li>最后，我们可以使用时间表达式调用由​<code>​NewTicker​</code>​​ 函数创建的变量上的任何活动。例如，在上面的语法中，我们使用了​<code>​TimeTicker.Stop()​</code>​​ 来停止时间计时器。我们可以在特定条件下使用它，比如定义倒数 10 秒的计时器，就可以检查时间是否满足 10 秒，一旦 10 秒发生，我们可以调用​<code>​TimeTicker.stop()​</code>​。</li> </ul> <p><strong>我们可以每隔一秒输出一个结果，比如实现一个倒数 10 个数的功能：</strong></p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "time"  )  func main() {  TimeTicker := time.NewTicker(1 * time.Second)  i := 10  for {  &lt;-TimeTicker.C  fmt.Println("i = ", i)  i--  if i == 0 {  TimeTicker.Stop()  break  }  }  }</pre> </div> <p><strong>然后执行该程序：</strong></p> <blockquote> <p>$ go run main.go<br />i = 10<br />i = 9<br />i = 8<br />i = 7<br />i = 6<br />i = 5<br />i = 4<br />i = 3<br />i = 2<br />i = 1</p> </blockquote> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>Ticker 计时器是如何工作的？</h2> <p>​<code>​NewTicker​</code>​​创建的计时器与​<code>​NewTimer​</code>​​创建的计时器持有的时间​<code>​channel​</code>​​一样都是带一个缓存的​<code>​channel​</code>​​，每次触发后执行的函数也是​<code>​sendTime​</code>​​，这样即保证了无论有误接收方​<code>​Ticker​</code>​触发时间事件时都不会阻塞：</p> <div class="ay1code"> <pre class="brush:go;">func NewTicker(d Duration) *Ticker {  if d &lt;= 0 {  panic(errors.New("non-positive interval for NewTicker"))  }  // Give the channel a 1-element time buffer.  // If the client falls behind while reading, we drop ticks  // on the floor until the client catches up.  c := make(chan Time, 1)  t := &amp;Ticker{  C: c,  r: runtimeTimer{  when: when(d),  period: int64(d),  f: sendTime,  arg: c,  },  }  startTimer(&amp;t.r)  return t  }</pre> </div> <p>NewTicker()只是构造了一个Ticker，然后把Ticker.r通过startTimer()交给系统协程维护。</p> <p>其中<code>period</code>为事件触发的周期。</p> <p>其中​<code>​sendTime()​</code>​方法便是定时器触发时的动作：</p> <div class="ay1code"> <pre class="brush:go;">func sendTime(c interface{}, seq uintptr) {  select {  case c.(chan Time) &lt;- Now():  default:  }  }</pre> </div> <p>​<code>​sendTime​</code>​ 接收一个管道作为参数，其主要任务是向管道中写入当前时间。</p> <p><strong>停止Ticker</strong>:</p> <p>停止<code>Ticker</code>，只是简单的把Ticker从系统协程中移除。</p> <p><strong>函数主要实现如下：</strong></p> <div class="ay1code"> <pre class="brush:go;">func (t *Ticker) Stop() {  stopTimer(&amp;t.r)  }</pre> </div> <p>​<code>​stopTicker()​</code>​ 即通知系统协程把该 Ticker 移除，即不再监控。系统协程只是移除 Ticker 并不会关闭管道，以避免用户协程读取错误。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>Ticker 使用方式</h2> <p><strong>例子一：</strong></p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "time"  )  func main() {  TimeTicker := time.NewTicker(3 * time.Second)  tickerChannel := make(chan bool)  go func() {  for {  select {  case timeticker := &lt;-TimeTicker.C:  fmt.Println("The time for current is : ", timeticker)  case &lt;-tickerChannel:  return  }  }  }()  time.Sleep(6 * time.Second)  TimeTicker.Stop()  tickerChannel &lt;- true  fmt.Println("Time for running ticker is completed")  }</pre> </div> <p><strong>运行该代码：</strong></p> <blockquote> <p>$ go run main.go<br />The time for current is : 2022-04-29 22:37:13.93862 +0800 CST m=+3.000267823<br />The time for current is : 2022-04-29 22:37:16.939081 +0800 CST m=+6.000707515<br />Time for running ticker is completed</p> </blockquote> <p><strong>例子二：</strong></p> <div class="ay1code"> <pre class="brush:go;">package main  import (  "fmt"  "time"  )  func main() {  tm := time.Millisecond  tickerTicker := time.NewTicker(400 * tm)  tickerChaneel := make(chan bool)  go func() {  for {  select {  case &lt;-tickerChaneel:  return  case tmtr := &lt;-tickerTicker.C:  fmt.Println("Ticker time at current is", tmtr)  }  }  }()  time.Sleep(1400 * time.Millisecond)  tickerTicker.Stop()  tickerChaneel &lt;- true  fmt.Println("Ticker has stopped now")  }</pre> </div> <p><strong>运行该代码：</strong></p> <blockquote> <p>$ go run main.go<br />Ticker time at current is 2022-04-29 22:39:51.13057 +0800 CST m=+0.400159916<br />Ticker time at current is 2022-04-29 22:39:51.531516 +0800 CST m=+0.801102997<br />Ticker time at current is 2022-04-29 22:39:51.931238 +0800 CST m=+1.200822301<br />Ticker has stopped now</p> </blockquote> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> <p>本文简单了解了 go 计时器 ​<code>​Ticker​</code>​​ 的基本概念，介绍了它的工作原理，并且我们专注于 go 语言中 ​<code>​ticker​</code>​ 的语法和使用。最后展现了 go 语言中的一些重要示例。</p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2752.htm">如何解决服务器网站高并发问题,大型网站如何解决高并发带来的问题</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2754.htm">mysql 批量插入另一张表的数据_批量插入数据（MySql从一张表中选择字段批量插入另一张表）&#8230;</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2768.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2780.htm" title="Redis缓存过期策略">Redis缓存过期策略</a></li>
+                        <li class="py-2"><a href="/html/category/article-2763.htm" title="Spring Boot 2.4 新特性一键构建Docker镜像">Spring Boot 2.4 新特性一键构建Docker镜像</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2781.htm" title="C语言实现随机抽签">C语言实现随机抽签</a></li>
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

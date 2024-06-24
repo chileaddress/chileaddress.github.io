@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2777.htm" />
+    <title>maven的安装和配置以及如何在IDEA中配置maven - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>maven的安装和配置以及如何在IDEA中配置maven</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maven是当前开发中最常用的项目管理工具之一，IDEA是目前最受欢迎的Java开发工具，对于Java开发者来说，掌握在IDEA中配置maven是很有必要的，本文将详细介绍如何在IDEA中配置maven。</p> <p>一、maven的下载</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先是在maven的官网中下载maven，官网地址：<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://maven.apache.org/"  title="https://maven.apache.org/" rel="nofollow">https://maven.apache.org/</a>，下载完成后，需要对压缩包进行解压，需要注意的是，解压到的目录不能含有中文和空格，而且我们需要记住这个目录的位置，后续环境变量的配置需要用到。</p> <p>二、环境变量的配置</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 和安装jdk类似，使用maven前也需要进行环境变量的配置，右击计算机，选择属性-&gt;高级系统设置-&gt;环境变量。先在系统变量中新建变量MAVEN_HOME，变量值设置为maven的解压目录，例如我是将maven解压到D:\apache-maven-3.6.3这个目录下，如下图所示：</p> <p><img fetchpriority="high" decoding="async" alt="" height="189" src="http://img.555519.xyz/uploads3/20220603/c848b10c5c46f95a802727b652516032.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 然后在系统变量中选择Path并编辑，在Path的变量值中加入%MAVEN_HOME%\bin，注意多个值之间要用逗号隔开，如下图所示：</p> <p><img decoding="async" alt="" height="182" src="http://img.555519.xyz/uploads3/20220603/f481a81547af80a77e958dbe116e10bf.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;为了验证配置是否成功，可以打开命令行（快捷键win+R，并输入cmd），输入mvn -version，如果配置成功，会显示类似的如下信息：</p> <p><img decoding="async" alt="" height="188" src="http://img.555519.xyz/uploads3/20220603/820d8e0fc4137c5a33cb99e8d45d7f3d.jpg"></p> <p>三、在IDEA中配置maven</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IDEA本身自带maven，但是我们一般使用自己下载配置的maven，因此接下来我们需要在IDEA中配置maven，点击File-&gt;Settings，直接在搜索框输入maven，然后我们就可以对maven进行相关的设置。</p> <p><img loading="lazy" decoding="async" alt="" height="530" src="http://img.555519.xyz/uploads3/20220603/c6988bf88bf778ea3d92357ddb7f7a2a.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，在Maven home directory这一栏中，选择我们先前安装好的maven目录，在User settings file这一栏中，选择我们的maven配置文件，默认情况下，我们选择maven安装目录下conf目录下的settings.xml即可，在Local repository这一栏中，我们需要指定本地的maven仓库地址，这个本地仓库用于存放maven下载的jar包，这样下次需要再次使用这个jar包时，会优先从本地仓库中寻找，例如我的maven仓库路径设置为D:\Maven\repository，本地仓库的路径可以由自行设置。最后保存设置，这样我们就完成了在IDEA中配置maven。</p> <p>四、为所有新项目都配置maven</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 为了方便以后创建的每个项目都使用我们配置好的maven，而不需要重复设置，以IDEA 2020.1为例进行设置，点击File-&gt;New Projects Settings-&gt;Settings for New Projects，同样可以搜索maven进行设置，弹出的界面如下图所示，我们只需要按照先前的方法再进行配置保存即可，这样我们以后创建的每个maven项目就不需要重新进行设置了。</p> <p><img loading="lazy" decoding="async" alt="" height="610" src="http://img.555519.xyz/uploads3/20220603/eec5b0278b906c0d926d8ddde18e5a2e.jpg"></p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2776.htm">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2778.htm">IDEA中配置maven环境</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2768.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
+                        <li class="py-2"><a href="/html/category/article-2808.htm" title="使用 Vert.X Future/Promise 编写异步代码_在线工具">使用 Vert.X Future/Promise 编写异步代码_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2799.htm" title="整理了25个Pandas实用技巧（上）">整理了25个Pandas实用技巧（上）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2771.htm" title="井字棋 C++">井字棋 C++</a></li>
+                        <li class="py-2"><a href="/html/category/article-2779.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

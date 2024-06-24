@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2745.htm" />
+    <title>tensorflow 的模型保存和调用 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>tensorflow 的模型保存和调用</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><font color="gray" size="4">&nbsp;&nbsp;我们通常采用tensorflow来训练，训练完之后应当保存模型,即保存模型的记忆（权重和偏置），这样就可以来进行人脸识别或语音识别了。</font></p> <p><font color="Darkblue" size="5.5">&nbsp;&nbsp;1.模型的保存</font></p> <pre class="prettyprint"><code class="hljs avrasm"><span class="hljs-preprocessor"># 声明两个变量</span> v1 = tf<span class="hljs-preprocessor">.Variable</span>(tf<span class="hljs-preprocessor">.random</span>_normal([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]), name=<span class="hljs-string">"v1"</span>) v2 = tf<span class="hljs-preprocessor">.Variable</span>(tf<span class="hljs-preprocessor">.random</span>_normal([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>]), name=<span class="hljs-string">"v2"</span>) init_op = tf<span class="hljs-preprocessor">.global</span>_variables_initializer() <span class="hljs-preprocessor"># 初始化全部变量</span> saver = tf<span class="hljs-preprocessor">.train</span><span class="hljs-preprocessor">.Saver</span>() <span class="hljs-preprocessor"># 声明tf.train.Saver类用于保存模型</span> with tf<span class="hljs-preprocessor">.Session</span>() as sess:     sess<span class="hljs-preprocessor">.run</span>(init_op)     print(<span class="hljs-string">"v1:"</span>, sess<span class="hljs-preprocessor">.run</span>(v1)) <span class="hljs-preprocessor"># 打印v1、v2的值一会读取之后对比</span>     print(<span class="hljs-string">"v2:"</span>, sess<span class="hljs-preprocessor">.run</span>(v2))      <span class="hljs-preprocessor">#定义保存路径，一定要是绝对路径，且用‘/ ’分隔父目录与子目录</span>     saver_path = saver<span class="hljs-preprocessor">.save</span>(sess, <span class="hljs-string">"C:/Users/Administrator/Desktop/tt/model.ckpt"</span>)  <span class="hljs-preprocessor"># 将模型保存到save/model.ckpt文件</span>     print(<span class="hljs-string">"Model saved in file:"</span>, saver_path)</code></pre> <p><font color="Darkblue" size="5.5">&nbsp;&nbsp;2.模型的读取 <br /><font color="red" size="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;直接读取模型时，可能会报错，我是用Spyder编译的，可以把Spyder关掉，再重新打开，就可以读取数据了。原因可能是：在模型保存时将变量初始化了。</font></font></p> <pre class="prettyprint"><code class="hljs avrasm">import tensorflow as tf  <span class="hljs-preprocessor"># 使用和保存模型代码中一样的方式来声明变量</span> v1 = tf<span class="hljs-preprocessor">.Variable</span>(tf<span class="hljs-preprocessor">.random</span>_normal([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]), name=<span class="hljs-string">"v1"</span>) v2 = tf<span class="hljs-preprocessor">.Variable</span>(tf<span class="hljs-preprocessor">.random</span>_normal([<span class="hljs-number">2</span>, <span class="hljs-number">3</span>]), name=<span class="hljs-string">"v2"</span>) saver = tf<span class="hljs-preprocessor">.train</span><span class="hljs-preprocessor">.Saver</span>() <span class="hljs-preprocessor"># 声明tf.train.Saver类用于保存模型</span> with tf<span class="hljs-preprocessor">.Session</span>() as sess:     saver<span class="hljs-preprocessor">.restore</span>(sess, <span class="hljs-string">"C:/Users/Administrator/Desktop/tt/model.ckpt"</span>) <span class="hljs-preprocessor"># 即将固化到硬盘中的Session从保存路径再读取出来</span>     print(<span class="hljs-string">"v1:"</span>, sess<span class="hljs-preprocessor">.run</span>(v1)) <span class="hljs-preprocessor"># 打印v1、v2的值和之前的进行对比</span>     print(<span class="hljs-string">"v2:"</span>, sess<span class="hljs-preprocessor">.run</span>(v2))     print(<span class="hljs-string">"Model Restored"</span>)</code></pre> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2744.htm">Spring Security实现基于RBAC的权限表达式动态访问控制</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2746.htm">一道思考题所引起动态跟踪 ‘学案’ &#8211; 深入浅出eBPF _在线工具</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2790.htm" title="JS 删除数组中某个元素的几种方式">JS 删除数组中某个元素的几种方式</a></li>
+                        <li class="py-2"><a href="/html/category/article-2773.htm" title="Hyperledger Fabric 2.2 学习笔记：测试网络test-network">Hyperledger Fabric 2.2 学习笔记：测试网络test-network</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2768.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2769.htm" title="数据库事务的四大特性和隔离级别">数据库事务的四大特性和隔离级别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

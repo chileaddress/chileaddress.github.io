@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2806.htm" />
+    <title>存储用户密码应该使用什么加密算法 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>存储用户密码应该使用什么加密算法</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h2 id="概述">概述</h2> <p>编程开发中，像用户登录注册这种功能很常见，那么对于用户密码处理，我们该选择什么样的加密算法呢？在这种场景下，算法需要满足下面两个条件：</p> <ul> <li>算法需不可逆，这样才能有效防止密码泄露。</li> <li>算法需相对慢，可以动态调整计算成本，缓慢是应对暴力破解有效方式。</li> </ul> <p>目前来看有这么几个算法<strong>PBKDF2</strong>、<strong>BCrypt</strong> 和<strong>SCrypt</strong> 可以满足。我们先看下旧的密码加密方式。</p> <h2 id="旧的加密">旧的加密</h2> <p>过去密码加密常用MD5或者SHA。MD5是早期设计的加密哈希，它生成哈希速度很快，随着计算机能力的增强，出现了被破解的情况，所以又有了一些长度增大的哈希函数，如：SHA-1，SHA-256等。下面是它们的一些比较：</p> <ul> <li> <p>MD5：速度快生成短哈希（16 字节）。意外碰撞的概率约为：<span class="math inline">\(1.47 \times 10^{-29}\)</span> 。</p> </li> <li> <p>SHA1：比 md5 慢 20%，生成的哈希比 MD5 长一点（20 字节）。意外碰撞的概率约为：<span class="math inline">\(1 \times 10^{-45}\)</span>。</p> </li> <li> <p>SHA256：最慢，通常比 md5 慢 60%，并且生成的哈希长（32 字节）。意外碰撞的概率约为：<span class="math inline">\(4.3 \times 10^{-60}\)</span> 。</p> </li> </ul> <p>为了确保安全你可能会选择目前长度最长的哈希SHA-512，但硬件能力在增强，或许有一天又会发现新的漏洞，研究人员又推出较新的版本，新版本的长度也会越来越长，而且他们也可能会发布底层算法，所以我们应该另外寻找更合适的算法。</p> <h2 id="加盐操作">加盐操作</h2> <p>密码安全，除了要选择足够可靠的加密算法外，输入数据的强度也要提升，因为密码是人设置的，其字符长度组合强度不可能一致，如果直接进行哈希存储往往会提升爆破的概率，这时我们需要<strong>加盐</strong>。</p> <p><strong>加盐</strong>是密码学中经常提到的概念，其实就是随机数据。下面是一个 java 中生成盐的例子：</p> <pre><code class="language-java">    public static byte[] generateSalt() {         SecureRandom random = new SecureRandom();         byte[] salt = new byte[16];         random.nextBytes(salt);         return salt;     }</code></pre> <p>SHA-512 加盐哈希密码</p> <pre><code class="language-java">    public static String sha512(String rawPassword, byte[] salt) {         try {             MessageDigest md = MessageDigest.getInstance("SHA-512");             // 加点盐             md.update(salt);             return Hex.encodeHexString(md.digest(rawPassword.getBytes(StandardCharsets.UTF_8)));         } catch (GeneralSecurityException ex) {             throw new IllegalStateException("Could not create hash", ex);         }     }</code></pre> <h2 id="pbkdf2">PBKDF2</h2> <p><strong>PBKDF1</strong>和<strong>PBKDF2</strong>是一个<strong>密钥派生函数</strong>，其作用就是根据指定的密码短语生成加密密钥。之前在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.onlythinking.com/post/%E7%AE%97%E6%B3%95_%E7%BC%96%E7%A8%8B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"  target="_blank" rel="nofollow">常见加密算法</a> 提到过。它虽然不是加密哈希函数，但它仍然适用密码存储场景，因为它有足够的安全性，PBKDF2 函数计算如下：</p> <div class="math display">\[DK = PBKDF2(PRF, Password, Salt, Iterations, HashWidth)<br /> \]</div> <ul> <li><span class="math inline">\(PRF\)</span> 是伪随机函数两个参数，输出固定的长度（例如，HMAC）；</li> <li><span class="math inline">\(Password\)</span> 是生成派生密钥的主密码；</li> <li><span class="math inline">\(Salt\)</span> 是加密盐；</li> <li><span class="math inline">\(Iterations\)</span> 是迭代次数，次数越多；</li> <li><span class="math inline">\(HashWidth\)</span> 是派生密钥的长度；</li> <li><span class="math inline">\(DK\)</span> 是生成的派生密钥。</li> </ul> <p>PRF（HMAC）大致迭代过程，第一次时将 Password 作为密钥和Salt传入，然后再将输出结果作为输入重复完成后面迭代。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/390c5ca9013114f9c1ee744e45034e72.jpg" alt="存储用户密码应该使用什么加密算法"></p> <blockquote> <p><strong>HMAC</strong>：基于哈希的消息认证码，可以使用共享密钥提供身份验证。比如HMAC-SHA256，输入需要认证的<strong>消息</strong>和<strong>密钥</strong>进行计算，然后输出sha256的哈希值。</p> </blockquote> <p>PBKDF2不同于MD和SHA哈希函数，它通过增加迭代次数提升了破解难度，并且还可以根据情况进行配置，这使得它具有滑动计算成本。</p> <p>对于MD5和SHA，攻击者每秒可以猜测数十亿个密码。而使用 PBKDF2，攻击者每秒只能进行几千次猜测（或更少，取决于配置），所以它适用于抗击暴力攻击。</p> <p>2021 年，OWASP 建议对 PBKDF2-HMAC-SHA256 使用 310000 次迭代，对 PBKDF2-HMAC-SHA512 使用 120000 次迭代</p> <pre><code class="language-java">    public static String pbkdf2Encode(String rawPassword, byte[] salt) {         try {             int iterations = 310000;             int hashWidth = 256;             PBEKeySpec spec = new PBEKeySpec(rawPassword.toCharArray(), salt, iterations, hashWidth);             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");             return Base64.getEncoder().encodeToString(skf.generateSecret(spec).getEncoded());         } catch (GeneralSecurityException ex) {             throw new IllegalStateException("Could not create hash", ex);         }     }</code></pre> <h2 id="bcrypt">Bcrypt</h2> <h3 id="简介">简介</h3> <p><strong>bcrypt</strong> 是基于<strong>eksblowfish</strong> 算法设计的<strong>加密哈希函数</strong>，它最大的特点是：可以动态调整<strong>工作因子</strong>（迭代次数）来调整计算速度，因此就算以后计算机能力不断增加，它仍然可以抵抗暴力攻击。</p> <p>关于eksblowfish算法，它是采用分组加密模式，并且支持动态设定密钥计算成本（迭代次数）。算法的详细介绍可查看下面文章：</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node4.html"  target="_blank" rel="nofollow">https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node4.html</a></p> </blockquote> <h3 id="结构">结构</h3> <p>bcrypt 函数输入的密码字符串不超过 72 个字节、包含算法标识符、一个计算成本和一个 16 字节（128 位）的盐值。通过输入计算得到 24字节（192位）哈希，最终输出格式如下：</p> <pre><code class="language-java">$2a$12$DQoa2eT/aXFPgIoGwfllHuj4wEA3F71WWT7E/Trez331HGDUSRvXi \__/\/ \____________________/\_____________________________/ Alg Cost      Salt                        Hash</code></pre> <ul> <li><code>$2a$</code>:  bcrypt 算法标识符或叫版本；</li> <li><code>12</code>:  工作因子 (2^12 表示 4096 次迭代)</li> <li><code>DQoa2eT/aXFPgIoGwfllHu</code>:  base64 的盐值；</li> <li><code>j4wEA3F71WWT7E/Trez331HGDUSRvXi</code>: 计算后的 Base64 哈希值（24 字节）。</li> </ul> <p>bcrypt 版本</p> <ul> <li><code>$2a$</code>:  规定哈希字符串必须是 UTF-8 编码，必须包含空终止符。</li> <li><code>$2y$</code>:  该版本为修复 2011年6月 PHP 在 bcrypt 实现中的一个错误。</li> <li><code>$2b$</code>:  该版本为修复 2014年2月 OpenBSD 在 bcrypt 实现中的一个错误。</li> </ul> <blockquote> <p>2014年2月 在 OpenBSD 的 bcrypt 实现中发现，它使用一个无符号的 8 位值来保存密码的长度。对于长度超过255字节的密码，密码将在72或长度模256 中的较小者处被截断，而不是被截断为72字节。例如：260 字节的密码将被截断为4个字节，而不是截断为 72 个字节。</p> </blockquote> <h3 id="实践">实践</h3> <p>bcrypt 关键在于设定合适的工作因子，理想的工作因子没有特定的法则，主要还是取决于服务器的性能和应用程序上的用户数量，一般在<strong>安全性</strong>和<strong>应用性能</strong>之间权衡设定。</p> <p>假如你的因子设置比较高，虽然可以保证攻击者难以破解哈希，但是登录验证也会变慢，严重影响用户体验，而且也可能被攻击者通过大量登录尝试耗尽服务器的 CPU 来执行拒绝服务攻击。一般来说计算哈希的时间不应该超过一秒。</p> <p>我们使用<code>spring security BCryptPasswordEncoder</code>  看下不同因子下产生哈希的时间，我电脑配置如下：</p> <blockquote> <p>处理器：2.2 GHz 四核Intel Core i7<br /> 内存：16 GB 1600 MHz DDR3<br /> 显卡：Intel Iris Pro 1536 MB</p> </blockquote> <pre><code class="language-java">Map&lt;Integer, BCryptPasswordEncoder&gt; encoderMap = new LinkedHashMap&lt;&gt;();         for (int i = 8; i &lt;= 21; i++) {             encoderMap.put(i, new BCryptPasswordEncoder(i));         }         String plainTextPassword = "huhdfJ*!4";         for (int i : encoderMap.keySet()) {             BCryptPasswordEncoder encoder = encoderMap.get(i);             long start = System.currentTimeMillis();             encoder.encode(plainTextPassword);             long end = System.currentTimeMillis();             System.out.println(String.format("bcrypt | cost: %d, time : %dms", i, end - start));         }</code></pre> <pre><code class="language-bash">bcrypt | cost: 8, time : 39ms bcrypt | cost: 9, time : 45ms bcrypt | cost: 10, time : 89ms bcrypt | cost: 11, time : 195ms bcrypt | cost: 12, time : 376ms bcrypt | cost: 13, time : 720ms bcrypt | cost: 14, time : 1430ms bcrypt | cost: 15, time : 2809ms bcrypt | cost: 16, time : 5351ms bcrypt | cost: 17, time : 10737ms bcrypt | cost: 18, time : 21417ms bcrypt | cost: 19, time : 43789ms bcrypt | cost: 20, time : 88723ms bcrypt | cost: 21, time : 176704ms</code></pre> <p>拟合得到以下公式：</p> <div class="math display">\[10.3064 \cdot e^{0.696464 x}<br /> \]</div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/52bdcd638f4d2e466be3ee355cc0901e.jpg" alt="存储用户密码应该使用什么加密算法"></p> <p><code>BCryptPasswordEncoder</code> 因子范围在 4-31 ，默认是 10，我们根据公式推导一下 31时需要多长时间。</p> <pre><code class="language-java">	/** 	 * @param strength the log rounds to use, between 4 and 31 	 */ 	public BCryptPasswordEncoder(int strength) { 		this(strength, null); 	}</code></pre> <div class="math display">\[10.3064 \cdot e^{0.696464(31)} = 24529665567.08815<br /> \]</div> <p>工作因子<code>31</code> 时大概需要<code>284</code> 天，所以我们知道使用 bcrypt 可以很容易的扩展哈希计算过程以适应更快的硬件，为我们留出很大的回旋余地，以防止攻击者从未来的技术改进中受益。</p> <h2 id="scrypt">SCrypt</h2> <p>SCrypt 比上面提到的算法出来较晚，是Colin Percival于 2009 年 3 月创建的基于密码的密钥派生函数。关于该算法我们需要明白下面两点：</p> <ul> <li>该算法专门设计用于通过需要大量内存来执行大规模自定义硬件攻击，成本高昂。</li> <li>它属于密钥派生函数和上面提到 PBKDF2 属于同一类别。</li> </ul> <p>Spring security 也实现该算法<code> SCryptPasswordEncoder</code> ，输入参数如下：</p> <ul> <li>CpuCost： 算法的 cpu 成本。 必须是大于 1 的 2 的幂。默认当前为 16,384 或 2^14)</li> <li>MemoryCost： 算法的内存成本。默认当前为 8。</li> <li>Parallelization：  算法的并行化当前默认为 1。请注意，该实现当前不利用并行化。</li> <li>KeyLength： 算法的密钥长度。 当前默认值为 32。</li> <li>SaltLength： 盐长度。 当前默认值为 64。</li> </ul> <p>不过也有人提到，并不建议在生产系统中使用它来存储密码，他的结论是首先 SCrypt 设计目的是密钥派生函数而不是加密哈希，另外它实现上也并不那么完美。详细可查看下面文章。</p> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.ircmaxell.com/2014/03/why-i-dont-recommend-scrypt.html"  target="_blank" rel="nofollow">https://blog.ircmaxell.com/2014/03/why-i-dont-recommend-scrypt.html</a></p> </blockquote> <h2 id="结论">结论</h2> <p>我会推荐使用 bcrypt。为什么是 bcrypt 呢？</p> <p>密码存储这种场景下，将密码哈希处理是最好的方式，第一它本身就是加密哈希函数，其次按照摩尔定律的定义，集成系统上每平方英寸的晶体管数量大约每 18 个月翻一番。在 2 年内，我们可以增加它的工作因子以适应任何变化。</p> <p>当然这并不是说其它算法不够安全，你仍然可以选择其它算法。建议优先使用<strong>bcrypt</strong>，其次是<strong>密钥派生类</strong>（PBKDF2 和 SCrypt），最后是<strong>哈希+盐</strong>（SHA256（salt））。</p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2805.htm">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2807.htm">vue生命周期 钩子函数</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2778.htm" title="IDEA中配置maven环境">IDEA中配置maven环境</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2771.htm" title="井字棋 C++">井字棋 C++</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2786.htm" title=".NET Core(.NET6)中gRPC注册到Consul详解">.NET Core(.NET6)中gRPC注册到Consul详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

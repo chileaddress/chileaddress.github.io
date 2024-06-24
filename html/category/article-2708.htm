@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2708.htm" />
+    <title>如何用C/C++实现去除字符串头和尾指定的字符 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>如何用C/C++实现去除字符串头和尾指定的字符</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<p>编程时我们经常需要对字符串进行操作，其中有一项操作就是去除字符串的头（尾）指定的字符，比如空格。通常我们会使用封装好的库函数或者类函数的Trim方法来实现，<strong>如果自己动手写一个TrimHead和TrimTail函数该如何实现呢？</strong></p> <p>本文针对字符串头（尾）部指定的字符的去除，分别给出两个实现方法。并分别比较一下改进后的性能如何？</p> <h2 id="一从头部开始去除指定字符">一、从头部开始去除指定字符</h2> <p>首先从头遍历，直到遇见第一个非指定字符，此后将后续字符按顺序逐一前移。</p> <pre><code class="language-c">// 实现方式一 void TrimHead(char* pszSrc, char chTrim) { 	if(NULL == pszSrc) 		return; 	 	// 从头部开始跳过chTrim指定的字符 	char* psz = pszSrc; 	while (*psz &amp;&amp; *psz == chTrim)  		psz++; 	 	// 将后面字符逐一拷贝到前面 	int i = 0; 	while(*psz) 	{ 		*(pszSrc+i) = *psz; 		i++; 		psz++; 	} 	*(pszSrc+i) = 0; }</code></pre> <p>上述函数中，在找到第一个非指定字符后，通过while函数逐一前移字符，如果后续字符串很长的话，性能是不是会比较低？<strong>我们改进一下，使用memmove函数替换while操作，下面是实现方法，代码更加简洁易读。</strong></p> <pre><code class="language-c">// 实现方式二 void TrimHeadEx(char* pszSrc, char chTrim) { 	if(NULL == pszSrc) 		return;  	// 从头部开始跳过chTrim指定的字符 	int iStrLen = strlen(pszSrc); 	char* psz = pszSrc; 	while (*psz &amp;&amp; *psz == chTrim)  		psz++;  	// psz指向第一个非指定字符的位置 	if(psz != pszSrc) 	{ 		// 计算新字符串长度 		iStrLen = iStrLen - (psz - pszSrc); 		memmove(pszSrc, psz, (iStrLen+1));	// +1表示将末尾的0也一并拷贝 	} }</code></pre> <p><strong>方法二的代码要比方法一的简洁，那么它的速度会比方法一的快么？文末会给出答案。</strong></p> <h2 id="二去除尾部指定的字符">二、去除尾部指定的字符</h2> <pre><code class="language-c">// 实现方式一 void TrimTail(char* pszSrc, char chTrim) { 	if(NULL == pszSrc) 		return;  	char* psz = pszSrc; 	char* pszLast = NULL; 	 	// 从头开始遍历直到整个字符串结束 	while(*psz) 	{ 		// 遇到指定字符，则用pszLast记住该位置 		if(*psz == chTrim) 		{ 			if(NULL == pszLast) 				pszLast = psz; 		} 		else 			pszLast = NULL; 		psz++; 	} 	 	// 如果找到末尾的第一个指定字符，则作为字符串的结尾 	if(pszLast != NULL) 		*pszLast = 0; }</code></pre> <p>上述方法中，我们需要遍历完整个字符串，<strong>如果字符串很长的话，或者遇到极端情况，就是结尾没有指定字符时，也要将整个字符串遍历完毕。显然这种实现方式的效率并不高。</strong> 那么我们改进一下算法，从字符串的尾部进行遍历。</p> <pre><code class="language-c">// 实现方式二 void TrimTailEx(char* pszSrc, char chTrim) { 	if(NULL == pszSrc) 		return;  	// 从尾部开始跳过chTrim指定字符 	int iStrLen = strlen(pszSrc); 	char* pszStr = pszSrc; 	int iLastIdx = iStrLen - 1; 	while(iLastIdx &gt;= 0 &amp;&amp; *(pszStr+iLastIdx) == chTrim) 		iLastIdx--; 	 	// 计算新字符串长度并在结尾赋值为0 	iStrLen = iLastIdx+1; 	*(pszSrc+iStrLen) = 0; }</code></pre> <p>上述实现方式是从字符串的尾部进行遍历，实现的方式也更加的简洁。如果结尾没有指定字符，该函数会在遍历第一个字符后就退出，性能显然要好过方式一。</p> <p><strong>那么对于TrimHead和TrimTail的两种实现，方式二和方式一到底谁快呢？是不是和我们想象的一样有差距或者差距很大呢？</strong></p> <h2 id="三测试比较">三、测试比较</h2> <p>这里写了一个测试函数TestSpeedTrim，为了让时间更加明显，在该函数中设置的循环次数为10000000。大家可以亲自运行测试一下，看看debug和release两个版本的差异，结果一定会让你吃惊，可能和你想的并不一样哦。</p> <pre><code class="language-c">#include &lt;time.h&gt; #include &lt;stdio.h&gt; #include &lt;string.h&gt; #include &lt;stdlib.h&gt; void TestSpeedTrim(bool bTrimHead) { 	char szTrim1[256] = {0}; 	char szTrim2[256] = {0}; 	 	char* pszOrigin = "     This is a trim test head/tail    "; 	strcpy(szTrim1, pszOrigin); 	strcpy(szTrim2, pszOrigin); 	 	int i = 0; 	int iCount = 10000000; 	clock_t cStart = 0; 	 	// 第一种Trim方法 	cStart = clock(); 	for(i = 0; i &lt; iCount; i++) 	{ 		bTrimHead ? TrimHead(szTrim1, ' ') : TrimTail(szTrim1, ' '); 	} 	clock_t cSpan1 = clock() - cStart; 	 	// 第二种Trim方法 	cStart = clock(); 	for(i = 0; i &lt; iCount; i++) 	{ 		bTrimHead ? TrimHeadEx(szTrim2, ' ') :	TrimTailEx(szTrim2, ' '); 	} 	clock_t cSpan2 = clock() - cStart; 	 	printf("cSpan1 = %d, cSpan2 = %d\r\n", cSpan1, cSpan2); 	printf("szTrim1=[%s]\r\n", szTrim1); 	printf("szTrim2=[%s]\r\n", szTrim2); }  int main(int argc, char* argv[]) { 	// 测试头 	printf("删除头部的空字符：\r\n"); 	TestSpeedTrim(true);  	// 测试尾 	printf("\r\n删除尾部的空字符：\r\n"); 	TestSpeedTrim(false);  	getchar(); 	return 0; }</code></pre> <p><strong>这里就不给出比较结果了，因为只有自己亲自动手实现并跑一遍后，才会记得更加牢靠。</strong></p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2707.htm">vue跨组件传值爷孙组件传值</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2709.htm">Springboot中线程池的使用与应用</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2778.htm" title="IDEA中配置maven环境">IDEA中配置maven环境</a></li>
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2801.htm" title="手写事件发布订阅框架">手写事件发布订阅框架</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2565.htm" />
+    <title>关于springboot转发重定向以及受保护目录的一些规律 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>关于springboot转发重定向以及受保护目录的一些规律</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>今天闲来无事，又研究了一下springboot,涉及到了Thymeleaf模板引擎，因为之前接触过jsp，所以上手很快，但是也思考了一些关于转发以及重定向的问题，总结出以下规律</p> <h3 id="项目结构">项目结构</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221201/4ecb15ecb059f2c30b3e07669aeeb77e.jpg" alt="关于springboot转发重定向以及受保护目录的一些规律"></p> <p>首先解释一下每个文件夹的作用，如果你是用的是idea创建的springboot项目，会在项目创建的一开始resources文件夹下自动创建static以及templates文件夹。也就是说项目初始时有<strong>java、resource、static以及templates</strong> 这几个文件夹。<br /> 一般static下存放js以及css样式文件，templates存放html页面。<br /><strong>以上是默认会创建的文件夹以及其作用</strong><br /> 下面我们来说一下转发和重定向的规律。<br /> 首先<strong>static文件夹以及templates文件夹</strong>是受保护的，也就是说相当于你将文件放到了传统的ssh或ssm项目的WEB-INF下了。所以也就是说这两个文件夹下的文件是无法通过url直接访问的，以至于在springmvc下使用重定向会报404。</p> <h3 id="那么希望直接访问的html或者css该如何存放呢">那么希望直接访问的html或者css该如何存放呢？</h3> <p><strong>方式一</strong><br /> 我们可以在resources下创建一个名为public的文件夹，顾名思义，放在此文件夹下的文件是共有的，可以直接通过url访问，当然也可以springmvc重定向访问啦。<br /><strong>方法二</strong><br /> 在main下创建webapp文件夹，将文件放到此文件夹下，效果同上<br /><strong>注！文件夹名字是固定的，起别的名字还是会报404或者无效</strong><br /> 好，说到这里，有的同学应该就会有疑问了，我分别创建了public和webapp而且还起了相同名字的html页面，我访问会进到哪一个？<br /> 首先：最好还是不要这么做，明明两个文件夹效果一样，又何必呢？看个人需求选择一种方式就好啦。<br /> 但是：事实结果告诉我们，被优先选择的是webapp下的文件，如图<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/baf03155ac1389ec70b2a0c5cdfb11a3.jpg" alt="关于springboot转发重定向以及受保护目录的一些规律"></p> <h3 id="关于springmvc控制转发还是重定向的写法问题">关于springmvc控制转发还是重定向的写法问题。</h3> <p><strong>转发</strong></p> <pre class="prettyprint"><code class="language-java hljs"><span class="hljs-javadoc">/**  * Created by beyondLi on 2017/6/2.  */</span><span class="hljs-annotation">@Controller</span><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">ThymeleafController</span> {<!-- --></span><span class="hljs-annotation">@RequestMapping</span>(value =<span class="hljs-string">"cs"</span>)<span class="hljs-keyword">public</span> String<span class="hljs-title">cs</span>(Model model) {<span class="hljs-keyword">return</span><span class="hljs-string">"index"</span>;     } }</code></pre> <p>转发是不需要手动加html的，此时springboot发现是转发，默认配置下他会自动去templates文件夹下找到对应的文件进行转发，如果return后写的是index.html会报404</p> <p><strong>重定向</strong></p> <pre class="prettyprint"><code class="language-java hljs"><span class="hljs-annotation">@Controller</span><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">ThymeleafController</span> {<!-- --></span><span class="hljs-annotation">@RequestMapping</span>(value =<span class="hljs-string">"cs"</span>)<span class="hljs-keyword">public</span> String<span class="hljs-title">cs</span>(Model model) {<span class="hljs-keyword">return</span><span class="hljs-string">"redirect:index.html"</span>;     }</code></pre> <p>首先，添加redirect:这个毋庸置疑是mvc的语法问题，其次这里需要注意的是需要手动添加.html，否则会报404，而重定向则会自动去public文件夹下寻找。至于与webapp优先级别则同上述。</p> <h3 id="结论">结论</h3> <p>以上为本人在研究springboot时所想到的问题以及找到的一些规律(默认配置下)。至于上述规律的一些原因如果有兴趣的同学可以研究一下，毕竟本人研究的还比较浅显，如果有什么错误，还望提出，共同学习。</p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2564.htm">Shell基础Bash基本功能（多命令顺序执行）</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2566.htm">【javaScript案例】之搜索的数据显示</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2813.htm" title="FreeRTOS实时操作系统的任务通知方法_操作系统">FreeRTOS实时操作系统的任务通知方法_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2790.htm" title="JS 删除数组中某个元素的几种方式">JS 删除数组中某个元素的几种方式</a></li>
+                        <li class="py-2"><a href="/html/category/article-2798.htm" title="树的同构 Java">树的同构 Java</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

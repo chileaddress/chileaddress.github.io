@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2811.htm" />
+    <title>LevelDB 学习笔记5：版本控制_在线工具 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>LevelDB 学习笔记5：版本控制_在线工具</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h1 id="leveldb-学习笔记5版本控制">LevelDB 学习笔记5：版本控制</h1> <ul> <li>由于压缩是在后台线程异步进行的，所以会出现新老 sstable 同时存在的状态</li> <li>但合并完成后，老的 sstable 并不能直接删除，必须等到没有人引用它们，才可以删除</li> <li>因此数据库可能同时存在多个 Version，它们的集合是 VersionSet <ul> <li>所有的 version 组织在一个双向链表里，最新的 version 称为 current</li> </ul> </li> </ul> <h2 id="版本变更">版本变更</h2> <ul> <li>VersionEdit 是新 Version 相较于旧 Version 变动的内容 <ul> <li>VersionOld + VersionEdit = VersionNew</li> <li>VersionEdit 对应 MANIFEST 文件里的一条记录 <ul> <li> <code>EncodeTo()</code> 和 <code>DecodeFrom()</code> 方法分别用于将 VersionEdit 序列化为 manifest 记录和从 MANIFEST 记录中反序列化出 VersionEdit</li> </ul> </li> </ul> </li> <li>MANIFEST 文件本质上也是日志文件，格式和 redo log 是相同的 <ul> <li>第一条记录是全量的 LevelDB 版本信息</li> <li>后续每一条记录都是 LevelDB 版本变更信息</li> <li>重启后能通过 MANIFEST 文件恢复版本信息</li> </ul> </li> <li>调用 <code>LogAndApply()</code> 把 VersionEdit 应用到当前版本上，并新增一条记录 <ul> <li>以下几种情况下会被调用 <ul> <li>打开 DB 的时候，从 MANIFEST 文件中恢复出版本信息后，会在新的 MANIFEST 文件中提交一条全量的版本信息</li> <li>minor compaction 完成后，提交新增的 sstable</li> <li>major compaction 完成后，提交 sstable 变动</li> </ul> </li> </ul> </li> <li> <code>VersionSet::Builder</code></p> <ul> <li>帮助执行版本变更的工具类</li> <li>以某个版本为基础，不断 Apply 版本变更，得到最终的版本</li> <li> <code>LogAndApply()</code> 和从 manifest 文件中恢复版本信息的时候都会用到它<br /><img decoding="async" src="https://img2022.cnblogs.com/blog/1099671/202204/1099671-20220418233012211-1847290373.png" alt="LevelDB 学习笔记5：版本控制_在线工具"> </li> </ul> </li> </ul> <h2 id="从重启中恢复">从重启中恢复</h2> <p>从重启中恢复需要做两件事</p> <ul> <li>恢复版本信息</li> <li>重做 WAL 中记录的操作恢复 memtable 中的内容</li> </ul> <h3 id="恢复版本信息">恢复版本信息</h3> <ul> <li>主要逻辑在 <code>VersionSet::Recover()</code> 中</li> <li>读取 current 文件的内容找到 MANIFEST 文件名</li> <li>遍历 manifest 文件，将所有记录 Apply 到 Version Builder 上</li> <li>从 Builder 中获得最终的 Version，将它加入 VersionSet，并作为当前版本使用</li> <li>检查现存的 MANIFEST 文件能否重用 <ul> <li>如果旧的 MANIFEST 文件大小不是太大就可以重用它</li> <li>因为重启是唯一一处 MANIFEST 文件大小缩小的地方，我们不想让 MANIFEST 文件大小无限增长</li> </ul> </li> <li>如果不能重用，就会提交一条 MANIFEST 记录到新的 MANIFEST 文件里，包含了当前版本的全量信息</li> </ul> <h3 id="恢复-memtable-中的内容">恢复 memtable 中的内容</h3> <ul> <li>主要逻辑在 <code>DBImpl::Recover()</code> 的后半部分</li> <li>收集需要 redo 的日志文件 <ul> <li>做 minor compaction 后，修改记录会被写到 MANIFEST 文件中，其中包括日志文件的文件号</li> <li>因此 MANIFEST 中最新记录的日志文件号就是最后被写入磁盘的 memtable 的日志文件号，文件号大于它的日志文件都视为需要 redo 的</li> </ul> </li> <li>redo <ul> <li>根据文件号顺序，遍历所有需要 redo 的日志文件</li> <li>将日志记录转换为 WriteBatch</li> <li>redo 过程中，如果发现 memtable 大小超过阈值，直接对它做 minor compaction</li> </ul> </li> </ul> <h2 id="repairer">Repairer</h2> <p>如果 MANIFEST 文件丢失，那么能否恢复出版本信息呢？</p> <p>答案是可以的，LevelDB 提供了 <code>Repairer</code> 类用来从日志文件和 sstable 文件中恢复出版本信息</p> <ul> <li>所有日志文件都会被转换为 sstable 文件</li> <li>扫描所有 sstable 文件并计算 <ul> <li>最大最小 key</li> <li>最大序列号</li> </ul> </li> <li>用这些信息恢复上次运行的版本信息</li> </ul> <p>恢复过程遍历了整个 DB 的全部文件，所以是相当耗时的过程</p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2810.htm">netty系列之:netty中的核心MessageToByte编码器</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2812.htm">synchronized详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2779.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2786.htm" title=".NET Core(.NET6)中gRPC注册到Consul详解">.NET Core(.NET6)中gRPC注册到Consul详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/html/category/article-2804.htm" title="java中RabbitMQ高级应用_java">java中RabbitMQ高级应用_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

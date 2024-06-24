@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2703.htm" />
+    <title>Prim 最小生成树 图解_在线工具 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Prim 最小生成树 图解_在线工具</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<p><span data-cke-copybin-start="1"><span data-cke-copybin-start="1">​</span></span></p> <p><strong>什么是生成树</strong></p> <p>子图：G=&lt;V，E&gt;，G'=&lt;V', E'&gt;，为两个图（V为点集，即图中点的集合，E为边集），如果V'是V的子集且E'是E的子集，则G'是G的子图。</p> <p>如果V'=V，则称G'为G的生成子图</p> <p>如果G'是无向生成子图且是树的结构，则为生成树</p> <p><strong>最小生成树</strong></p> <p>最小生成树：是一张有权<strong>无向连通</strong>图中边权和最小的生成树</p> <h1><strong>Prim算法：</strong></h1> <p>维护一个已经加入最小生成树的点的集合C，每次通过一条边连接一个不在这个点集C的点，直到最后形成一个树形结构</p> <p>Dist(u)表示u点到点集C中的点的最小距离</p> <p>每次选择一个到点集C距离<strong>最小</strong>的点加入点集C，并通过加入的点去更新未加入的点到点集C的最小距离（因为C中多加了一个点），直到n个点全部加入点集C或没有点能够加入（不能构成连通图）。</p> <h1><strong>图解</strong></h1> <p><span class="cke_widget_wrapper cke_widget_inline cke_widget_image cke_image_nocaption cke_widget_selected" data-cke-display-name="图像" data-cke-filter="off" data-cke-widget-id="3" data-cke-widget-wrapper="1"><img fetchpriority="high" decoding="async" src="http://img.555519.xyz/uploads3/20220501/06d102705be6892e477520f60d84ca12.jpg" alt="Prim 最小生成树 图解_在线工具"><span class="cke_reset cke_widget_drag_handler_container"><img decoding="async" src="http://img.555519.xyz/uploads3/20220501/de90ac6f9637cbb77261f2c76c81af0d.jpg" alt="Prim 最小生成树 图解_在线工具" width="15" height="15" class="cke_reset cke_widget_drag_handler" title="点击并拖拽以移动" data-cke-widget-drag-handler="1"><span class="cke_image_resizer" title="点击并拖拽以改变尺寸">​</span></span></span></p> <p>前言：已经加入点集C的点标记为蓝色，当前加入的点标记为红色，被当前加入的点更新的dist标记为红色。</p> <p><strong>初始：</strong>加入一个初始点A，并通过A更新dist</p> <table border="1" cellspacing="1" cellpadding="1"> <tbody> <tr> <td>u</td> <td><span style="background-color: rgba(255, 255, 255, 1); color: rgba(255, 0, 0, 1)">A</span></td> <td>B</td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> </tr> <tr> <td>dist(u)</td> <td><span style="background-color: rgba(255, 255, 255, 1); color: rgba(255, 0, 0, 1)">0</span></td> <td><span style="color: rgba(153, 51, 102, 1)">3</span></td> <td><span style="color: rgba(153, 51, 102, 1)">5</span></td> <td>inf</td> <td>inf</td> <td>inf</td> </tr> </tbody> </table> <p><strong>加入第二个点B：</strong>B到点集C距离最小，并通过B更新dist</p> <table border="1" cellspacing="1" cellpadding="1"> <tbody> <tr> <td>u</td> <td><span style="color: rgba(51, 102, 255, 1)">A</span></td> <td><span style="color: rgba(255, 0, 0, 1)">B</span></td> <td>C</td> <td>D</td> <td>E</td> <td>F</td> </tr> <tr> <td>dist(u)</td> <td><span style="color: rgba(51, 102, 255, 1)">0</span></td> <td><span style="color: rgba(255, 0, 0, 1)">3</span></td> <td><span style="color: rgba(153, 51, 102, 1)">1</span></td> <td><span style="color: rgba(153, 51, 102, 1)">8</span></td> <td><span style="color: rgba(153, 51, 102, 1)">3</span></td> <td>inf</td> </tr> </tbody> </table> <p><strong>加入第三个点C：</strong>C到点集C距离最小，并通过C更新dist</p> <table> <tbody> <tr> <td>u</td> <td><span style="color: rgba(51, 102, 255, 1)">A</span></td> <td><span style="color: rgba(51, 102, 255, 1)">B</span></td> <td><span style="color: rgba(255, 0, 0, 1)">C</span></td> <td>D</td> <td>E</td> <td>F</td> </tr> <tr> <td>dist(u)</td> <td><span style="color: rgba(51, 102, 255, 1)">0</span></td> <td><span style="color: rgba(51, 102, 255, 1)">3</span></td> <td><span style="color: rgba(255, 0, 0, 1)">1</span></td> <td>8</td> <td>3</td> <td>inf</td> </tr> </tbody> </table> <p><strong>加入第四个点E：</strong>E到点集C距离最小，并通过E更新dist</p> <table> <tbody> <tr> <td>u</td> <td><span style="color: rgba(51, 102, 255, 1)">A</span></td> <td><span style="color: rgba(51, 102, 255, 1)">B</span></td> <td><span style="color: rgba(51, 102, 255, 1)">C</span></td> <td>D</td> <td><span style="color: rgba(255, 0, 0, 1)">E</span></td> <td>F</td> </tr> <tr> <td>dist(u)</td> <td><span style="color: rgba(51, 102, 255, 1)">0</span></td> <td><span style="color: rgba(51, 102, 255, 1)">3</span></td> <td><span style="color: rgba(51, 102, 255, 1)">1</span></td> <td><span style="color: rgba(153, 51, 102, 1)">2</span></td> <td><span style="color: rgba(255, 0, 0, 1)">3</span></td> <td><span style="color: rgba(153, 51, 102, 1)">1</span></td> </tr> </tbody> </table> <p> <strong>加入第五个点F：</strong>F到点集C距离最小，并通过F更新dist</p> <table> <tbody> <tr> <td>u</td> <td><span style="color: rgba(51, 102, 255, 1)">A</span></td> <td><span style="color: rgba(51, 102, 255, 1)">B</span></td> <td><span style="color: rgba(51, 102, 255, 1)">C</span></td> <td>D</td> <td><span style="color: rgba(51, 102, 255, 1)">E</span></td> <td><span style="color: rgba(255, 0, 0, 1)">F</span></td> </tr> <tr> <td>dist(u)</td> <td><span style="color: rgba(51, 102, 255, 1)">0</span></td> <td><span style="color: rgba(51, 102, 255, 1)">3</span></td> <td><span style="color: rgba(51, 102, 255, 1)">1</span></td> <td>2</td> <td><span style="color: rgba(51, 102, 255, 1)">3</span></td> <td><span style="color: rgba(255, 0, 0, 1)">1</span></td> </tr> </tbody> </table> <p> <strong>加入第六个点D：D</strong>到点集C距离最小，并通过D更新dist</p> <table> <tbody> <tr> <td>u</td> <td><span style="color: rgba(51, 102, 255, 1)">A</span></td> <td><span style="color: rgba(51, 102, 255, 1)">B</span></td> <td><span style="color: rgba(51, 102, 255, 1)">C</span></td> <td><span style="color: rgba(51, 102, 255, 1)">D</span></td> <td><span style="color: rgba(51, 102, 255, 1)">E</span></td> <td><span style="color: rgba(51, 102, 255, 1)">F</span></td> </tr> <tr> <td>dist(u)</td> <td><span style="color: rgba(51, 102, 255, 1)">0</span></td> <td><span style="color: rgba(51, 102, 255, 1)">3</span></td> <td><span style="color: rgba(51, 102, 255, 1)">1</span></td> <td><span style="color: rgba(51, 102, 255, 1)">2</span></td> <td><span style="color: rgba(51, 102, 255, 1)">3</span></td> <td><span style="color: rgba(51, 102, 255, 1)">1</span></td> </tr> </tbody> </table> <p> 点全部加入点集，Prim算法结束。</p> <p><strong>复杂度分析：</strong></p> <p>总共需要加入n个点，每次需要遍历dist数组找最小值，并通过该点更新未加入点集的dist值，即枚举该点连出的边更新对应的dist，故复杂度为：</p> <p>        O（n*n）+  <img decoding="async" src="http://img.555519.xyz/uploads3/20220501/2b8e740d1022b74bfab9d797f04a81aa.jpg" alt="Prim 最小生成树 图解_在线工具">  = O（n*n + m）（mi为每个点连出的边的条数，总和为总边数）</p> <p><strong>伪代码：</strong></p> <blockquote> <p> int prim()</p> <p>{</p> <p>    memset(dis, 127, sizeof(dis)); //初始设置为正无穷</p> <p>    memset(vis, 0, sizeof(vis));   //初始设置点均不在点集中,点集为空</p> <p>    ans = 0, cnt = 0;              //初始权值为0</p> <p>    dis[1] = 0;                    // 1加入点集</p> <p>    while (1)</p> <p>    {</p> <p>        int u = -1;</p> <p>        for (int i = 1; i &lt;= n; i++)</p> <p>        {</p> <p>            if (vis[i] == 0 &amp;&amp; dis[i] &lt; (1 &lt;&lt; 30)) // i点不在点集中并且与点集中的点联通</p> <p>            {</p> <p>                if (u == -1 || dis[i] &lt; dis[u]) // u==-1 -&gt;第一个点可以更新到点集最近的点</p> <p>                {</p> <p>                    u = i; //更新最近的点</p> <p>                }</p> <p>            }</p> <p>        }</p> <p>        if (u == -1)</p> <p>            break;            //如果不能找到加入点集的点，则结束算法</p> <p>        cnt++, ans += dis[u]; //点集中点的个数+1，ans加上u连入点集的边权</p> <p>        vis[u] = true;        // vis加入点集</p> <p>        for (auto it : a[u])//a[u]为以u连出的边的点的集合，v为相连的点，w为边权</p> <p>        {</p> <p>            dis[it.v] = min(dis[it.v], it.w); //通过点v连出的边更新不在点集的点的dist值</p> <p>        }</p> <p>    }</p> <p>    if (cnt == n)</p> <p>        return ans; //能够加入n个点构成连通图，生成树则返回权值</p> <p>    else</p> <p>        return -1; //不能形成生成树</p> <p>}</p> </blockquote> <h1><strong>模板题 </strong></h1> <p><strong>题目链接：</strong><span class="cke_widget_wrapper cke_widget_inline cke_widget_csdnlink cke_widget_selected" data-cke-display-name="a" data-cke-filter="off" data-cke-widget-id="4" data-cke-widget-wrapper="1"><a class="cke_widget_editable cke_widget_element" title="最小生成树1 - 题目 - Daimayuan Online Judge" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://oj.daimayuan.top/course/14/problem/690"  data-cke-enter-mode="2" data-cke-saved-href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://oj.daimayuan.top/course/14/problem/690"  data-cke-widget-data="%7B%22url%22%3A%22http%3A%2F%2Foj.daimayuan.top%2Fcourse%2F14%2Fproblem%2F690%22%2C%22text%22%3A%22%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%911%20-%20%E9%A2%98%E7%9B%AE%20-%20Daimayuan%20Online%20Judge%22%2C%22desc%22%3A%22%22%2C%22icon%22%3A%22http%3A%2F%2Foj.daimayuan.top%2Fimages%2Ffavicon.ico%22%2C%22isCard%22%3Afalse%2C%22hasResquest%22%3Atrue%2C%22iconDefault%22%3A%22https%3A%2F%2Fcsdnimg.cn%2Frelease%2Fblog_editor_html%2Frelease2.1.0%2Fckeditor%2Fplugins%2FCsdnLink%2Ficons%2Ficon-default.png%3Ft%3DM3K6%22%2C%22id%22%3A%22eYV7FK-1651242546233%22%2C%22classes%22%3Anull%7D" data-cke-widget-editable="text" data-cke-widget-keep-attr="0" data-cke-widget-upcasted="1" data-link-icon="http://oj.daimayuan.top/images/favicon.ico" data-link-title="最小生成树1 - 题目 - Daimayuan Online Judge" data-widget="csdnlink"  rel="nofollow">最小生成树1 - 题目 - Daimayuan Online Judge</a></span></p> <p><strong>题目描述：</strong></p> <p>给你一张简单无向连通图，边权都为非负整数。你需要求出它的最小生成树，只需要输出边的权值和即可。</p> <p>图用以下形式给出：</p> <p>第一行输入两个整数 n,m，表示图的顶点数、边数，顶点编号从 1 到 n。</p> <p>接下来 m 行，每行三个整数 x,y,z 表示 x 与 y 之间有一条边，边权为 z。</p> <p><strong>输入格式：</strong></p> <p>第一行两个整数 n,m。</p> <p>接下来 m 行，每行有三个整数，代表一条边。</p> <p><strong>输出格式：</strong></p> <p>输出一个数，表示最小生成树的权值和。</p> <p><strong>数据规模：</strong></p> <p>对于所有数据，保证 2≤n≤1000,n−1≤m≤100000,1≤x,y≤n,x≠y,1≤z≤10000</p> <p><strong>样例输入：</strong></p> <blockquote> <p>4 4</p> <p>1 2 1</p> <p>2 3 3</p> <p>3 4 1</p> <p>1 4 2</p> </blockquote> <p><strong>样例输出：</strong></p> <blockquote> <p>4 </p> </blockquote> <p><strong> 详见代码：</strong></p> <div class="cke_widget_wrapper cke_widget_block cke_widget_codeSnippet cke_widget_selected" data-cke-display-name="代码段" data-cke-filter="off" data-cke-widget-id="5" data-cke-widget-wrapper="1"> <pre class="cke_widget_element" data-cke-widget-data="%7B%22classes%22%3Anull%2C%22lang%22%3A%22cpp%22%2C%22code%22%3A%22%23include%20%3Cbits%2Fstdc%2B%2B.h%3E%5Cnusing%20namespace%20std%3B%5Cnint%20dis%5B100009%5D%2C%20cnt%2C%20ans%2C%20n%2C%20m%3B%20%2F%2F%20dis%E4%B8%BA%E7%82%B9%E5%88%B0%E7%82%B9%E9%9B%86%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%EF%BC%8Ccnt%E4%B8%BA%E7%82%B9%E9%9B%86%E4%B8%AD%E7%82%B9%E7%9A%84%E4%B8%AA%E6%95%B0%EF%BC%8Cans%E4%B8%BA%E5%BD%93%E5%89%8D%E7%9A%84%E8%BE%B9%E6%9D%83%E5%92%8C%5Cnbool%20vis%5B100009%5D%3B%5Cnstruct%20node%5Cn%7B%5Cn%20%20%20%20int%20v%2C%20w%3B%5Cn%7D%3B%5Cnvector%3Cnode%3E%20a%5B100009%5D%3B%20%2F%2F%E5%AD%98%E5%9B%BE%5Cnint%20prim()%5Cn%7B%5Cn%20%20%20%20memset(dis%2C%20127%2C%20sizeof(dis))%3B%20%2F%2F%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE%E4%B8%BA%E6%AD%A3%E6%97%A0%E7%A9%B7%5Cn%20%20%20%20memset(vis%2C%200%2C%20sizeof(vis))%3B%20%20%20%2F%2F%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE%E7%82%B9%E5%9D%87%E4%B8%8D%E5%9C%A8%E7%82%B9%E9%9B%86%E4%B8%AD%2C%E7%82%B9%E9%9B%86%E4%B8%BA%E7%A9%BA%5Cn%20%20%20%20ans%20%3D%200%2C%20cnt%20%3D%200%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%E5%88%9D%E5%A7%8B%E6%9D%83%E5%80%BC%E4%B8%BA0%5Cn%20%20%20%20dis%5B1%5D%20%3D%200%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%201%E5%8A%A0%E5%85%A5%E7%82%B9%E9%9B%86%5Cn%20%20%20%20while%20(1)%5Cn%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20int%20u%20%3D%20-1%3B%5Cn%20%20%20%20%20%20%20%20for%20(int%20i%20%3D%201%3B%20i%20%3C%3D%20n%3B%20i%2B%2B)%20%2F%2F%E9%81%8D%E5%8E%86%E6%89%BE%E6%9C%AA%E5%8A%A0%E5%85%A5%E7%82%B9%E9%9B%86%E7%9A%84%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E7%9A%84%E7%82%B9%5Cn%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20if%20(vis%5Bi%5D%20%3D%3D%200%20%26%26%20dis%5Bi%5D%20%3C%20(1%20%3C%3C%2030))%20%2F%2F%20i%E7%82%B9%E4%B8%8D%E5%9C%A8%E7%82%B9%E9%9B%86%E4%B8%AD%E5%B9%B6%E4%B8%94%E4%B8%8E%E7%82%B9%E9%9B%86%E4%B8%AD%E7%9A%84%E7%82%B9%E8%81%94%E9%80%9A%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(u%20%3D%3D%20-1%20%7C%7C%20dis%5Bi%5D%20%3C%20dis%5Bu%5D)%20%2F%2F%20u%3D%3D-1%20-%3E%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%82%B9%E5%8F%AF%E4%BB%A5%E6%9B%B4%E6%96%B0%E5%88%B0%E7%82%B9%E9%9B%86%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20u%20%3D%20i%3B%20%2F%2F%E6%9B%B4%E6%96%B0%E6%9C%80%E8%BF%91%E7%9A%84%E7%82%B9%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20if%20(u%20%3D%3D%20-1)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%3B%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%E5%A6%82%E6%9E%9C%E4%B8%8D%E8%83%BD%E6%89%BE%E5%88%B0%E5%8A%A0%E5%85%A5%E7%82%B9%E9%9B%86%E7%9A%84%E7%82%B9%EF%BC%8C%E5%88%99%E7%BB%93%E6%9D%9F%E7%AE%97%E6%B3%95%5Cn%20%20%20%20%20%20%20%20cnt%2B%2B%2C%20ans%20%2B%3D%20dis%5Bu%5D%3B%20%2F%2F%E7%82%B9%E9%9B%86%E4%B8%AD%E7%82%B9%E7%9A%84%E4%B8%AA%E6%95%B0%2B1%EF%BC%8Cans%E5%8A%A0%E4%B8%8Au%E8%BF%9E%E5%85%A5%E7%82%B9%E9%9B%86%E7%9A%84%E8%BE%B9%E6%9D%83%5Cn%20%20%20%20%20%20%20%20vis%5Bu%5D%20%3D%20true%3B%20%20%20%20%20%20%20%20%2F%2F%20vis%E5%8A%A0%E5%85%A5%E7%82%B9%E9%9B%86%5Cn%20%20%20%20%20%20%20%20for%20(auto%20it%20%3A%20a%5Bu%5D)%5Cn%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20dis%5Bit.v%5D%20%3D%20min(dis%5Bit.v%5D%2C%20it.w)%3B%20%2F%2F%E9%80%9A%E8%BF%87%E7%82%B9v%E8%BF%9E%E5%87%BA%E7%9A%84%E8%BE%B9%E6%9B%B4%E6%96%B0%E4%B8%8D%E5%9C%A8%E7%82%B9%E9%9B%86%E7%9A%84%E7%82%B9%E7%9A%84dist%E5%80%BC%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%20%20%20%20if%20(cnt%20%3D%3D%20n)%5Cn%20%20%20%20%20%20%20%20return%20ans%3B%20%2F%2F%E8%83%BD%E5%A4%9F%E5%8A%A0%E5%85%A5n%E4%B8%AA%E7%82%B9%E6%9E%84%E6%88%90%E8%BF%9E%E9%80%9A%E5%9B%BE%EF%BC%8C%E7%94%9F%E6%88%90%E6%A0%91%E5%88%99%E8%BF%94%E5%9B%9E%E6%9D%83%E5%80%BC%5Cn%20%20%20%20else%5Cn%20%20%20%20%20%20%20%20return%20-1%3B%20%2F%2F%E4%B8%8D%E8%83%BD%E5%BD%A2%E6%88%90%E7%94%9F%E6%88%90%E6%A0%91%5Cn%7D%5Cnint%20main()%5Cn%7B%5Cn%20%20%20%20cin%20%3E%3E%20n%20%3E%3E%20m%3B%5Cn%20%20%20%20for%20(int%20i%20%3D%201%3B%20i%20%3C%3D%20m%3B%20i%2B%2B)%5Cn%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20int%20u%2C%20v%2C%20w%3B%5Cn%20%20%20%20%20%20%20%20cin%20%3E%3E%20u%20%3E%3E%20v%20%3E%3E%20w%3B%5Cn%20%20%20%20%20%20%20%20node%20t1%2C%20t2%3B%20%2F%2F%E6%97%A0%E5%90%91%E5%9B%BE%E5%AD%98%E8%BE%B9%5Cn%20%20%20%20%20%20%20%20t1.v%20%3D%20v%2C%20t1.w%20%3D%20w%3B%5Cn%20%20%20%20%20%20%20%20a%5Bu%5D.push_back(t1)%3B%20%2F%2F%20u-%3Ev%20%E8%BE%B9%E6%9D%83%E4%B8%BAw%5Cn%20%20%20%20%20%20%20%20t2.v%20%3D%20u%2C%20t2.w%20%3D%20w%3B%5Cn%20%20%20%20%20%20%20%20a%5Bv%5D.push_back(t2)%3B%20%2F%2F%20v-%3Eu%20%E8%BE%B9%E6%9D%83%E4%B8%BAw%5Cn%20%20%20%20%7D%5Cn%20%20%20%20cout%20%3C%3C%20prim()%3B%5Cn%7D%22%7D" data-cke-widget-keep-attr="0" data-widget="codeSnippet"><code class="hljs language-cpp"><span class="hljs-meta">#<span class="hljs-keyword">include <span class="hljs-string">&lt;bits/stdc++.h&gt; <span class="hljs-keyword">using <span class="hljs-keyword">namespace std; <span class="hljs-type">int dis[<span class="hljs-number">100009], cnt, ans, n, m; <span class="hljs-comment">// dis为点到点集的最小距离，cnt为点集中点的个数，ans为当前的边权和 <span class="hljs-type">bool vis[<span class="hljs-number">100009]; <span class="hljs-keyword">struct <span class="hljs-title class_">node {     <span class="hljs-type">int v, w; }; vector&lt;node&gt; a[<span class="hljs-number">100009]; <span class="hljs-comment">//存图 <span class="hljs-function"><span class="hljs-type">int <span class="hljs-title">prim<span class="hljs-params">() {     <span class="hljs-built_in">memset(dis, <span class="hljs-number">127, <span class="hljs-built_in">sizeof(dis)); <span class="hljs-comment">//初始设置为正无穷     <span class="hljs-built_in">memset(vis, <span class="hljs-number">0, <span class="hljs-built_in">sizeof(vis));   <span class="hljs-comment">//初始设置点均不在点集中,点集为空     ans = <span class="hljs-number">0, cnt = <span class="hljs-number">0;              <span class="hljs-comment">//初始权值为0     dis[<span class="hljs-number">1] = <span class="hljs-number">0;                    <span class="hljs-comment">// 1加入点集     <span class="hljs-keyword">while (<span class="hljs-number">1)     {         <span class="hljs-type">int u = <span class="hljs-number">-1;         <span class="hljs-keyword">for (<span class="hljs-type">int i = <span class="hljs-number">1; i &lt;= n; i++) <span class="hljs-comment">//遍历找未加入点集的最小距离的点         {             <span class="hljs-keyword">if (vis[i] == <span class="hljs-number">0 &amp;&amp; dis[i] &lt; (<span class="hljs-number">1 &lt;&lt; <span class="hljs-number">30)) <span class="hljs-comment">// i点不在点集中并且与点集中的点联通             {                 <span class="hljs-keyword">if (u == <span class="hljs-number">-1 || dis[i] &lt; dis[u]) <span class="hljs-comment">// u==-1 -&gt;第一个点可以更新到点集最近的点                 {                     u = i; <span class="hljs-comment">//更新最近的点                 }             }         }         <span class="hljs-keyword">if (u == <span class="hljs-number">-1)             <span class="hljs-keyword">break;            <span class="hljs-comment">//如果不能找到加入点集的点，则结束算法         cnt++, ans += dis[u]; <span class="hljs-comment">//点集中点的个数+1，ans加上u连入点集的边权         vis[u] = <span class="hljs-literal">true;        <span class="hljs-comment">// vis加入点集         <span class="hljs-keyword">for (<span class="hljs-keyword">auto it : a[u])         {             dis[it.v] = <span class="hljs-built_in">min(dis[it.v], it.w); <span class="hljs-comment">//通过点v连出的边更新不在点集的点的dist值         }     }     <span class="hljs-keyword">if (cnt == n)         <span class="hljs-keyword">return ans; <span class="hljs-comment">//能够加入n个点构成连通图，生成树则返回权值     <span class="hljs-keyword">else         <span class="hljs-keyword">return <span class="hljs-number">-1; <span class="hljs-comment">//不能形成生成树 } <span class="hljs-function"><span class="hljs-type">int <span class="hljs-title">main<span class="hljs-params">() {     cin &gt;&gt; n &gt;&gt; m;     <span class="hljs-keyword">for (<span class="hljs-type">int i = <span class="hljs-number">1; i &lt;= m; i++)     {         <span class="hljs-type">int u, v, w;         cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;         node t1, t2; <span class="hljs-comment">//无向图存边         t1.v = v, t1.w = w;         a[u].<span class="hljs-built_in">push_back(t1); <span class="hljs-comment">// u-&gt;v 边权为w         t2.v = u, t2.w = w;         a[v].<span class="hljs-built_in">push_back(t2); <span class="hljs-comment">// v-&gt;u 边权为w     }     cout &lt;&lt; <span class="hljs-built_in">prim(); }</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre> <p><span class="cke_reset cke_widget_drag_handler_container"><img decoding="async" src="http://img.555519.xyz/uploads3/20220501/de90ac6f9637cbb77261f2c76c81af0d.jpg" alt="Prim 最小生成树 图解_在线工具" width="15" height="15" class="cke_reset cke_widget_drag_handler" title="点击并拖拽以移动" data-cke-widget-drag-handler="1"></span> </div> <p><strong> 参考文献：</strong></p> <p>2022 Namomo Spring Camp Div2 Day10 直播课</p> <p>ending</p> <p>有什么错误之处欢迎指正！不胜感激！</p> <p><span data-cke-copybin-start="1"><span data-cke-copybin-end="1">​</span></span></p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2702.htm">如何在 C# 循环中捕获局部变量？</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2704.htm">GET_FORMAT()函数如何与DATE_FORMAT()和STR_TO_DATE()函数结合使用？</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
+                        <li class="py-2"><a href="/html/category/article-2804.htm" title="java中RabbitMQ高级应用_java">java中RabbitMQ高级应用_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2778.htm" title="IDEA中配置maven环境">IDEA中配置maven环境</a></li>
+                        <li class="py-2"><a href="/html/category/article-2808.htm" title="使用 Vert.X Future/Promise 编写异步代码_在线工具">使用 Vert.X Future/Promise 编写异步代码_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2771.htm" title="井字棋 C++">井字棋 C++</a></li>
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2773.htm" title="Hyperledger Fabric 2.2 学习笔记：测试网络test-network">Hyperledger Fabric 2.2 学习笔记：测试网络test-network</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

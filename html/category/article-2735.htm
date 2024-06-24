@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2735.htm" />
+    <title>Vue的自定义拖动 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Vue的自定义拖动</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <pre><code>  directives: {     drag (el, binding, vnode) {       /**        * 获取客户端可见内容的高度        *        * @returns {number}        */       const getClientHeight = () =&gt; {         return window.innerHeight || Math.min(document.documentElement.clientHeight, document.body.clientHeight)       }       /**        * 获取客户端可见内容的宽度        *        * @returns {number}        */       const getClientWidth = () =&gt; {         return window.innerWidth || Math.min(document.documentElement.clientWidth, document.body.clientWidth)       }       /**        * startX = null:获取鼠标相对于元素（左上顶点）的x轴坐标（移动前坐标）        * startX != null:获取移动后的左上顶点x轴坐标        *        * e.clientX:鼠标相对客户端（客户端左上顶点）的x轴坐标        * el.offsetLeft:元素顶点（左上顶点）相对客户端（客户端左上顶点）的x轴坐标（元素必须脱离文档流，position: fixed or absolute）        * el.clientWidth:元素宽度        *        * @param el        * @param e        * @param startX        * @returns {number}        */       const getX = (el, e, startX) =&gt; {         if (startX === null) {           // 返回鼠标相对于元素（左上顶点）的x轴坐标           return e.clientX - el.offsetLeft         }         // 客户端可视宽度         const clientWidth = getClientWidth()         // 元素自身宽度         const elWidth = el.clientWidth         // 移动到x轴位置         let x = e.clientX - startX         // 水平方向边界处理         if (x &lt;= 0) {           // x轴最小为0           x = 0         } else if (x + elWidth &gt; clientWidth) {           // x是左上顶点的坐标，是否触碰到右边边界（超出可视宽度）要通过右顶点判断，所以需要加上元素自身宽度           x = clientWidth - elWidth         }         return x       }       /**        * startY = null:获取鼠标相对于元素（左上顶点）的y轴坐标（移动前坐标）        * startY != null:获取移动后的左上顶点y轴坐标        *        * e.clientY:鼠标相对客户端（客户端左上顶点）的y轴坐标        * el.offsetTop:元素顶点（左上顶点）相对客户端（客户端左上顶点）的y轴坐标（元素必须脱离文档流，position: fixed or absolute）        * el.clientHeight:元素高度        *        * @param el        * @param e        * @param startY        * @returns {number}        */       const getY = (el, e, startY) =&gt; {         if (startY === null) {           // 返回鼠标相对于元素（左上顶点）的y轴坐标           return e.clientY - el.offsetTop         }         // 客户端可视高度         const clientHeight = getClientHeight()         // 元素自身高度         const elHeight = el.clientHeight         // 移动到y轴位置         let y = e.clientY - startY         // 垂直方向边界处理         if (y &lt;= 0) {           // y轴最小为0           y = 0         } else if (y + elHeight &gt; clientHeight) {           // 同理，判断是否超出可视高度要加上自身高度           y = clientHeight - elHeight         }         return y       }       /**        * 监听鼠标按下事件（PC端拖动）        *        * @param e        */       el.onmousedown = (e) =&gt; {         vnode.context.isDrag = false         // 获取当前位置信息 (startX,startY)         const startX = getX(el, e, null)         const startY = getY(el, e, null)         /**          * 监听鼠标移动事件          *          * @param e          */         document.onmousemove = (e) =&gt; {           // 标记正在移动，解决元素移动后点击事件被触发的问题           vnode.context.isDrag = true           // 更新元素位置（移动元素）           el.style.left = getX(el, e, startX) + 'px'           el.style.top = getY(el, e, startY) + 'px'         }         /**          * 监听鼠标松开事件          */         document.onmouseup = () =&gt; {           // 移除鼠标相关事件，防止元素无法脱离鼠标           document.onmousemove = document.onmouseup = null         }       }       /**        * 监听手指按下事件（移动端拖动）        * @param e        */       el.ontouchstart = (e) =&gt; {         // 获取被触摸的元素         const touch = e.targetTouches[0]         // 获取当前位置信息 (startX,startY)         const startX = getX(el, touch, null)         const startY = getY(el, touch, null)         /**          * 监听手指移动事件          * @param e          */         document.ontouchmove = (e) =&gt; {           // 获取被触摸的元素           const touch = e.targetTouches[0]           // 更新元素位置（移动元素）           el.style.left = getX(el, touch, startX) + 'px'           el.style.top = getY(el, touch, startY) + 'px'         }         /**          * 监听手指移开事件          */         document.ontouchend = () =&gt; {           // 移除touch相关事件，防止元素无法脱离手指           document.ontouchmove = document.ontouchend = null         }       }     }   }, </code></pre> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2734.htm">ubuntu18.04 使用vscode #include＜iostream＞产生蓝色波浪线，未检测路径</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2736.htm">Redis缓存过期机制</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2768.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2801.htm" title="手写事件发布订阅框架">手写事件发布订阅框架</a></li>
+                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2788.htm" title="《C语言及程序设计》程序阅读——宏定义">《C语言及程序设计》程序阅读——宏定义</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

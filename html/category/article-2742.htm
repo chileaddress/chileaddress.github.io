@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2742.htm" />
+    <title>常用python编程模板汇总 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>常用python编程模板汇总</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>在我们编程时，有一些代码是固定的，例如Socket连接的代码，读取文件内容的代码，一般情况下我都是到网上搜一下然后直接粘贴下来改一改，当然如果你能自己记住所有的代码那更厉害，但是自己写毕竟不如粘贴来的快，而且自己写的代码还要测试，而一段经过测试的代码则可以多次使用，所以这里我就自己总结了一下&nbsp;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1co4y1d7ny"  rel="nofollow">python&gt;&gt;&gt;</a>中常用的编程模板，如果还有哪些漏掉了请大家及时补充哈。</p> <h1><strong>一、读写文件</strong></h1> <p><strong>1、读文件</strong></p> <p>（1）、一次性读取全部内容</p> <blockquote> <p>filepath='D:/data.txt'#文件路径</p> <p>with open(filepath, 'r') as f:</p> <p>&nbsp;&nbsp;printf.read()</p> </blockquote> <p>（2）读取固定字节大小</p> <blockquote> <p># -*- coding: UTF-8 -*-</p> <p>filepath='D:/data.txt'#文件路径</p> <p>f =open(filepath, 'r')</p> <p>content=""</p> <p>try:</p> <p>&nbsp;&nbsp;whileTrue:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;chunk =f.read(8)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;ifnotchunk:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;content+=chunk</p> <p>finally:</p> <p>&nbsp;&nbsp;f.close()</p> <p>&nbsp;&nbsp;printcontent</p> </blockquote> <p>（3）每次读取一行</p> <blockquote> <p># -*- coding: UTF-8 -*-</p> <p>filepath='D:/data.txt'#文件路径</p> <p>f =open(filepath, "r")</p> <p>content=""</p> <p>try:</p> <p>&nbsp;&nbsp;whileTrue:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;line =f.readline()</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;ifnotline:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;content+=line</p> <p>finally:</p> <p>&nbsp;&nbsp;f.close()</p> <p>&nbsp;&nbsp;printcontent</p> </blockquote> <p>（4）一次读取所有的行</p> <blockquote> <p># -*- coding: UTF-8 -*-</p> <p>filepath='D:/data.txt'#文件路径</p> <p>with open(filepath, "r") as f:</p> <p>&nbsp;&nbsp;txt_list =f.readlines()</p> <p>fori intxt_list:</p> <p>&nbsp;&nbsp;printi,</p> </blockquote> <p><strong>2、写文件</strong></p> <blockquote> <p># -*- coding: UTF-8 -*-</p> <p>filepath='D:/data1.txt'#文件路径</p> <p>with open(filepath, "w") as f: #w会覆盖原来的文件，a会在文件末尾追加</p> <p>&nbsp;&nbsp;f.write('1234')</p> </blockquote> <h1><strong>二、连接Mysql数据库</strong></h1> <p>1、连接</p> <blockquote> <p>#!/usr/bin/python</p> <p># -*- coding: UTF-8 -*-</p> <p>importMySQLdb</p> <p>DB_URL='localhost'</p> <p>USER_NAME='root'</p> <p>PASSWD='1234'</p> <p>DB_NAME='test'</p> <p># 打开数据库连接</p> <p>db =MySQLdb.connect(DB_URL,USER_NAME,PASSWD,DB_NAME)</p> <p># 使用cursor()方法获取操作游标</p> <p>cursor =db.cursor()</p> <p># 使用execute方法执行SQL语句</p> <p>cursor.execute("SELECT VERSION()")</p> <p># 使用 fetchone() 方法获取一条数据库。</p> <p>data =cursor.fetchone()</p> <p>print"Database version : %s "%data</p> <p># 关闭数据库连接</p> <p>db.close()</p> </blockquote> <p><strong>2、创建表</strong></p> <blockquote> <p>&lt;p&gt;#!/usr/bin/python</p> <p># -*- coding: UTF-8 -*-</p> <p>importMySQLdb</p> <p># 打开数据库连接</p> <p>db =MySQLdb.connect("localhost","testuser","test123","TESTDB")</p> <p># 使用cursor()方法获取操作游标</p> <p>cursor =db.cursor()</p> <p># 如果数据表已经存在使用 execute() 方法删除表。</p> <p>cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")</p> <p># 创建数据表SQL语句</p> <p>sql ="""CREATE TABLE EMPLOYEE (</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FIRST_NAME CHAR(20) NOT NULL,</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAST_NAME CHAR(20),</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AGE INT,</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEX CHAR(1),</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INCOME FLOAT )"""</p> <p>cursor.execute(sql)</p> <p># 关闭数据库连接</p> <p>db.close()&lt;/p&gt;</p> </blockquote> <p><strong>3、插入</strong></p> <blockquote> <p>#!/usr/bin/python</p> <p># -*- coding: UTF-8 -*-</p> <p>importMySQLdb</p> <p># 打开数据库连接</p> <p>db =MySQLdb.connect("localhost","testuser","test123","TESTDB")</p> <p># 使用cursor()方法获取操作游标</p> <p>cursor =db.cursor()</p> <p># SQL 插入语句</p> <p>sql ="""INSERT INTO EMPLOYEE(FIRST_NAME,</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LAST_NAME, AGE, SEX, INCOME)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUES ('Mac', 'Mohan', 20, 'M', 2000)"""</p> <p>try:</p> <p>&nbsp;&nbsp;# 执行sql语句</p> <p>&nbsp;&nbsp;cursor.execute(sql)</p> <p>&nbsp;&nbsp;# 提交到数据库执行</p> <p>&nbsp;&nbsp;db.commit()</p> <p>except:</p> <p>&nbsp;&nbsp;# Rollback in case there is any error</p> <p>&nbsp;&nbsp;db.rollback()</p> <p># 关闭数据库连接</p> <p>db.close()</p> </blockquote> <p><strong>4、查询</strong></p> <blockquote> <p>&lt;p&gt;#!/usr/bin/python</p> <p># -*- coding: UTF-8 -*-</p> <p>importMySQLdb</p> <p># 打开数据库连接</p> <p>db =MySQLdb.connect("localhost","testuser","test123","TESTDB")</p> <p># 使用cursor()方法获取操作游标</p> <p>cursor =db.cursor()</p> <p># SQL 查询语句</p> <p>sql ="SELECT *FROM EMPLOYEE \</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;WHERE INCOME &gt; '%d'" %(1000)</p> <p>try:</p> <p>&nbsp;&nbsp;# 执行SQL语句</p> <p>&nbsp;&nbsp;cursor.execute(sql)</p> <p>&nbsp;&nbsp;# 获取所有记录列表</p> <p>&nbsp;&nbsp;results =cursor.fetchall()</p> <p>&nbsp;&nbsp;forrow inresults:</p> <p>&nbsp;&nbsp;&nbsp;fname =row[0]</p> <p>&nbsp;&nbsp;&nbsp;lname =row[1]</p> <p>&nbsp;&nbsp;&nbsp;age =row[2]</p> <p>&nbsp;&nbsp;&nbsp;sex =row[3]</p> <p>&nbsp;&nbsp;&nbsp;income =row[4]</p> <p>&nbsp;&nbsp;&nbsp;# 打印结果</p> <p>&nbsp;&nbsp;&nbsp;print"fname=%s,lname=%s,age=%d,sex=%s,income=%d"%\</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(fname, lname, age, sex, income )</p> <p>except:</p> <p>&nbsp;&nbsp;print"Error: unable to fecth data"</p> <p># 关闭数据库连接</p> <p>db.close()&lt;/p&gt;</p> </blockquote> <p><strong>5、更新</strong></p> <blockquote> <p>#!/usr/bin/python</p> <p># -*- coding: UTF-8 -*-</p> <p>importMySQLdb</p> <p># 打开数据库连接</p> <p>db =MySQLdb.connect("localhost","testuser","test123","TESTDB")</p> <p># 使用cursor()方法获取操作游标</p> <p>cursor =db.cursor()</p> <p># SQL 更新语句</p> <p>sql ="UPDATE EMPLOYEE SETAGE =AGE +1</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE SEX ='%c'" %('M')</p> <p>try:</p> <p>&nbsp;&nbsp;# 执行SQL语句</p> <p>&nbsp;&nbsp;cursor.execute(sql)</p> <p>&nbsp;&nbsp;# 提交到数据库执行</p> <p>&nbsp;&nbsp;db.commit()</p> <p>except:</p> <p>&nbsp;&nbsp;# 发生错误时回滚</p> <p>&nbsp;&nbsp;db.rollback()</p> <p># 关闭数据库连接</p> <p>db.close()</p> </blockquote> <h1></h1> <h1><strong>三、Socket</strong></h1> <p><strong>1、服务器</strong></p> <blockquote> <p>fromsocket import*</p> <p>fromtime importctime</p> <p>HOST =''</p> <p>PORT =21568</p> <p>BUFSIZ =1024</p> <p>ADDR =(HOST, PORT)</p> <p>tcpSerSock =socket(AF_INET, SOCK_STREAM)</p> <p>tcpSerSock.bind(ADDR)</p> <p>tcpSerSock.listen(5)</p> <p>whileTrue:</p> <p>&nbsp;&nbsp;print'waiting for connection...'</p> <p>&nbsp;&nbsp;tcpCliSock, addr =tcpSerSock.accept()</p> <p>&nbsp;&nbsp;print'...connected from:', addr</p> <p>&nbsp;&nbsp;whileTrue:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;try:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data =tcpCliSock.recv(BUFSIZ)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print'&lt;', data</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tcpCliSock.send('[%s] %s'%(ctime(), data))</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;except:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print'disconnect from:', addr</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tcpCliSock.close()</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p> <p>tcpSerSock.close()</p> </blockquote> <p><strong>2、客户端</strong></p> <blockquote> <p>fromsocket import*</p> <p>HOST ='localhost'</p> <p>PORT =21568</p> <p>BUFSIZ =1024</p> <p>ADDR =(HOST, PORT)</p> <p>tcpCliSock =socket(AF_INET, SOCK_STREAM)</p> <p>tcpCliSock.connect(ADDR)</p> <p>try:</p> <p>&nbsp;&nbsp;whileTrue:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;data =raw_input('&gt;')</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;ifdata =='close':</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;ifnotdata:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;tcpCliSock.send(data)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;data =tcpCliSock.recv(BUFSIZ)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;printdata</p> <p>except:</p> <p>&nbsp;&nbsp;tcpCliSock.close()</p> </blockquote> <h1></h1> <h1></h1> <h1><strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1co4y1d7ny"  rel="nofollow">四、多线程</a></strong></h1> <blockquote> <p>importtime, threading</p> <p># 新线程执行的代码:</p> <p>defloop():</p> <p>&nbsp;&nbsp;print'thread %s is running...'%threading.current_thread().name</p> <p>&nbsp;&nbsp;n =0</p> <p>&nbsp;&nbsp;whilen &lt; 5:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;n =n +1</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;print'thread %s &gt;&gt;&gt; %s'%(threading.current_thread().name, n)</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1)</p> <p>&nbsp;&nbsp;print'thread %s ended.'%threading.current_thread().name</p> <p>print'thread %s is running...'%threading.current_thread().name</p> <p>t =threading.Thread(target=loop, name='LoopThread')</p> <p>t.start()</p> <p>t.join()</p> <p>print'thread %s ended.'%threading.current_thread().name</p> </blockquote> <p><strong>如果对<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1oy4y1H7R6"  rel="nofollow">JAVA&gt;&gt;&gt;</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1co4y1d7ny"  rel="nofollow">python&gt;&gt;&gt;</a>、前端、大数据、人工智能等感性趣欢迎关注我，会陆续更新哦！</strong></p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2741.htm">Java的虚拟线程（协程）特性开启预览阶段，多线程开发的难度将大大降低</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2743.htm">Spring &#8211; Schedule Task 如何动态改写Cron配置</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2803.htm" title="JS实现导出Excel和CSV文件操作_javascript技巧">JS实现导出Excel和CSV文件操作_javascript技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2763.htm" title="Spring Boot 2.4 新特性一键构建Docker镜像">Spring Boot 2.4 新特性一键构建Docker镜像</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                        <li class="py-2"><a href="/html/category/article-2769.htm" title="数据库事务的四大特性和隔离级别">数据库事务的四大特性和隔离级别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

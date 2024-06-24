@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2763.htm" />
+    <title>Spring Boot 2.4 新特性一键构建Docker镜像 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Spring Boot 2.4 新特性一键构建Docker镜像</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <div id="cnblogs_post_body" class="blogpost-body" style="font-size: 16px;"> <div class="content"> <h2>背景</h2> <p>在我们开发过程中为了支持 Docker 容器化，一般使用 Maven 编译打包然后生成镜像，能够大大提供上线效率，同时能够快速动态扩容，快速回滚，着实很方便。docker-maven-plugin 插件就是为了帮助我们在 Maven 工程中，通过简单的配置，自动生成镜像并推送到仓库中。</p> <h3>spotify 、fabric8</h3> <ul> <li> <p>这里主要使用的主要是如下两种插件<code>spotify</code> 、<code>fabric8</code> , ... -配置通过 xml 定义出 Dockerfile 或者挂载外部 Dockerfile 通过调用 Docker remote api 构建出镜像</p> </li> <li> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/log4j/pig"  title="pig 微服务平台" rel="nofollow">pig 微服务平台</a>所有的容器化都是基于此构建</p> </li> </ul> <pre class="has"><code class="language-xml">&lt;plugin&gt;   &lt;groupId&gt;com.spotify&lt;/groupId&gt;   &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;   ...  -配置通过 xml 定义出 Dockerfile 或者挂载外部 Dockerfile &lt;/plugin&gt;   &lt;plugin&gt;   &lt;groupId&gt;io.fabric8&lt;/groupId&gt;   &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;    ...  -配置通过 xml 定义出 Dockerfile 或者挂载外部 Dockerfile &lt;/plugin&gt;</code></pre> <ul> <li>执行相应的插件周期即可<code>mvn docker:build &amp;&amp; mvn docker:push</code></li> </ul> <h3>jib</h3> <ul> <li> <p>项目每次发布实际上变更的代码量不大，尤其依赖的 jar 变动的可能性较小，如果使用前两种插件构建镜像，会导致每次都全量构建，会导致存储和带宽资源浪费。</p> </li> <li> <p>jib 是 Google 于 18 年 7 月发布的一个针对 Java 应用的构建镜像的工具(支持 Maven 和 Gradle) ，好处是能够复用构建缓存，能够加快构建，减小传输体积</p> </li> </ul> <pre class="has"><code>&lt;!--配置通过 xml 定义出 Dockerfile ，本质上和外挂 Dockerfile 并无区别--&gt; &lt;plugin&gt;     &lt;groupId&gt;com.google.cloud.tools&lt;/groupId&gt;     &lt;artifactId&gt;jib-maven-plugin&lt;/artifactId&gt; &lt;/plugin&gt;  mvn jib:dockerBuild</code></pre> <h3>以上三种方案的问题</h3> <ul> <li> <p>在实际开发过程中，大部分的 spring boot 项目构建 Dockerfile 都是相同，不需要通过的 XML 或者通过外挂 Dockerfile 来重新定义</p> </li> <li> <p>以上插件需要对 Dockerfile 的定义知识有相对的了 对开发并不友好</p> </li> <li> <p>没充分理由 Spring Boot 2.3 以后的 Jar 分层技术。</p> </li> </ul> <h2>解决方案</h2> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#build-image-example-publish"  title="Spring Boot 2.4 Docker" rel="nofollow">Spring Boot 2.4</a> 推出了自己的 docker 构建工具 整合在原有的<code>spring-boot-maven-plugin</code> 中，只需要配置对应目标仓库和主机信息即可完成镜像构建。</li> </ul> <div style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/98b56774ec293fe5e385858cbfebefe2.jpg" alt="Spring Boot 2.4 新特性一键构建Docker镜像"></div> <ul> <li>如下配置即可完成上图中 通过开发机器在不安装 Docker 的同时，通过<code>192.168.0.10</code> 的 Docker Remote API 完成镜像构建并发布到<code>192.168.0.20</code> 的镜像仓库</li> </ul> <pre class="has"><code class="language-xml">&lt;plugin&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;     &lt;configuration&gt;         &lt;image&gt;             &lt;name&gt;192.168.0.20/pig4cloud/${project.artifactId}&lt;/name&gt;             &lt;!-- 执行完build 自动push --&gt;             &lt;publish&gt;true&lt;/publish&gt;         &lt;/image&gt;         &lt;!--配置构建宿主机信息，本机不用配置--&gt;         &lt;docker&gt; 			&lt;host&gt;http://192.168.0.10:2375&lt;/host&gt;             &lt;tlsVerify&gt;false&lt;/tlsVerify&gt;             &lt;publishRegistry&gt;                 &lt;username&gt;username&lt;/username&gt;                 &lt;password&gt;password&lt;/password&gt;                 &lt;url&gt;192.168.0.20&lt;/url&gt;             &lt;/publishRegistry&gt;         &lt;/docker&gt;     &lt;/configuration&gt; &lt;/plugin&gt;</code></pre> <ul> <li>执行以下命令即可完成 镜像的构建和自动发布</li> </ul> <pre class="has"><code>mvn spring-boot:build-image</code></pre> <h2>其他说明</h2> <h3>docker host 配置不生效</h3> <ul> <li>如下图 ① 处配置 &lt;host&gt;&lt;/host&gt; 节点，但是 ② 报错提示 host 不一致</li> </ul> <div style="text-align: center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/e943bf2b657aa8eaa9ef14d64c00b2ce.jpg" alt="Spring Boot 2.4 新特性一键构建Docker镜像"></div> <ul> <li>检查本地是否配置 $DOCKER_HOST 环境变量，经过阅读源码后发现优先读取此变量。</li> </ul> <pre class="has"><code>⋊&gt; ~ echo $DOCKER_HOST                                                  11:07:51 tcp://172.17.0.111:2375</code></pre> <h3>网络支持</h3> <ul> <li>截取部分构建过程中的日志，如下需要从 github 下载相关的依赖 约 100M ，这个过程大概率会失败。建议通过配置代理或者使用国外 ECS 来解决。</li> </ul> <pre class="has"><code>:: Spring Boot ::                (v2.4.0) [INFO]  &gt; Running creator [INFO]     [creator]         Downloading from https://github.com/bell-sw/Liberica/releases/download/8u275+1/bellsoft-jre8u275+1-linux-amd64.tar.gz [INFO]     [creator]       JVMKill Agent 1.16.0: Contributing to layer [INFO]     [creator]         Downloading from https://github.com/cloudfoundry/jvmkill/releases/download/v1.16.0.RELEASE/jvmkill-1.16.0-RELEASE.so [INFO]     [creator]         Downloading from https://repo.spring.io/release/org/springframework/cloud/spring-cloud-bindings/1.6.0/spring-cloud-bindings-1.6.0.jar [INFO]     [creator]         Verifying checksum [INFO]     [creator]           192.168.0.20/pig4cloud/demo:latest [INFO] [INFO] Successfully built image '192.168.0.20/pig4cloud/demo:latest' [INFO]  &gt; Pushing image '192.168.0.20/pig4cloud/demo:latest' 100% [INFO]  &gt; Pushed image '192.168.0.20/pig4cloud/demo:latest' [INFO] BUILD SUCCESS</code></pre> <blockquote> <p>项目推荐:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/log4j/pig"  rel="nofollow">Spring Cloud 、Spring Security OAuth2的RBAC权限管理系统 欢迎关注</a></p> </blockquote> </div> </div> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2762.htm">Feign优化之Client选择</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2764.htm">linux文件编辑VI命令详解_在线工具</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2806.htm" title="存储用户密码应该使用什么加密算法">存储用户密码应该使用什么加密算法</a></li>
+                        <li class="py-2"><a href="/html/category/article-2776.htm" title="java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></li>
+                        <li class="py-2"><a href="/html/category/article-2766.htm" title="Android：两个Activity之间通过Intent传值">Android：两个Activity之间通过Intent传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-2773.htm" title="Hyperledger Fabric 2.2 学习笔记：测试网络test-network">Hyperledger Fabric 2.2 学习笔记：测试网络test-network</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2779.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2788.htm" title="《C语言及程序设计》程序阅读——宏定义">《C语言及程序设计》程序阅读——宏定义</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

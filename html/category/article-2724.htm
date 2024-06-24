@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2724.htm" />
+    <title>python神经网络tf.name_scope和tf.variable_scope函数区别_python - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>python神经网络tf.name_scope和tf.variable_scope函数区别_python</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">学习前言</a></li> <li><a href="#_label1" rel="nofollow">两者区别</a></li> <li><a href="#_label2" rel="nofollow">tf.variable_scope函数</a></li> <li><a href="#_label3" rel="nofollow">测试代码</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_0" rel="nofollow">1、使用reuse=True共享变量</a></li> <li><a href="#_lab2_3_1" rel="nofollow">2、使用AUTO_REUSE共享变量</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>学习前言</h2> <p>最近在学目标检测……SSD的源码好复杂……看了很多版本的SSD源码，发现他们会使用tf.variable_scope，刚开始我还以为就是tf.name_scope，才发现原来两者是不一样的</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>两者区别</h2> <p>tf.name_scope()和tf.variable_scope()是两个作用域，一般与两个创建/调用变量的函数tf.variable() 和tf.get_variable()搭配使用。</p> <p>为什么要使用两个不同的作用域方式呢？其主要原因与变量共享相关。</p> <p>变量共享主要涉及两个函数：tf.Variable() 和tf.get_variable()</p> <p>在tf.variable_scope的作用域下需要使用tf.get_variable()函数，这是因为tf.get_variable()拥有一个变量检查机制，会检测已经存在的变量是否设置为共享变量，当同名变量存在共享机制时，不会报错，如果并未设置为共享变量，则报错。</p> <p>如果使用tf.Variable() 的话每次都会新建变量。但是很多时候我们希望重用一些变量，所以我们使用到了get_variable()，它会去搜索变量名，有就直接用，没有再新建。<br />在进行变量共享的时候需要使用到标志reuse，当reuse = True时是可以共享，False时不可以共享。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>tf.variable_scope函数</h2> <div class="ay1code"> <pre class="brush:py;">tf.variable_scope(      name_or_scope,      default_name=None,      values=None,      initializer=None,      regularizer=None,      caching_device=None,      partitioner=None,      custom_getter=None,      reuse=None,      dtype=None,      use_resource=None,      constraint=None,      auxiliary_name_scope=True  )  </pre> </div> <p>其中：</p> <p>1、name_or_scope：范围的名称。</p> <p>2、default_name：如果name_or_scope参数为None，则使用默认的名称，该名称将是唯一的；如果提供了name_or_scope，它将不会被使用，因此它不是必需的，并且可以是None。</p> <p>3、values：传递给操作函数的Tensor参数列表。</p> <p>4、initializer：此范围内变量的默认初始值设定项。</p> <p>5、regularizer：此范围内变量的默认正规化器。</p> <p>6、caching_device：此范围内变量的默认缓存设备。</p> <p>7、partitioner：此范围内变量的默认分区程序。</p> <p>8、custom_getter：此范围内的变量的默认自定义吸气。</p> <p>9、reuse：可以是True、None或tf.AUTO_REUSE；如果是True，即可以开始共享变量，变量重构用；如果是tf.AUTO_REUSE，则我们创建变量（如果它们不存在），否则返回它们（用于在第一轮创建变量）；如果是None，则我们继承父范围的重用标志。</p> <p>10、dtype：在此范围中创建的变量类型。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>测试代码</h2> <p class="maodian"><a name="_lab2_3_0" rel="nofollow"></a></p> <h3>1、使用reuse=True共享变量</h3> <div class="ay1code"> <pre class="brush:py;">import tensorflow as tf  # 初始化第一个v1  with tf.variable_scope("scope1"):      v1 = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1.name)  # 不同的作用域  with tf.variable_scope("scope2"):      v1 = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1.name)  # 开始共享  with tf.variable_scope("scope1",reuse = True):      v1_share = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1_share.name)  </pre> </div> <p>运行结果为：</p> <blockquote> <p>scope1/v1:0<br />scope2/v1:0<br />scope1/v1:0</p> </blockquote> <p>如果在下部再加上</p> <div class="ay1code"> <pre class="brush:py;">with tf.variable_scope("scope2"):      v1_share = tf.get_variable("v1",[3,3],tf.float32,initializer=tf.constant_initializer(1))      print(v1_share.name)  </pre> </div> <p>此时没有reuse，不能共享，程序报错。</p> <p class="maodian"><a name="_lab2_3_1" rel="nofollow"></a></p> <h3>2、使用AUTO_REUSE共享变量</h3> <div class="ay1code"> <pre class="brush:py;">import tensorflow as tf  # 使用AUTO_REUSE可以直接创建  # 如果reuse = True，初始化第一轮创建的时候会报错  def demo():    with tf.variable_scope("demo", reuse=tf.AUTO_REUSE):      v = tf.get_variable("v", [1])    return v  v1 = demo()   v2 = demo()  print(v1.name)  </pre> </div> <p>运行结果为：</p> <blockquote> <p>demo/v:0<br />demo/v:0</p> </blockquote> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2723.htm">Redis(六) 数据库和缓存的一致性问题</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2725.htm">javaScript中Number数字类型方法入门_在线工具</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2806.htm" title="存储用户密码应该使用什么加密算法">存储用户密码应该使用什么加密算法</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2768.htm" title="promise与async/await的使用及区别">promise与async/await的使用及区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2784.htm" title="C++基础之C++中的输入输出">C++基础之C++中的输入输出</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2808.htm" title="使用 Vert.X Future/Promise 编写异步代码_在线工具">使用 Vert.X Future/Promise 编写异步代码_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2773.htm" title="Hyperledger Fabric 2.2 学习笔记：测试网络test-network">Hyperledger Fabric 2.2 学习笔记：测试网络test-network</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

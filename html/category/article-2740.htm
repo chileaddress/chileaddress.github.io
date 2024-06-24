@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2740.htm" />
+    <title>js模块 &#8211; amd cmd commonjs esm umd - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>js模块 &#8211; amd cmd commonjs esm umd</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<p>写过前端代码大概率听说过<code>amd</code><code>cmd</code><code>umd</code><code>commonjs</code><code>esm</code>这些名词, 想当初我第一次看到这些的时候, 人都麻了, 都是些啥啊. 后来我知道了, 这些都是js的模块规范.</p> <h2 id="amd---浏览器中的js模块化解决方案">amd - 浏览器中的js模块化解决方案</h2> <p><strong>AMD</strong>全称是<code>Async Module Definition</code>异步模块定义</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://requirejs.org/docs/start.html"  target="_blank" rel="nofollow"><code>RequireJs</code></a>是AMD模块规范的一个具体实现.</p> <p><strong>AMD</strong>中定义一个计算器模块<code>calculator</code>, 这个模块依赖另一个名为<code>math</code>的模块</p> <details open=""> <summary>calculator.js</summary> <pre><code class="language-javascript">define('calculator', ['math'], function(math) {     return {         add: function(left, right) { return math.add(left, right) },         subtract: function(left, right) { return math.subtract(left, right) }     } })</code></pre> </details> <p>使用刚才定义的<code>calculator</code>模块</p> <details open=""> <summary>main.js</summary> <pre><code class="language-javascript">require('calculator', function(calculator) {     console.log('1 + 1 = ' + calculator.add(1, 1));     console.log('2 - 2 = ' + calculator.subtract(2, 1)); })</code></pre> </details> <h2 id="cmd---类似amd的用于浏览器中的js模块规范">cmd - 类似amd的用于浏览器中的js模块规范</h2> <p><strong>CMD</strong>全称是<code>Common Module Definition</code>即通用模块定义,. 像<code>AMD</code>与<code>RequireJs</code>关系一样, 与<code>CMD</code>规范绑定的是<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/seajs/seajs"  target="_blank" rel="nofollow"><code>sea.js</code></a></p> <p>在定义模块方面,<code>CMD</code>和<code>AMD</code>一样通过<code>define</code>函数来定义模块; 两者的主要区别在于对依赖的加载上,<code>CMD</code>中不需要在<code>define</code>的参数中直接声明需要用到的模块</p> <p>还是以声明<code>calculator</code>模块为例</p> <details open=""> <summary>calculator.js</summary> <pre><code class="language-javascript">define('calculator', function(require, exports) {     var math = require('math');     exports.add = function(left, right) { return math.add(left, right) };     exports.subtract = function(left, right) { return math.subtract(left, right) }; })</code></pre> </details> <p>可以看到<code>calculator</code>模块所的依赖的<code>math</code>模块没有在<code>define</code>函数的参数中进行声明, 而是通过<code>require('math')</code>来引入的</p> <p>使用<code>calculator</code>模块</p> <pre><code class="language-javascript">seajs.use(['calculator'], function(calculator) {     console.log('1 + 1 = ' + calculator.add(1, 1));     console.log('2 - 2 = ' + calculator.subtract(2, 1)); })</code></pre> <h2 id="commonjs---node中使用的模块规范">commonjs - Node中使用的模块规范</h2> <p>定义<code>math</code>模块</p> <details open=""> <summary>math.js</summary> <pre><code class="language-javascript">module.exports = {     add: function(left, right) {         return left + right;     },     subtract: function(left, right) {         return left - right;     } }</code></pre> </details> <p>使用刚才定义的<code>math</code>模块, 并再定义一个<code>calculator</code>模块</p> <details open=""> <summary>calculator.js</summary> <pre><code class="language-javascript">const math = require('./math.js'); module.exports = {     add: math.add }</code></pre> </details> <h2 id="umd---一种同时兼容amd-cmd-commonjs规范的规范">umd - 一种同时兼容amd cmd commonjs规范的规范</h2> <p><code>amd</code><code>cmd</code>通常只能在浏览器中使用,<code>commonjs</code>只能在服务端(Node)环境下使用, 这样子搞会导致我们基于其中某一种模块规范写的js模块无法在服务端和浏览器端进行复用. umd解决了这个问题, 它兼容并包, 使得使用此规范写的js模块既可以在浏览器环境下使用, 也可以在Node(服务端)环境中用</p> <pre><code class="language-javascript">(function (root, factory) {     if (typeof exports === 'object' &amp;&amp; typeof module === 'object')         // commonjs         module.exports = factory()     else if (typeof define === 'function' &amp;&amp; define.amd)         // amd         define([], factory)     else if (typeof exports === 'object')         // commonjs         exports['math'] = factory()     else         // 全局对象, 浏览器中是 window         root['math'] = factory() })(this, function() {     return { add: function(left, right) { return left + right; } } })</code></pre> <h2 id="esm---es6模块规范">esm - ES6模块规范</h2> <p>使用<code>import</code>导入模块, 通过<code>export</code>导出模块</p> <details open=""> <summary>math.js</summary> <pre><code class="language-javascript">export { add: (left, right) =&gt; left + right; }</code></pre> </details> <details open=""> <summary>点击此处查看代码</summary> <pre><code class="language-javascript">import { add } from './math.js';  console.log('1 + 1 = ' + add(1, 1));</code></pre> </details> <h2 id="小结">小结</h2> <p>amd, cmd已经成为了过去式(个人感觉), 现在常用的模块规范一般就是es6模块和commonjs(只用于node)了, node中也已经提供了实验性的es模块支持.</p> <p>浏览器对es的<code>import</code>和<code>export</code>的支持也已经很不错了(除了IE其他主流浏览器都支持了)</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2a3262e09c1cee781b4a08e11d8dc854.jpg" alt="js模块 - amd cmd commonjs esm umd"></p> <p>好消息是微软将在2022-6-15停止对IE11在win10非长期支持版上的支持</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/61fdaae138c65050a1d1755afe322624.jpg" alt="js模块 - amd cmd commonjs esm umd"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5e26ee78ba71e327a65bf51e568094d9.jpg" alt="js模块 - amd cmd commonjs esm umd"></p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2739.htm">element-plus  一个vue3.xUI框架 （element-ui的3.x 版初体验）</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2741.htm">Java的虚拟线程（协程）特性开启预览阶段，多线程开发的难度将大大降低</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2813.htm" title="FreeRTOS实时操作系统的任务通知方法_操作系统">FreeRTOS实时操作系统的任务通知方法_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-2798.htm" title="树的同构 Java">树的同构 Java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2797.htm" title="Centos7 离线安装 KVM，并安装 Csr1000v">Centos7 离线安装 KVM，并安装 Csr1000v</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2816.htm" title="SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码">SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码</a></li>
+                        <li class="py-2"><a href="/html/category/article-2776.htm" title="java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></li>
+                        <li class="py-2"><a href="/html/category/article-2784.htm" title="C++基础之C++中的输入输出">C++基础之C++中的输入输出</a></li>
+                        <li class="py-2"><a href="/html/category/article-2799.htm" title="整理了25个Pandas实用技巧（上）">整理了25个Pandas实用技巧（上）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2594.htm" />
+    <title>Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h1 id="metalama概览">Metalama概览</h1> <p>前面一篇文章介绍到了<code>Metalama</code>:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/chsword/p/dotnet_compile_aop_base_roslyn.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/chsword/p/dotnet_compile_aop_base_roslyn.html</a></p> <p><code>Metalama</code>是一个基于微软编译器<code>Roslyn</code>的元编程的库，可以解决我在开发中遇到的重复代码的问题。但是其实<code>Metalama</code>不止可以提供编译时的代码转换，更可以提供<code>自定义代码分析</code>、<code>与IDE结合的自定义代码修复与代码重构功能</code> 等功能。<br /> 经过面对文档的学习，发现<code>Metalama</code>可以做到很多非常神奇的事情。</p> <p>例如：<br /> 可以为指定类在编译时增加接口如<code>INotifyPropertyChanged</code>。<br /> 可以生成编译时的类似<code>AutoMapper</code>方法。<br /> 可以自定义代码分析，增强团队代码验证。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b77fe47d9b48a11458dd0f9d57d78b9a.jpg" alt="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架"></p> <h1 id="metalama两个核心概念">Metalama两个核心概念</h1> <p><strong>1. Aspect</strong><br /><code>Aspect</code> 是AOP的基本概念，它是一个<code>切面</code>,可以对方法、事件、属性、字段、参数以及类型进行操作，这些操作包括编译时修改这些内容或增加代码分析、实时模板、代码重构提示等。<br /><strong>2. Fabric</strong><br /><code>Fabric</code> 可以对命名空间、类型、项目进行修改，按规则添加<code>Aspect</code>或<code>自定义代码分析</code>。</p> <h1 id="metalama的主要功能">Metalama的主要功能</h1> <p><strong>1.编译时代码转换</strong></p> <p>如上图中红色示例，<code>Metalama</code>可以将重复的代码（例如日志、缓存、INotifyPropertyChanged、多线程、重试机制、或其它有大量重复的代码，如属性、方法的定义）封装到为一个AOP Attribute类，从而在编译时向您的代码添加这个AOP类中约定的代码，这个AOP 的<code>Attribute</code>我们以下统一称之为<strong><code>Aspect</code></strong>。</p> <p>这样做的好处是一方面可以使代码保持干净和简洁，便于阅读和维护，另一方便免除了运行时AOP的性能消耗。</p> <p>另外对于编译代码的转换，<code>Metalama</code>也提供了IDE的插件支持，具体请见下文。</p> <p><strong>2.代码验证</strong></p> <p>如上图中浅蓝色示例，<code>Metalama</code>可以提供自定义的代码分析功能，这里的代码分析更自由，如前面图中示例，可以自己编写验证规则要求某类必须在某命名空间中调用。</p> <p>当然，这种代码验证非常灵活，它可以基于项目、命名空间、类型、属性、方法、参数、返回值、字段、事件等诸多信息来进行自定义。</p> <p>在团队中可以使用这种自定义代码验证来进行那些使用.NET自带的分析器、FxCop、Resharper等工具无法提供的代码分析规则。</p> <p><strong>3.自定义设计时的代码修复、重构功能</strong></p> <p>如上图深蓝色示例所示，<code>Metalama</code>可以让用户按某规则，为<code>Visual Studio</code>提供<code>CodeFix</code>或<code>重构</code>的提示，这样对于团队中共享某种约定是很有用的。</p> <h1 id="ide支持">IDE支持</h1> <p><code>Metalama</code> 提供了<code>Vistual Studio</code>插件,当然这个插件不是必须使用的，但是的确可以提高一定效率。<br /> 直接在VS中<code>扩展</code> -<code>扩展管理</code>中查找<code>Metalama</code>并安装即可。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/900bcc30dc4b35e410c3e6c88de27745.jpg" alt="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架"></p> <p><strong>插件提供了可以即时查看编译后代码的功能。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0f7df893b1ab1ca4e604269750a45fb6.jpg" alt="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架"><br /><strong>点击<code>Show Metalama Diff</code>即可查看编译后的代码。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/193b1eec6864b02748ed99d3ead0a40f.jpg" alt="Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架"></p> <h1 id="引用">引用</h1> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://doc.metalama.net/"  target="_blank" rel="nofollow">Metalama官方文档</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://marketplace.visualstudio.com/items?itemName=PostSharpTechnologies.Metalama"  target="_blank" rel="nofollow">Visual Studio 插件</a></p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2593.htm">如何在MySQL查询的DATETIME字段中添加一天？</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2595.htm">JS模板工具lodash.template的用法</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2802.htm" title="vue在进行增删改操作后刷新页面">vue在进行增删改操作后刷新页面</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2766.htm" title="Android：两个Activity之间通过Intent传值">Android：两个Activity之间通过Intent传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2790.htm" title="JS 删除数组中某个元素的几种方式">JS 删除数组中某个元素的几种方式</a></li>
+                        <li class="py-2"><a href="/html/category/article-2782.htm" title="Vue的v-for和v-bind实现列表颜色切换">Vue的v-for和v-bind实现列表颜色切换</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

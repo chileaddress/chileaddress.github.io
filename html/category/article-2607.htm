@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2607.htm" />
+    <title>python的多线程使用 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>python的多线程使用</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="1_1" rel="nofollow"></a>1、多线程的使用方式</h2> <h3> <a id="11_1__3" rel="nofollow"></a>1.1 方式1 ：直接使用</h3> <pre><code class="prism language-python"><span class="token comment"># -*- coding:utf-8 -*-</span> <span class="token comment"># 线程使用的方式一</span> <span class="token keyword">import</span> threading <span class="token keyword">import</span> time   <span class="token comment"># 需要多线程运行的函数</span> <span class="token keyword">def</span> <span class="token function">fun</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我是线程%s"</span> <span class="token operator">%</span> args<span class="token punctuation">)</span>     time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"线程%s运行结束"</span> <span class="token operator">%</span> args<span class="token punctuation">)</span>  <span class="token comment"># 创建线程</span> t1 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>fun<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> t2 <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>fun<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span> start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> end_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"两个线程一共的运行时间为："</span><span class="token punctuation">,</span> end_time<span class="token operator">-</span>start_time<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"主线程结束"</span><span class="token punctuation">)</span> </code></pre> <p>执行结果:</p> <pre><code class="prism language-shell">运行结果： 我是线程1 我是线程2 两个线程一共的运行时间为： <span class="token number">0.0010077953338623047</span> 主线程结束  线程1运行结束 线程2运行结束 </code></pre> <h3> <a id="12_2_42" rel="nofollow"></a>1.2 方式2：继承类调用</h3> <pre><code class="prism language-python"><span class="token comment"># 继承式调用</span> <span class="token keyword">import</span> threading <span class="token keyword">import</span> time   <span class="token keyword">class</span> <span class="token class-name">MyThreading</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token builtin">super</span><span class="token punctuation">(</span>MyThreading<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name      <span class="token comment"># 线程要运行的代码</span>     <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我是线程%s"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>         time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"线程%s运行结束"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>   t1 <span class="token operator">=</span> MyThreading<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> t2 <span class="token operator">=</span> MyThreading<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> end_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"两个线程一共的运行时间为："</span><span class="token punctuation">,</span> end_time<span class="token operator">-</span>start_time<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"主线程结束"</span><span class="token punctuation">)</span> </code></pre> <p>执行结果：</p> <pre><code class="prism language-shell">运行结果： 我是线程1 我是线程2 两个线程一共的运行时间为： <span class="token number">0.0010724067687988281</span> 主线程结束 线程2运行结束 线程1运行结束 </code></pre> <h2> <a id="2join_84" rel="nofollow"></a>2、守护线程与join方法</h2> <ul> <li>当开启子线程的<strong>守护线程</strong>，若主线程结束，则子线程立马全部结束；若不开启守护线程，主线程结束后，子线程会继续执行直到自行结束。</li> <li>在Python多线程中，<strong>join方法</strong>的作用是<strong>线程同步</strong>，即主程序将一直等待子程序全部运行完成才结束。</li> </ul> <h3> <a id="21__89" rel="nofollow"></a>2.1 默认情况</h3> <p> Python多线程<strong>默认情况</strong>是没有设置守护线程（即设置线程<code>setDaemon(False)</code>)，主线程执行完自己的任务后，就退出了，此时<strong>子线程会继续执行自己的任务，直到子线程任务结束</strong>。以上两个例子都是。</p> <h3> <a id="22__93" rel="nofollow"></a>2.2 守护线程</h3> <p> 开启线程的<code>setDaemon(True))</code>，设置子线程为守护线程，实现主程序结束，<strong>子程序立马全部结束功能</strong>。</p> <pre><code class="prism language-python"><span class="token comment"># 守护线程</span> <span class="token keyword">import</span> threading <span class="token keyword">import</span> time   <span class="token keyword">class</span> <span class="token class-name">MyThreading</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token builtin">super</span><span class="token punctuation">(</span>MyThreading<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name      <span class="token comment"># 线程要运行的代码</span>     <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我是线程%s"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>         time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"线程%s运行结束"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>   t1 <span class="token operator">=</span> MyThreading<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> t2 <span class="token operator">=</span> MyThreading<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>setDaemon<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span> t1<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>setDaemon<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span> t2<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span> end_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"两个线程一共的运行时间为："</span><span class="token punctuation">,</span> end_time<span class="token operator">-</span>start_time<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"主线程结束"</span><span class="token punctuation">)</span> </code></pre> <p>**注意：**如果要设置为守护线程，一定要在开启线程之前(<code>start()</code>)，将该线程设置为守护线程。</p> <p>**结论：**主线程结束后，无论子线程1，2是否运行完成，都结束线程，不再继续向下运行。</p> <h3> <a id="23_join_131" rel="nofollow"></a>2.3 join方式</h3> <p>当不开启守护进程时，主程序将一直等待子程序全部运行完成才结束。</p> <pre><code class="prism language-python"><span class="token comment"># join:线程同步</span> <span class="token keyword">import</span> threading <span class="token keyword">import</span> time   <span class="token keyword">class</span> <span class="token class-name">MyThreading</span><span class="token punctuation">(</span>threading<span class="token punctuation">.</span>Thread<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token builtin">super</span><span class="token punctuation">(</span>MyThreading<span class="token punctuation">,</span> self<span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>         self<span class="token punctuation">.</span>name <span class="token operator">=</span> name      <span class="token comment"># 线程要运行的代码</span>     <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"我是线程%s"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>         time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"线程%s运行结束"</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>   threading_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> start_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     t <span class="token operator">=</span> MyThreading<span class="token punctuation">(</span>x<span class="token punctuation">)</span>     t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>     threading_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>t<span class="token punctuation">)</span>  <span class="token keyword">for</span> x <span class="token keyword">in</span> threading_list<span class="token punctuation">:</span>     x<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token comment"># 为线程开启同步</span>  end_time <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"50个线程一共的运行时间为："</span><span class="token punctuation">,</span> end_time<span class="token operator">-</span>start_time<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"主线程结束"</span><span class="token punctuation">)</span>  </code></pre> <p>**结论：**主线程等待50个子线程全部执行完成才结束。</p> <h2> <a id="3_171" rel="nofollow"></a>3、线程池</h2> <p> Python3中官方才正式提供线程池，而且线程不是开的越多越好，开的多了可能会导致系统的性能更低。</p> <pre><code class="prism language-python"><span class="token keyword">import</span> time <span class="token keyword">from</span> concurrent<span class="token punctuation">.</span>futures <span class="token keyword">import</span> ThreadPoolExecutor  <span class="token comment"># 并行期货，线程池执行者</span> <span class="token triple-quoted-string string">""" pool = ThreadPoolExecutor(100) pool.submit(函数名,参数1，参数2，参数...) """</span>   <span class="token keyword">def</span> <span class="token function">task</span><span class="token punctuation">(</span>video_url<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"开始执行任务"</span><span class="token punctuation">,</span> video_url<span class="token punctuation">,</span> num<span class="token punctuation">)</span>     <span class="token comment"># 开始执行任务 www.xxxx-299.com 3</span>     time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>   <span class="token comment"># 创建线程池，最多维护10个线程</span> threadpool <span class="token operator">=</span> ThreadPoolExecutor<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment"># 生成300网址，并放入列表</span> url_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"www.xxxx-{}.com"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token keyword">for</span> url <span class="token keyword">in</span> url_list<span class="token punctuation">:</span>     <span class="token triple-quoted-string string">"""     在线程池中提交一个任务，线程池如果有空闲线程，则分配一个线程去执行，执行完毕后在将线程交还给线程池，     如果没有空闲线程，则等待。注意在等待时，与主线程无关，主线程依然在继续执行。     """</span>     threadpool<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>task<span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"等待线程池中的任务执行完毕中······"</span><span class="token punctuation">)</span> threadpool<span class="token punctuation">.</span>shutdown<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>   <span class="token comment"># 等待线程池中的任务执行完毕后，在继续执行</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"END"</span><span class="token punctuation">)</span> </code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/fjfsu/p/15709155.html"  rel="nofollow">参考文章</a></p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2606.htm">一文搞懂Vue3中如何使用ref获取元素节点？</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2608.htm">数据类产品设计和实现思路_在线工具</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2763.htm" title="Spring Boot 2.4 新特性一键构建Docker镜像">Spring Boot 2.4 新特性一键构建Docker镜像</a></li>
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2801.htm" title="手写事件发布订阅框架">手写事件发布订阅框架</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

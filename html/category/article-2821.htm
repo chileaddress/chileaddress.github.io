@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2821.htm" />
+    <title>vscode for c/c++（ACM配置） - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>vscode for c/c++（ACM配置）</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li> <ul> <li> <ul> <li><a href="#mingw_3" rel="nofollow">安装mingw</a></li> <li><a href="#_5" rel="nofollow">安装和配置插件</a></li> <li><a href="#_114" rel="nofollow">编译运行</a></li> <li><a href="#_122" rel="nofollow">结束语</a></li> </ul> </li> </ul> </li> </ul> </div> <hr/> <h3><a id="mingw_3" rel="nofollow"></a>安装mingw</h3> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://sourceforge.net/projects/mingw-w64/"  rel="nofollow">mingw下载地址</a>，可以参考这个视频安装<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/av18436497/?p=1"  rel="nofollow">使用VS Code+MinGW64+CMake 搭建轻量美观的 C/C++开发环境</a>，安装完成之后，将bin目录添加到环境变量中.</p> <h3><a id="_5" rel="nofollow"></a>安装和配置插件</h3> <p>安装插件<code>C/C++</code>和<code>Code Runner</code>。</p> <ol> <li>配置<code>Code Runner</code>的<code>Run In Terminal</code>，这样就能在vs的终端输入了。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/be87f73176c64043a65ef467a2bde8bc.jpg" alt="vscode for c/c++（ACM配置）"></li> <li>在vscode中新建一个文件夹，并在此文件夹下创建.vscode文件夹，并在.vscode中分别新建三个文件：<code>c_cpp_properties.json</code>,<code>launch.json</code>,<code>tasks.json</code>，三个文件详细内容如下(需要注意的是，配置文件中关于mingw路径需要修改为你的安装路径)：</li> </ol> <pre><code class="prism language-json"><span class="token comment">// c_cpp_properties.json</span><span class="token punctuation">{<!-- --></span><span class="token string">"configurations"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"MinGW64"</span><span class="token punctuation">,</span><span class="token string">"intelliSenseMode"</span><span class="token punctuation">:</span><span class="token string">"gcc-x64"</span><span class="token punctuation">,</span><span class="token string">"compilerPath"</span><span class="token punctuation">:</span><span class="token string">"C:/mingw/mingw64/bin/g++.exe"</span><span class="token punctuation">,</span><span class="token string">"includePath"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"${workspaceFolder}"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"cppStandard"</span><span class="token punctuation">:</span><span class="token string">"c++17"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"version"</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-json"><span class="token comment">// launch.json</span><span class="token punctuation">{<!-- --></span><span class="token string">"version"</span><span class="token punctuation">:</span><span class="token string">"0.2.0"</span><span class="token punctuation">,</span><span class="token string">"configurations"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"C++ Launch (GDB)"</span><span class="token punctuation">,</span><span class="token comment">// 配置名称，将会在启动配置的下拉菜单中显示</span><span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">"cppdbg"</span><span class="token punctuation">,</span><span class="token comment">// 配置类型，这里只能为cppdbg</span><span class="token string">"request"</span><span class="token punctuation">:</span><span class="token string">"launch"</span><span class="token punctuation">,</span><span class="token comment">// 请求配置类型，可以为launch（启动）或attach（附加）</span><span class="token string">"targetArchitecture"</span><span class="token punctuation">:</span><span class="token string">"x64"</span><span class="token punctuation">,</span><span class="token comment">// 生成目标架构，一般为x86或x64</span><span class="token string">"program"</span><span class="token punctuation">:</span><span class="token string">"${fileDirname}/build/${fileBasenameNoExtension}.exe"</span><span class="token punctuation">,</span><span class="token comment">// 将要进行调试的程序的路径</span><span class="token string">"args"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">// 程序调试时传递给程序的命令行参数，一般设为空即可</span><span class="token string">"stopAtEntry"</span><span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token comment">// 设为true时程序将暂停在程序入口处，一般设置为false</span><span class="token string">"cwd"</span><span class="token punctuation">:</span><span class="token string">"${workspaceRoot}"</span><span class="token punctuation">,</span><span class="token comment">// 调试程序时的工作目录，一般为${workspaceRoot}</span><span class="token string">"externalConsole"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">// 调试时是否显示控制台窗口，一般设置为true显示控制台</span><span class="token string">"internalConsoleOptions"</span><span class="token punctuation">:</span><span class="token string">"neverOpen"</span><span class="token punctuation">,</span><span class="token comment">// 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡",</span><span class="token string">"MIMode"</span><span class="token punctuation">:</span><span class="token string">"gdb"</span><span class="token punctuation">,</span><span class="token comment">// 指定连接的调试器</span><span class="token string">"miDebuggerPath"</span><span class="token punctuation">:</span><span class="token string">"C:/mingw/mingw64/bin/gdb.exe"</span><span class="token punctuation">,</span><span class="token comment">// 调试器路径</span><span class="token string">"setupCommands"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token string">"description"</span><span class="token punctuation">:</span><span class="token string">"Enable pretty-printing for GDB"</span><span class="token punctuation">,</span><span class="token string">"text"</span><span class="token punctuation">:</span><span class="token string">"-enable-pretty-printing"</span><span class="token punctuation">,</span><span class="token string">"ignoreFailures"</span><span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"preLaunchTask"</span><span class="token punctuation">:</span><span class="token string">"Compile"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-json"><span class="token comment">// tasks.json</span><span class="token punctuation">{<!-- --></span><span class="token string">"version"</span><span class="token punctuation">:</span><span class="token string">"2.0.0"</span><span class="token punctuation">,</span><span class="token string">"tasks"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span><span class="token string">"label"</span><span class="token punctuation">:</span><span class="token string">"Compile"</span><span class="token punctuation">,</span><span class="token string">"command"</span><span class="token punctuation">:</span><span class="token string">"g++"</span><span class="token punctuation">,</span><span class="token string">"args"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"${file}"</span><span class="token punctuation">,</span><span class="token comment">// 指定编译源代码文件</span><span class="token string">"-o"</span><span class="token punctuation">,</span><span class="token string">"${fileDirname}/build/${fileBasenameNoExtension}.exe"</span><span class="token punctuation">,</span><span class="token comment">// 指定输出文件名，不加该参数则默认输出a.exe</span><span class="token string">"-O0"</span><span class="token punctuation">,</span><span class="token comment">// 优化级别</span><span class="token string">"-ggdb3"</span><span class="token punctuation">,</span><span class="token comment">// 生成和调试有关的信息</span><span class="token string">"-Wall"</span><span class="token punctuation">,</span><span class="token comment">// 开启额外警告</span><span class="token string">"-static-libgcc"</span><span class="token punctuation">,</span><span class="token comment">// 静态链接</span><span class="token string">"-std=c++17"</span><span class="token punctuation">,</span><span class="token comment">// 使用c++17标准</span><span class="token string">"-finput-charset=UTF-8"</span><span class="token punctuation">,</span><span class="token comment">//输入编译器文本编码 默认为UTF-8</span><span class="token string">"-fexec-charset=GB18030"</span><span class="token punctuation">,</span><span class="token comment">//输出exe文件的编码</span><span class="token string">"-D _USE_MATH_DEFINES"</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"problemMatcher"</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">"owner"</span><span class="token punctuation">:</span><span class="token string">"cpp"</span><span class="token punctuation">,</span><span class="token string">"fileLocation"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"absolute"</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"pattern"</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">"regexp"</span><span class="token punctuation">:</span><span class="token string">"^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$"</span><span class="token punctuation">,</span><span class="token string">"file"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"line"</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"column"</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">"severity"</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">"message"</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">"type"</span><span class="token punctuation">:</span><span class="token string">"shell"</span><span class="token punctuation">,</span><span class="token string">"group"</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">"kind"</span><span class="token punctuation">:</span><span class="token string">"build"</span><span class="token punctuation">,</span><span class="token string">"isDefault"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">"presentation"</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">"echo"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string">"reveal"</span><span class="token punctuation">:</span><span class="token string">"always"</span><span class="token punctuation">,</span><span class="token comment">// 在“终端”中显示编译信息的策略，可以为always，silent，never</span><span class="token string">"focus"</span><span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token string">"panel"</span><span class="token punctuation">:</span><span class="token string">"shared"</span><span class="token comment">// 不同的文件的编译信息共享一个终端面板</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span></code></pre> <h3><a id="_114" rel="nofollow"></a>编译运行</h3> <ol> <li>文件目录如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/80893c756fd1aac35b969f7eba72f9c4.jpg" alt="vscode for c/c++（ACM配置）"></li> <li>代码会有所提示（如果没有代码提示，请检查.vscode下的三个配置文件）<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/ba79b3a6feb77a48ab5e4ea60030d6a2.jpg" alt="vscode for c/c++（ACM配置）"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/27db72c6d10ec477f135bbca6267bae5.jpg" alt="vscode for c/c++（ACM配置）"></li> <li>代码编写完毕，直接点击右上角按钮运行，就能在终端看见输出<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220817/7bb9fa73294c4af69ce13ddcdcf9dde5.jpg" alt="vscode for c/c++（ACM配置）"></li> </ol> <h3><a id="_122" rel="nofollow"></a>结束语</h3> <p>VScode相比于其他几款编辑器确实有很大的优势，推荐使用。</p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2820.htm">OpenSSL3.0.5安装</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2822.htm">centos 7redis设置开机自动启动</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2803.htm" title="JS实现导出Excel和CSV文件操作_javascript技巧">JS实现导出Excel和CSV文件操作_javascript技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2788.htm" title="《C语言及程序设计》程序阅读——宏定义">《C语言及程序设计》程序阅读——宏定义</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2780.htm" title="Redis缓存过期策略">Redis缓存过期策略</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

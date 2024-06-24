@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2758.htm" />
+    <title>vue项目打包后文件过大怎么办，如何优化加载速度 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>vue项目打包后文件过大怎么办，如何优化加载速度</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> <h2><a id="_0" rel="nofollow"></a>一、路由懒加载</h2> <pre><code class="prism language-js"><span class="token keyword">const</span><span class="token function-variable function">Home</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./views/Home.vue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span><span class="token function-variable function">MyInfo</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./views/MyInfo.vue'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>在.babelrc中</p> <pre><code class="prism language-js"><span class="token string">"plugins"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"@babel/plugin-syntax-dynamic-import"</span><span class="token punctuation">]</span></code></pre> <h2><a id="_12" rel="nofollow"></a>二、分离公共代码</h2> <h3><a id="webpack_3x_13" rel="nofollow"></a>webpack 3.x</h3> <pre><code class="prism language-js"><span class="token keyword">new</span><span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">'vendor'</span><span class="token punctuation">,</span>       minChunks<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// any required modules inside node_modules are extracted to vendor</span><span class="token comment">// 翻译注释：所有被依赖的模块，如果它在node_modules目录中，都会被抽离出来放进 vendor.js 中</span><span class="token comment">// 如果模块有一个路径，而且在路径中有 js 文件，并且这个模块是属于 node_modules 中的模块</span><span class="token comment">// 那这个模块就会被抽离出来，放进名为 vendor 的这个chunk</span><span class="token keyword">return</span><span class="token punctuation">(</span>           module<span class="token punctuation">.</span>resource<span class="token operator">&amp;&amp;</span><span class="token regex">/\.js$/</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span>resource<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>           module<span class="token punctuation">.</span>resource<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>             path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span><span class="token string">'../node_modules'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">===</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// extract webpack runtime and module manifest to its own file in order to</span><span class="token comment">// prevent vendor hash from being updated whenever app bundle is updated</span><span class="token keyword">new</span><span class="token class-name">webpack<span class="token punctuation">.</span>optimize<span class="token punctuation">.</span>CommonsChunkPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">'manifest'</span><span class="token punctuation">,</span>       chunks<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">'vendor'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre> <h3><a id="webpack_4x_39" rel="nofollow"></a>webpack 4.x</h3> <p>optimization与output同级</p> <pre><code class="prism language-js"> optimization<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>     runtimeChunk<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>       name<span class="token punctuation">:</span><span class="token string">'manifest'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>     splitChunks<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>       chunks<span class="token punctuation">:</span><span class="token string">'async'</span><span class="token punctuation">,</span>       minChunks<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span>       maxAsyncRequests<span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span>       maxInitialRequests<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span>       name<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>       cacheGroups<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>         vendor<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>           name<span class="token punctuation">:</span><span class="token string">'vendor'</span><span class="token punctuation">,</span><span class="token comment">// chunks 有三个可选值，”initial”, “async” 和 “all”. 分别对应优化时只选择初始的chunks，所需要的chunks 还是所有chunk</span>           chunks<span class="token punctuation">:</span><span class="token string">'initial'</span><span class="token punctuation">,</span>           priority<span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span>           reuseExistingChunk<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>           test<span class="token punctuation">:</span><span class="token regex">/[\\/]node_modules[\\/]/</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <h2><a id="css_67" rel="nofollow"></a>三、css懒加载</h2> <pre><code class="prism language-js"><span class="token keyword">const</span> MiniCssExtractPlugin<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"mini-css-extract-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>该插件需要webpack 4.x</p> <pre><code class="prism language-js"><span class="token comment">//sass</span><span class="token punctuation">{<!-- --></span>         test<span class="token punctuation">:</span><span class="token regex">/\.(sc|sa|c)ss$/</span><span class="token punctuation">,</span>         use<span class="token punctuation">:</span><span class="token punctuation">[</span>           MiniCssExtractPlugin<span class="token punctuation">.</span>loader<span class="token punctuation">,</span><span class="token string">'css-loader'</span><span class="token punctuation">,</span><span class="token string">'postcss-loader'</span><span class="token punctuation">,</span><span class="token string">'sass-loader'</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>plugins中：</p> <pre><code class="prism language-js"><span class="token keyword">new</span><span class="token class-name">MiniCssExtractPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token comment">// Options similar to the same options in webpackOptions.output</span><span class="token comment">// both options are optional</span>       filename<span class="token punctuation">:</span> devMode<span class="token operator">?</span><span class="token string">'css/[name].css'</span><span class="token punctuation">:</span><span class="token string">'css/[name].[hash].css'</span><span class="token punctuation">,</span>       chunkFilename<span class="token punctuation">:</span> devMode<span class="token operator">?</span><span class="token string">'css/[id].css'</span><span class="token punctuation">:</span><span class="token string">'css/[id].[hash].css'</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span></code></pre> <h2><a id="CDN_97" rel="nofollow"></a>四、CDN引入</h2> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/vue/2.5.21/vue.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcss.com/axios/0.18.0/axios.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/vant/lib/vant.min.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre> <p>webpack.base.conf.js中</p> <pre><code class="prism language-js">externals<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">'vue'</span><span class="token punctuation">:</span><span class="token string">'Vue'</span><span class="token punctuation">,</span><span class="token string">'vue-router'</span><span class="token punctuation">:</span><span class="token string">'VueRouter'</span><span class="token punctuation">,</span><span class="token string">'vuex'</span><span class="token punctuation">:</span><span class="token string">'Vuex'</span><span class="token punctuation">,</span><span class="token string">'axios'</span><span class="token punctuation">:</span><span class="token string">'axios'</span><span class="token punctuation">,</span><span class="token string">'vant'</span><span class="token punctuation">:</span><span class="token string">'vant'</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>externals与output同级。</p> <p>删掉项目中import的这几个相关的，以及Vue.use()。eslint插件报错not defined的话，前面加个window，如window.VueRouter。</p> <h2><a id="jscss_121" rel="nofollow"></a>五、js压缩、css压缩</h2> <p>这个就不说了。</p> <p>推荐使用webpack 4.x，在production模式下有Tree Shaking和Scope Hoisting。<br /> 如果还是过大，可以使用下面插件：</p> <pre><code class="prism language-js"><span class="token keyword">const</span> BundleAnalyzerPlugin<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin<span class="token punctuation">;</span> plugins<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token keyword">new</span><span class="token class-name">BundleAnalyzerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre> <p>它会生成一个分析图，你的文件里包含了哪些文件，打包后，它会自动在浏览器中打开。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/cb24ad8e71f377205637ef73e1f426d7.jpg" alt="vue项目打包后文件过大怎么办，如何优化加载速度"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220707/fc440bdb6070a9bc3cbedc4359f86dd8.jpg" alt="vue项目打包后文件过大怎么办，如何优化加载速度"></p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2757.htm">Git基础知识在Git中进行忽略文件操作_在线工具</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2759.htm">手把手教会将 Windows 窗体桌面应用从.NET Framework迁移到 .NET SDK/.NET 6 格式</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2772.htm" title="在Java的数字字面量中使用下划线">在Java的数字字面量中使用下划线</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2808.htm" title="使用 Vert.X Future/Promise 编写异步代码_在线工具">使用 Vert.X Future/Promise 编写异步代码_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2783.htm" title="JVM将初始和最大内存大小设置为相同值的好处">JVM将初始和最大内存大小设置为相同值的好处</a></li>
+                        <li class="py-2"><a href="/html/category/article-2766.htm" title="Android：两个Activity之间通过Intent传值">Android：两个Activity之间通过Intent传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

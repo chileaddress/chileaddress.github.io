@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2633.htm" />
+    <title>springboot实现定时任务-Scheduling - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>springboot实现定时任务-Scheduling</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <h1>1.主要总结@Scheduled()注解的三个属性：cron,fixedRate,fixedDelay</h1> <p>cron为cron表达式，用来表示该任务在日期时间维度执行频率，详细可参考cron表达式的文章</p> <p>fixedRate:代表该任务的执行频率，单位毫秒，无论任务执行耗时多久，总是以该频率执行任务</p> <p>fixedDelay:代表该任务的执行频率，单位毫秒，在上一次任务执行完后等待x毫秒后执行下次任务</p> <h1>2.开启异步@EnableAsync后使用上述三种属性产生的效果</h1> <p>前提：springboot通过scheduling实现的定时任务使用的线程有自己的线程池，默认大小为1，此时无法满足多个定时任务的情形，因此通常需要手动设置线程池的大小，以10为例。</p> <p>有以下三种情形</p> <p>1.使用fixedRate属性不加@Async注解、使用fixedRate属性加@Async注解</p> <p>2.使用cron不加@Async注解、使用cron属性加@Async注解</p> <p>3.使用fixedDelay不加@Async注解</p> <pre><code class="language-java">@Component @EnableAsync @Slf4j public class ScheduledTasks {      @Scheduled(fixedDelay = 3000) //    @Scheduled(fixedRate = 3000) //    @Scheduled(cron = "0/3 * * * * ?") //    @Async(value = "myAsync")     void contextLoads() throws InterruptedException {         log.info("scheduled1 wait start");         Thread.sleep(4000);         log.info("scheduled1 wait end");         log.info("scheduled task run....      " + Thread.currentThread().getName());     }  //    @Scheduled(cron = "0/3 * * * * ?")     @Scheduled(fixedDelay = 3000) //    @Scheduled(fixedRate = 3000) //    @Async(value = "myAsync")     void scheduled2() throws InterruptedException {         log.info("scheduled2 wait start");         Thread.sleep(4000);         log.info("scheduled2 wait end");         log.info("scheduled task2 run....      " + Thread.currentThread().getName());     } }</code></pre> <h1>3.结论：</h1> <h3>1.使用fixedRate加@Async注解和使用cron加@Async注解效果相同</h3> <p>会实现无论任务执行耗时多久，下次任务始终会以规定的频率执行；</p> <p>上述例子中若为fixedRate，则下次任务开始执行始终是在上次任务开始后的三秒；</p> <p>若为cron，则下次任务开始执行始终为上次任务开始执行后的三秒，也就是上次任务开始时间为10:23:02，则下次任务开始时间为10:23:05，此种情况不受任务执行耗时影响。</p> <h3>2.使用fixedRate不加@Async注解</h3> <p>此时若每次任务执行耗时比fixedRate的值小，则会在上次任务开始后的fixedRate毫秒后开始执行下次任务；</p> <p>若每次执行任务耗时比fixedRate的值大，则会在上次任务执行后立刻执行下次任务，因为此时已经超过规定的执行频率的时间，因此需要立刻执行下次任务。</p> <h3>3.使用cron不加@Async注解</h3> <p>此时若每次任务执行耗时比cron表达式所表示的上次任务开始时间与下次任务开始时间的间隔小，则会以cron表达式表示的频率执行任务；</p> <p>若每次任务执行耗时比cron表达式所表示的上次任务开始时间与下次任务开始时间的间隔大，则下次任务会在上次任务执行完成后再到达cron表达式所表示的任务开始执行的时刻开始执行任务，例如上述例子中上次任务开始时间为10:23:02，任务执行耗时4s，而以cron表达式表示的频率下次的执行时间为10:23:05，但是此时上次任务并没有执行完成，上次任务执行完成的时间为10:23:06，因此下次任务执行需要等到cron表达式表示的下一次任务执行的时刻也就是10:23:08.</p> <h3>4.使用fixedDelay不加@Async注解</h3> <p>使用fixedDelay属性时不能加@Async注解，否则会报错。</p> <p>此时无论任务执行耗时是多少，下次任务开始执行的时间总是上次任务执行完成后的fixedDelay毫秒。</p> <h3>5.当有多个定时任务时，在保证定时任务线程池数以及异步线程池数足够的情况下，多个定时任务同样遵循上述结论。</h3> <h3>6.上述结论中1和4是比较符合开发需要的两种场景。</h3> <h1>4.修改定时任务线程池以及自定义异步任务线程池</h1> <h3>1.修改定时任务默认的线程池大小</h3> <p>方式一：修改配置文件application.yml&nbsp;</p> <pre><code class="language-java">spring.task.scheduling.pool.size = 10</code></pre> <p>方式二：配置类</p> <pre><code class="language-java">@Configuration public class ScheduleConfig implements SchedulingConfigurer {     @Override     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {         taskRegistrar.setScheduler(Executors.newScheduledThreadPool(50));     } }</code></pre> <h3>2.自定义定时任务的线程池</h3> <pre><code class="language-java">@Configuration public class ScheduleConfig {       /**      * 此处方法名为Bean的名字，方法名无需固定      * 因为是按TaskScheduler接口自动注入      */     @Bean     public TaskScheduler taskScheduler(){         // Spring提供的定时任务线程池类         ThreadPoolTaskScheduler taskScheduler=new ThreadPoolTaskScheduler();         //设定最大可用的线程数目         taskScheduler.setPoolSize(10);         return taskScheduler;     } }</code></pre> <h3>3.自定义异步任务线程池</h3> <pre><code class="language-java">@Component public class AsyncScheduledTaskConfig {      @Bean     public Executor myAsync() {         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();         //最大线程数         executor.setMaxPoolSize(100);         //核心线程数         executor.setCorePoolSize(10);         //任务队列的大小         executor.setQueueCapacity(10);         //线程前缀名         executor.setThreadNamePrefix("task-thread");         //线程存活时间         executor.setKeepAliveSeconds(30);          /**          * 拒绝处理策略          * CallerRunsPolicy()：交由调用方线程运行，比如 main 线程。          * AbortPolicy()：直接抛出异常。          * DiscardPolicy()：直接丢弃。          * DiscardOldestPolicy()：丢弃队列中最老的任务。          */         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());         //线程初始化         executor.initialize();         return executor;     } } </code></pre> <p>使用时只需在@Async注解中使用value属性指定线程线程池名称，也就是bean的名称，上述默认为方法名</p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2632.htm">vue-cli环境安装node-sass问题</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2634.htm">MySQL索引机制(详细+原理+解析)</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2806.htm" title="存储用户密码应该使用什么加密算法">存储用户密码应该使用什么加密算法</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                        <li class="py-2"><a href="/html/category/article-2786.htm" title=".NET Core(.NET6)中gRPC注册到Consul详解">.NET Core(.NET6)中gRPC注册到Consul详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2797.htm" title="Centos7 离线安装 KVM，并安装 Csr1000v">Centos7 离线安装 KVM，并安装 Csr1000v</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

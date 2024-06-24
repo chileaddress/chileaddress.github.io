@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2624.htm" />
+    <title>Nuxt3 rc.11 填坑 配置 element-plus - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Nuxt3 rc.11 填坑 配置 element-plus</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>网上各种版本都有，就是都不太行，不太完整。</p> <p>先看下package.json</p> <pre><code class="language-javascript">{   "private": true,   "scripts": {     "build": "nuxt build",     "dev": "nuxt dev",     "generate": "nuxt generate",     "preview": "nuxt preview",     "postinstall": "nuxt prepare"   },   "devDependencies": {     "nuxt": "3.0.0-rc.11",     "sass": "^1.49.8",     "sass-loader": "^12.6.0",     "unplugin-auto-import": "^0.10.3",     "unplugin-icons": "^0.13.2",     "unplugin-vue-components": "^0.22.8"   },   "dependencies": {     "element-plus": "^2.2.17"   } } </code></pre> <p>tsconfig.json</p> <pre><code class="language-javascript">{   // https://v3.nuxtjs.org/concepts/typescript   "extends": "./.nuxt/tsconfig.json",   "compilerOptions": {     // ...     "types": ["element-plus/global"]   } } </code></pre> <p>nuxt.config.ts</p> <pre><code class="language-javascript">import AutoImport from 'unplugin-auto-import/vite' import Components from "unplugin-vue-components/vite"; import { ElementPlusResolver } from 'unplugin-vue-components/resolvers' import IconsResolver from "unplugin-icons/resolver"; const lifecycle = process.env.npm_lifecycle_event; export default defineNuxtConfig({     vite: {         plugins: [             AutoImport({                 resolvers: [                     ElementPlusResolver(                     ),                     IconsResolver()]             }),             Components({                 dts: true,                 resolvers: [ElementPlusResolver(                     {                         importStyle: false                     }                 )]             }),         ],     },     components: true,     css: ["~/assets/scss/index.scss"],     transpile: ["element-plus"],     build: {         transpile: lifecycle === "build" ? ["element-plus"] : [],     }, }) </code></pre> <p>按照上面的配置在代码中就可以直接引用组件了，例如index.vue中的按钮</p> <pre><code class="language-javascript">&lt;template&gt;   &lt;div&gt;     &lt;h1&gt;Welcome to the homepage&lt;/h1&gt;     &lt;AppAlert&gt; This is an auto-imported component &lt;/AppAlert&gt;     &lt;el-button&gt;I am ElButton&lt;/el-button&gt;      &lt;div&gt;       &lt;el-radio-group v-model="radio1" size="large"&gt;         &lt;el-radio-button label="New York" /&gt;         &lt;el-radio-button label="Washington" /&gt;         &lt;el-radio-button label="Los Angeles" /&gt;         &lt;el-radio-button label="Chicago" /&gt;       &lt;/el-radio-group&gt;     &lt;/div&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script lang="ts" setup&gt; import { ref } from "vue"; const radio1 = ref('New York') &lt;/script&gt; &lt;style lang='scss' scoped&gt; &lt;/style&gt;</code></pre> <p>这时候可能会报错如下</p> <pre><code class="language-javascript">ElementPlusError: [IdInjection] Looks like you are using server rendering, you must provide a id provider to ensure the hydration process to be succeed usage: app.provide(ID_INJECTION_KEY, {   prefix: number,   current: number, })     at debugWarn (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/utils/error.mjs:15:37)     at useId (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/hooks/use-id/index.mjs:16:5)     at setup (file:///E:/h5/vuestudy/vue3Study/nuxt-app/node_modules/element-plus/es/components/radio/src/radio-group2.mjs:26:21)     at callWithErrorHandling (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:157:22)     at setupStatefulComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:7118:29)     at setupComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\runtime-core\dist\runtime-core.cjs.js:7073:11)     at renderComponentVNode (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js:172:17)     at Module.ssrRenderComponent (E:\h5\vuestudy\vue3Study\nuxt-app\node_modules\@vue\server-renderer\dist\server-renderer.cjs.js:612:12)     at _sfc_ssrRender (E:/h5/vuestudy/vue3Study/nuxt-app/pages/index.vue:58:31)     a</code></pre> <p>这是因为 在SSR下elementui需要配置一个provide</p> <p>需要在 plugins文件夹下建立一个element-plus.ts</p> <pre><code class="language-javascript">import { ID_INJECTION_KEY } from 'element-plus';  export default defineNuxtPlugin(nuxtApp =&gt; {     // Doing something with nuxtApp     nuxtApp.vueApp.provide(ID_INJECTION_KEY,{         prefix: Math.floor(Math.random() * 10000),         current: 0,     })   })</code></pre> <p>然后再进行重启服务 npm run dev，就可以运行正常了，控制台也不会有警告和错误了</p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2623.htm">利用ref获取单个元素或者组件，ref</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2625.htm">JVM程序计数器与虚拟机栈</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2808.htm" title="使用 Vert.X Future/Promise 编写异步代码_在线工具">使用 Vert.X Future/Promise 编写异步代码_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                        <li class="py-2"><a href="/html/category/article-2770.htm" title="JavaCPP快速入门(官方demo增强版)">JavaCPP快速入门(官方demo增强版)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2780.htm" title="Redis缓存过期策略">Redis缓存过期策略</a></li>
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2801.htm" title="手写事件发布订阅框架">手写事件发布订阅框架</a></li>
+                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

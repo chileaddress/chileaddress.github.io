@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2557.htm" />
+    <title>vue子组件如何使用父组件传过来的值_vue.js - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>vue子组件如何使用父组件传过来的值_vue.js</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">子组件使用父组件传过来的值</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">父组件</a></li> <li><a href="#_lab2_0_1" rel="nofollow">子组件</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue子组件调用父组件数据</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>子组件使用父组件传过来的值</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>父组件</h3> <div class="ay1code"> <pre class="brush:js;">&lt;alarmstatistics :roless.sync="role"&gt;&lt;/alarmstatistics&gt;    import alarmstatistics from "./alarmstatistics.vue";    components: {      alarmstatistics,    },</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>子组件</h3> <div class="ay1code"> <pre class="brush:js;">  props: ["roless"],        data() {      return {        role:this.roless,    },        mounted() {      if(this.role==3){        this.chartY = "9.5%";      }else{        this.chartY = "18%";      }    },</pre> </div> <p>如果是使用父组件接口返回来的值，在html中直接使用</p> <div class="ay1code"> <pre class="brush:xhtml;">  props: ["infoDatac"],        &lt;li          v-for="(item,i) in infoDatac.notice.admitted"          :key="'A'+ i"        &gt;          &lt;div&gt;申请单号：{{ item.applyCode }}&lt;/div&gt;          &lt;div&gt;使用时间：{{ item.useTime }}&lt;/div&gt;          &lt;span&gt;{{ item.title }}&lt;/span&gt;        &lt;/li&gt;</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue子组件调用父组件数据</h2> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html&gt;      &lt;head&gt;          &lt;meta charset="utf-8" /&gt;          &lt;title&gt;&lt;/title&gt;          &lt;script src="js/vue.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;      &lt;/head&gt;      &lt;body&gt;          &lt;div class="" id="myVue"&gt;              &lt;my-component&gt;              &lt;/my-component&gt;          &lt;/div&gt;          &lt;!--子组件--&gt;          &lt;template id="child"  &gt;              &lt;div id=""&gt;                  &lt;div @click='changedata'&gt;子组件：{{data}}&lt;/div&gt;              &lt;/div&gt;          &lt;/template&gt;          &lt;!--父组件--&gt;          &lt;template id="father"&gt;              &lt;div&gt;                  &lt;mycomponent-child v-bind:data="str"&gt;&lt;/mycomponent-child&gt;              &lt;/div&gt;          &lt;/template&gt;      &lt;/body&gt;      &lt;script type="text/javascript" charset="utf-8"&gt;          /*在父组件中的数据str，           * 将父组件的数据绑定到子组件的属性data上           * 然后在子组件中就可以通过props接收到，           * 这样在子组件中就可以使用变量 this.data1访问到 父组件的 str1对应的值了。           */          //当点击子组件，触发子组件的changedata方法，通过this.data = "父组件值被子组件修改了";改变了父级的str的值          //通过  this.$parent.fn()访问父组件的方法fn()。          var child={              props:["data"],              template:"#child",              data:function(){                  return{                      str:"我是子组件数据"                  }              },              methods:{                  changedata:function(){                      this.data = "父组件值被子组件修改了";                      this.$parent.fn();                  }             }          }                    /*父组件*/          var father={              template:"#father",              data:function(){                  return{                      str:"我是父组件数据"                  }              },              methods:{                  fn:function(){                      alert("我是父组件方法")                  }              },              components:{                  "mycomponentChild":child              }          }                    vm=new Vue({              //el:"#myVue",              components:{                  "myComponent":father              }          }).$mount('#myVue');                &lt;/script&gt;  &lt;/html&gt;</pre> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2556.htm">Java调用ffmpeg处理视频，并记录下遇到的坑</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2558.htm">组件-Element&#8212;Checkbox（多选框）</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2769.htm" title="数据库事务的四大特性和隔离级别">数据库事务的四大特性和隔离级别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2786.htm" title=".NET Core(.NET6)中gRPC注册到Consul详解">.NET Core(.NET6)中gRPC注册到Consul详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2799.htm" title="整理了25个Pandas实用技巧（上）">整理了25个Pandas实用技巧（上）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
+                        <li class="py-2"><a href="/html/category/article-2798.htm" title="树的同构 Java">树的同构 Java</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

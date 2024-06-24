@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2774.htm" />
+    <title>Goland proto文件 File Watch 自动生成 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>Goland proto文件 File Watch 自动生成</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <p>使用的是Kratos的项目模板生成的项目，目录结构如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230128/61d3d5f6014a83a94229f86aa4e40136.jpg" alt="Goland proto文件 File Watch 自动生成">每次编写完Proto文件都要手动输入命令来生成go文件，使用Goland的File Watch监听文件改变，然后执行生成命令。</p> <p>需要有File Watch这个插件<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230128/54f7ddb5ab2a795cfe8dcff1b38ef0dc.jpg" alt="Goland proto文件 File Watch 自动生成"><br /> 配置：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230128/0cc415f169b5168eedbf2cd13e78970e.jpg" alt="Goland proto文件 File Watch 自动生成"><br /> 直接把命令行的参数替换成变量就行了。<br /> 生成使用的工具是protoc.exe</p> <p><strong>生成Proto</strong><br /> *.pb.go是生成的接口代码<br /> *_grpc.pb.go是grpc服务端接口</p> <p>生成*.pb.go的目录为proto文件的option go_package = “post/internal/conf;conf”;<br /> 生成选项:proto路径(包括引用的package路径),使用–proto_path或-I命令行标志指定;<br /> 输出路径,使用–go_out指定*.pb.go(会跟上面的option go_package一起使用)、–go-grpc_out指定*_grpc.pb.go</p> <p>生成proto源码:<br /><code>kratos proto client api/post/v1/post.proto</code> =&gt;生成 *_grpc.pb.go、*.pb.go</p> <p>项目目录下运行: <code>protoc --go_out=.. --go-grpc_out=.\api\server\v1 --go-grpc_opt=paths=source_relative -I=".\third_party" -I=".\third_party\google" -I=".\api\server\v1" HatService.proto </code> =&gt;生成 <em>_grpc.pb.go、</em>.pb.go</p> <pre><code class="prism language-shell">--go_out<span class="token operator">=</span><span class="token variable">$ProjectFileDir</span>$<span class="token punctuation">\</span><span class="token punctuation">..</span> --go-grpc_out<span class="token operator">=</span><span class="token variable">$FileDir</span>$ --go-grpc_opt<span class="token operator">=</span>paths<span class="token operator">=</span>source_relative -I<span class="token operator">=</span><span class="token string">"<span class="token variable">$ProjectFileDir</span>$<span class="token entity" title="\t">\t</span>hird_party"</span> -I<span class="token operator">=</span><span class="token string">"<span class="token variable">$ProjectFileDir</span>$<span class="token entity" title="\t">\t</span>hird_party\google"</span> -I<span class="token operator">=</span><span class="token string">"<span class="token variable">$ProjectFileDir</span>$<span class="token entity" title="\a">\a</span>pi\server<span class="token entity" title="\v">\v</span>1"</span> <span class="token variable">$FilePath</span>$ </code></pre> <p>$ProjectFileDir$ 是项目的目录<br /> $FilePath$ 是监控到变更文件的路径<br /> -I参数是添加包proto文件依赖</p> <p>show console可以改为always来查看日志。<br /> 保存配置后每次修改都会自动生成go文件</p> </p></div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2773.htm">Hyperledger Fabric 2.2 学习笔记：测试网络test-network</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2775.htm">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2804.htm" title="java中RabbitMQ高级应用_java">java中RabbitMQ高级应用_java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/html/category/article-2782.htm" title="Vue的v-for和v-bind实现列表颜色切换">Vue的v-for和v-bind实现列表颜色切换</a></li>
+                        <li class="py-2"><a href="/html/category/article-2766.htm" title="Android：两个Activity之间通过Intent传值">Android：两个Activity之间通过Intent传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2765.htm" title="mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

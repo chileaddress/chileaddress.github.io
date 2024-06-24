@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2793.htm" />
+    <title>OutOfMemoryError异常_在线工具 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>OutOfMemoryError异常_在线工具</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<p>除了程序计数器外，虚拟机内存在其他几个运行时区域都有发生OutOfMemoryError异常的可能。</p> <h5> <a id="Java_2"  rel="nofollow"></a>Java堆溢出</h5> <p>设置Idea堆的大小为20MB，不可扩展（-Xms参数与最大值-Xmx参数设置为一样，避免自动扩展）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/8eca647042a3cbaf89991e4f58c73f7e.jpg" alt="OutOfMemoryError异常_在线工具"></p> <div class="cnblogs_code"> <pre>-verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8</pre> </div> <p>运行以下代码：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">package</span><span style="color: rgba(0, 0, 0, 1)"> memory;  </span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.util.ArrayList; </span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.util.List;  </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> HeepOOM {     </span><span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> OOMObject{      }      </span><span style="color: rgba(0, 0, 255, 1)">public</span>  <span style="color: rgba(0, 0, 255, 1)">static</span>  <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">  main(String[] args){         List</span>&lt;OOMObject&gt; list = <span style="color: rgba(0, 0, 255, 1)">new</span> ArrayList&lt;&gt;<span style="color: rgba(0, 0, 0, 1)">();         </span><span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">){             list.add(</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> OOMObject());         }     } } 抛出错误：  Exception in thread </span>"main"<span style="color: rgba(0, 0, 0, 1)"> java.lang.OutOfMemoryError: Java heap space     at java.base</span>/java.util.Arrays.copyOf(Arrays.java:3512<span style="color: rgba(0, 0, 0, 1)">)     at java.base</span>/java.util.Arrays.copyOf(Arrays.java:3481<span style="color: rgba(0, 0, 0, 1)">)     at java.base</span>/java.util.ArrayList.grow(ArrayList.java:237<span style="color: rgba(0, 0, 0, 1)">)     at java.base</span>/java.util.ArrayList.grow(ArrayList.java:244<span style="color: rgba(0, 0, 0, 1)">)     at java.base</span>/java.util.ArrayList.add(ArrayList.java:454<span style="color: rgba(0, 0, 0, 1)">)     at java.base</span>/java.util.ArrayList.add(ArrayList.java:467<span style="color: rgba(0, 0, 0, 1)">)     at memory.HeepOOM.main(HeepOOM.java:</span>14)</pre> </div> <p>解决这个异常重点是确认内存中的对象是否是必要的，也就是区分是出现了内存泄漏(Memory Leak)还是内存溢出(Memory Overflow)</p> <ul> <li>内存泄漏：程序申请内存后，无法释放已申请的内存空间，多次内存泄漏堆积后的后果就是内存溢出</li> <li>内存溢出：程序申请内存时，没有足够的内存供申请者使用</li> </ul> <p>如果是内存泄漏，可进一步通过工具查看泄漏对象到GC Roots的引用链。于是就能找到泄漏对象是通过怎样的路径与GC Root相关联导致垃圾回收器无法自动回收他们。</p> <p>如果不存在泄漏，则就应该检查虚拟机堆参数（-Xmx与-Xms）,与机器物理内存对比看是否还可以调大，从代码上检查是否存在某些对象生命周期过长、持有状态时间过长的情况，尝试减少长期运行期的内存消耗。</p> <h5>虚拟机栈和本地方法栈溢出</h5> <ul> <li>如果线程请求的栈深度大于虚拟机所允许的最大深度，则抛出StackOverflowError异常。</li> <li>如果虚拟机在扩展栈时无法申请到足够的内存，则抛出OutOfMemoryError异常。</li> </ul> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">package</span><span style="color: rgba(0, 0, 0, 1)"> memory;  </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> JavaVmStackSOF {     </span><span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">int</span> stackLength = 1<span style="color: rgba(0, 0, 0, 1)">;      </span><span style="color: rgba(0, 0, 255, 1)">public</span>  <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">  stackLeak(){         stackLength</span>++<span style="color: rgba(0, 0, 0, 1)">;         stackLeak();     }             </span><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * -Xss180K -设置每个线程分配180K内存      * </span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)"> args      * </span><span style="color: rgba(128, 128, 128, 1)">@throws</span><span style="color: rgba(0, 128, 0, 1)"> Throwable      </span><span style="color: rgba(0, 128, 0, 1)">*/</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span> main(String[] args) <span style="color: rgba(0, 0, 255, 1)">throws</span><span style="color: rgba(0, 0, 0, 1)"> Throwable{         JavaVmStackSOF oom </span>= <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> JavaVmStackSOF();         </span><span style="color: rgba(0, 0, 255, 1)">try</span><span style="color: rgba(0, 0, 0, 1)">{             oom.stackLeak();         }</span><span style="color: rgba(0, 0, 255, 1)">catch</span><span style="color: rgba(0, 0, 0, 1)"> (Throwable e){             System.out.println(</span>"stack length:"+<span style="color: rgba(0, 0, 0, 1)">oom.stackLength);             </span><span style="color: rgba(0, 0, 255, 1)">throw</span><span style="color: rgba(0, 0, 0, 1)">  e;         }     } }</span></pre> </div> <p>运行结果：</p> <div class="cnblogs_code"> <pre>Exception in thread "main"<span style="color: rgba(0, 0, 0, 1)"> java.lang.StackOverflowError stack length:</span>1554<span style="color: rgba(0, 0, 0, 1)">     at memory.JavaVmStackSOF.stackLeak(JavaVmStackSOF.java:</span>7)</pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">package</span><span style="color: rgba(0, 0, 0, 1)"> memory;  </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> JavaVMStackOOM {     </span><span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> dontStop(){        </span><span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">){         }    }     </span><span style="color: rgba(0, 0, 255, 1)">public</span>  <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">  stackLeakByThread(){        </span><span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">){            Thread thread </span>= <span style="color: rgba(0, 0, 255, 1)">new</span> Thread(<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Runnable() {                @Override                </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> run() {                    dontStop();                }            });            thread.start();        }    }     </span><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">     * -Xss2M -设置每个线程分配2M内存     * 最终会耗尽所有内存，导致没有足够的内存创建线程而抛出异常：OutOfMemoryError     * </span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)"> args     * </span><span style="color: rgba(128, 128, 128, 1)">@throws</span><span style="color: rgba(0, 128, 0, 1)"> Throwable     </span><span style="color: rgba(0, 128, 0, 1)">*/</span>    <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span> main(String[] args) <span style="color: rgba(0, 0, 255, 1)">throws</span><span style="color: rgba(0, 0, 0, 1)"> Throwable{        JavaVMStackOOM oom </span>= <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> JavaVMStackOOM();        oom.stackLeakByThread();    } }</span></pre> </div> <p>运行结果</p> <div class="cnblogs_code"> <pre>Exceptuib in thread "main" java.lang.OutOfMemoryError: unable to create <span style="color: rgba(0, 0, 255, 1)">new</span> <span style="color: rgba(0, 0, 255, 1)">native</span> thread</pre> </div> <p><strong>运行时常量池溢出</strong><br />运行时常量池属于方法区，因此可以通过以下方式模拟：<br />java7可以通过设置：-XX:PermSize=10M -XX:MaxPermSize=10M 来限定方法区。<br />java8之后永久代被移除，-XX:PermSize、-XX:MaxPermSize已经被移除；可以使用：-XX:MetaspaceSize=10M -XX:MaxMetaspaceSize=10M （元空间代替）<br />类型信息、字段、方法、常量保存在元空间。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">package</span><span style="color: rgba(0, 0, 0, 1)"> main.java.loadclass;  </span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.util.ArrayList; </span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.util.List;  </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> RuntimeConstantPoolOOM {              </span><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * JAVA7 下运行      * </span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)"> args      </span><span style="color: rgba(0, 128, 0, 1)">*/</span>     <span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> main(String[] args){         </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">使用LIST保持着常量池引用，避免Full GC 回收常量池行为</span>         List&lt;String&gt; list = <span style="color: rgba(0, 0, 255, 1)">new</span> ArrayList&lt;&gt;<span style="color: rgba(0, 0, 0, 1)">();         </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">10MB的PermSize在integer范围内足够产生OOM了</span>         <span style="color: rgba(0, 0, 255, 1)">int</span> i = 0<span style="color: rgba(0, 0, 0, 1)">;         </span><span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">){             list.add(String.valueOf(i</span>++<span style="color: rgba(0, 0, 0, 1)">).intern());         }     } }</span></pre> </div> <p>抛出以下异常：java.lang.OutOfMemoryError:PermGen space</p> <p><strong>方法区溢出</strong><br />方法区用于存放Class的相关信息，如类名、访问修饰符、常量池、字段描述、方法描述等。一个类如果被垃圾回收器回收掉，判定条件非常苛刻，在经常动态生成大量Class的应用中，需要特别注意类的回收状态。</p> <p><strong>本机直接内存溢出</strong><br />DirectMemory容量可通过-XX:MaxDirectMemorySize指定，如果不指定，则默认与Java堆的最大值（-Xmx指定）一样。<br />DirectByteBuffer是Java用于实现堆外内存的一个重要类，我们可以通过该类实现堆外内存的创建、使用和销毁。DirectByteBuffer跑出内存溢出异常时并没有真正整整向操作系统申请分配内存，而是通过计算得知内存无法分配，手动跑出异常。<br />使用Unsafe类的allocateMemory方法是真正分配内存。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">package</span><span style="color: rgba(0, 0, 0, 1)"> main.java.loadclass;  </span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> sun.misc.Unsafe;  </span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> java.lang.reflect.Field;  </span><span style="color: rgba(0, 0, 255, 1)">public</span> <span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> DirectMemoryOOM {      </span><span style="color: rgba(0, 0, 255, 1)">private</span> <span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">final</span> <span style="color: rgba(0, 0, 255, 1)">int</span> _1MB = 1024 * 1024<span style="color: rgba(0, 0, 0, 1)">;      </span><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * -Xmx20M -XX:MaxDirectMemorySize=10M      * </span><span style="color: rgba(128, 128, 128, 1)">@param</span><span style="color: rgba(0, 128, 0, 1)"> args      * </span><span style="color: rgba(128, 128, 128, 1)">@throws</span><span style="color: rgba(0, 128, 0, 1)"> Exception      </span><span style="color: rgba(0, 128, 0, 1)">*/</span>     <span style="color: rgba(0, 0, 255, 1)">public</span>  <span style="color: rgba(0, 0, 255, 1)">static</span>  <span style="color: rgba(0, 0, 255, 1)">void</span> main(String[] args) <span style="color: rgba(0, 0, 255, 1)">throws</span><span style="color: rgba(0, 0, 0, 1)"> Exception{         Field unsefeField </span>= Unsafe.<span style="color: rgba(0, 0, 255, 1)">class</span>.getDeclaredFields()[0<span style="color: rgba(0, 0, 0, 1)">];         unsefeField.setAccessible(</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">);         Unsafe unsafe </span>= (Unsafe) unsefeField.get(<span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">);         </span><span style="color: rgba(0, 0, 255, 1)">while</span> (<span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">){             unsafe.allocateMemory(_1MB);         }     } }</span></pre> </div> <p>返回结果：</p> <div class="cnblogs_code"> <pre>Exception in thread "main"<span style="color: rgba(0, 0, 0, 1)"> java.lang.OutOfMemoryError     at java.base</span>/jdk.internal.misc.Unsafe.allocateMemory(Unsafe.java:616<span style="color: rgba(0, 0, 0, 1)">)     at jdk.unsupported</span>/sun.misc.Unsafe.allocateMemory(Unsafe.java:462<span style="color: rgba(0, 0, 0, 1)">)     at main.java.loadclass.DirectMemoryOOM.main(DirectMemoryOOM.java:</span>16)</pre> </div> <hr> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220507/704f4433a2d76186f7b51388707fbc2c.jpg" alt="OutOfMemoryError异常_在线工具"></p> <p> </p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2792.htm">toString() 和 new String()用法区别</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2794.htm">深入浅出谈谈Java并发编程：Volatile</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2779.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2785.htm" title="企业微信 嵌H5页面 用户权限获取匹配">企业微信 嵌H5页面 用户权限获取匹配</a></li>
+                        <li class="py-2"><a href="/html/category/article-2798.htm" title="树的同构 Java">树的同构 Java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2784.htm" title="C++基础之C++中的输入输出">C++基础之C++中的输入输出</a></li>
+                        <li class="py-2"><a href="/html/category/article-2805.htm" title="Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel">Spring Cloud Alibaba入门实践(十九)-Feign整合Sentinel</a></li>
+                        <li class="py-2"><a href="/html/category/article-2807.htm" title="vue生命周期 钩子函数">vue生命周期 钩子函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-2791.htm" title="FreeRTOS进阶之系统延时完全解析_操作系统_">FreeRTOS进阶之系统延时完全解析_操作系统_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2816.htm" title="SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码">SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

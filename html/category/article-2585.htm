@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2585.htm" />
+    <title>通俗易懂：窗口函数案例详解 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>通俗易懂：窗口函数案例详解</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h1 id="什么是窗口函数">什么是窗口函数</h1> <p>相信很多人都比较熟悉 SQL 聚合函数的语法，比如 count(), sum(), max()等，</p> <p>窗口函数类似聚合函数，不同的是窗口函数不改变原有的行。</p> <p>窗口函数是数据分析和数据开发必备的技能。</p> <p>基本语法：<code>&lt;窗口函数&gt; over (partition by &lt;用于分组的列名&gt; order by &lt;用于排序的列名&gt;)</code></p> <p>可能这样的解释还是不明了，没事，往后看，一会你就明白了。</p> <h1 id="案例">案例</h1> <p>现在先模拟几条数据，假如目前有学生成绩表（stu_scores）如下：</p> <table> <thead> <tr> <th>class(班级)</th> <th>id(学号)</th> <th>score(成绩)</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>004</td> <td>71</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> </tr> <tr> <td>1</td> <td>002</td> <td>98</td> </tr> <tr> <td>2</td> <td>001</td> <td>80</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> </tr> </tbody> </table> <h2 id="语句一">语句一：</h2> <pre><code>select *, 	rank①() over②(partition by③ class order by④ score desc) ranking  from stu_scores;</code></pre> <p>得到的结果如下：</p> <table> <thead> <tr> <th>class(班级)</th> <th>id(学号)</th> <th>score(成绩)</th> <th>ranking</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>002</td> <td>98</td> <td>1</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> <td>2</td> </tr> <tr> <td>1</td> <td>004</td> <td>71</td> <td>3</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> <td>1</td> </tr> <tr> <td>2</td> <td>001</td> <td>80</td> <td>2</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> <td>3</td> </tr> </tbody> </table> <p>接下来解释一下这段 SQL，这条 SQL 的目的是求每个班级内的成绩排名</p> <p>① rank() 排序的函数</p> <p>② over() 指定分析函数工作的数据窗口大小</p> <p>③ partition by 指定分组字段，这个案例中用 class 作为分组字段， 类似 group by</p> <p>④ order by 排序，对分组后的结果进行排序</p> <p>可能有些朋友会问：“这不就是 group by 和 order by 的用法么？不用窗口函数也能实现，为啥要用它？”</p> <p>这是因为，单纯使用 group by 分组汇总后改变了表的行数，一行只有一个类别；</p> <p>而使用窗口函数则不改变行数，可以将详细信息也展示出来。</p> <p>到这，应该大致明白窗口函数的使用场景及如何使用了吧。</p> <p>为了让大家更好地理解窗口函数，再写几条语句，看看结果是否和你想的一致。</p> <h2 id="语句二">语句二：</h2> <pre><code>select *,    sum(score) over(order by id) as win_sum,    count(score) over(order by id) as win_count,    min(score) over(order by id) as win_min from stu_scores;</code></pre> <p><strong>结果：</strong></p> <table> <thead> <tr> <th>class</th> <th>id</th> <th>score</th> <th>win_sum</th> <th>win_count</th> <th>win_min</th> </tr> </thead> <tbody> <tr> <td>2</td> <td>001</td> <td>80</td> <td>80</td> <td>1</td> <td>80</td> </tr> <tr> <td>1</td> <td>002</td> <td>98</td> <td>178</td> <td>2</td> <td>80</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> <td>276</td> <td>3</td> <td>80</td> </tr> <tr> <td>1</td> <td>004</td> <td>71</td> <td>347</td> <td>4</td> <td>71</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> <td>424</td> <td>5</td> <td>71</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> <td>504</td> <td>6</td> <td>71</td> </tr> </tbody> </table> <p>这样的结果是否和你想的一样呢？</p> <p>由于不加 partition by 因此没有分组，所以从第一行开始开窗做计算。</p> <p>以 win_sum 为例，第一行成绩相加 80，与第二行相加得 178，再与第三行相加得 276，以此类推。</p> <p><strong>这样做有什么意义呢？</strong></p> <p>可以每一行的数据里直观的看到，截止到本行数据，统计数据是多少。</p> <p>同时可以看出每一行数据，对整体统计数据的影响。</p> <p>从成绩上可能不太好理解，如果是从生产经营角度，比如对比每月营业额，可以更直观地看出差距。</p> <h1 id="其它窗口函数及关键字">其它窗口函数及关键字</h1> <h2 id="rank-与-dense_rank">rank 与 dense_rank</h2> <p>rank(), dense_rank() 都属于排序函数，区别在于有重复数据的时候如何排，看案例就知道</p> <pre><code>select *, 	rank() over(order by score desc) as ranking, 	dense_rank() over(order by score desc) as dense_ranking from stu_scores;</code></pre> <p><strong>结果：</strong></p> <table> <thead> <tr> <th>class</th> <th>id</th> <th>score</th> <th>ranking</th> <th>dense_ranking</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>002</td> <td>98</td> <td>1</td> <td>1</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> <td>1</td> <td>1</td> </tr> <tr> <td>2</td> <td>001</td> <td>80</td> <td>3</td> <td>2</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> <td>4</td> <td>3</td> </tr> <tr> <td>1</td> <td>004</td> <td>71</td> <td>5</td> <td>4</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> <td>6</td> <td>5</td> </tr> </tbody> </table> <p>可以看到，遇到重复排名的时候，rank 是跳跃排序，如果有两个第一，那接下来是第三；</p> <p>dense_rank()则是连续排序，如果有两个第一时，那接下来是第二。</p> <h2 id="lead-与-lag">lead 与 lag</h2> <p>lead(col, n, default_val)：用于统计窗口内往下第 n 行值。<br /> 第一个参数为列名，第二个参数为往下第 n 行（可选，默认为1），第三个参数为默认值（当往下第n行为NULL时候，取默认值，如不指定，则为NULL。</p> <p>lag(col,n, default_val)：用于统计窗口内往上第n行值，参数和 lead 一样</p> <p>还是看案例吧，用文字讲确实很难讲清楚</p> <p>问题：根据班级分组，统计每个班学生的成绩以及小于（大于）等于该学生成绩的上（下）一个学生的成绩:</p> <pre><code>select *, 	lead(score,1) over(partition by class order by score) as lead, 	lag(score,1) over(partition by class order by score) as lag from stu_scores;</code></pre> <p><strong>结果：</strong></p> <table> <thead> <tr> <th>class</th> <th>id</th> <th>score</th> <th>lead</th> <th>lag</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>004</td> <td>71</td> <td>80</td> <td>null</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> <td>98</td> <td>71</td> </tr> <tr> <td>1</td> <td>002</td> <td>98</td> <td>null</td> <td>80</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> <td>80</td> <td>null</td> </tr> <tr> <td>2</td> <td>001</td> <td>80</td> <td>98</td> <td>77</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> <td>null</td> <td>80</td> </tr> </tbody> </table> <p>可以看到，第二行 lead 的结果是第三行的成绩，lag 的结果是第一行的成绩，没有的则为 null</p> <h2 id="last_value-与-first_value">last_value 与 first_value</h2> <p>这两个比较简单，顾名思义，分别表示取窗口内的最后一个值和第一条数据，但是先看看例子</p> <pre><code>select *, 	first_value(score) over(partition by class order by score) as first, 	last_value(score) over(partition by class order by score) as last from stu_scores;</code></pre> <p><strong>结果：</strong></p> <table> <thead> <tr> <th>class</th> <th>id</th> <th>score</th> <th>first</th> <th>last</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>004</td> <td>71</td> <td>71</td> <td>71</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> <td>71</td> <td>80</td> </tr> <tr> <td>1</td> <td>002</td> <td>98</td> <td>71</td> <td>98</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> <td>77</td> <td>77</td> </tr> <tr> <td>2</td> <td>001</td> <td>80</td> <td>77</td> <td>80</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> <td>77</td> <td>98</td> </tr> </tbody> </table> <p>从结果看，first_value 的结果很合理，是每个分区的第一个数据；</p> <p>但 last_value 的结果好像不符合期望，这个和我接下来要说的几个关键字有关。</p> <h2 id="unboundedprecedingfollowingcurrent-row">UNBOUNDED、PRECEDING、FOLLOWING、CURRENT ROW</h2> <p>先粗略地解释一下这些关键字：</p> <p><strong>CURRENT ROW</strong>：当前行</p> <p><strong>n PRECEDING</strong>：往前 n 行数据</p> <p><strong>n FOLLOWING</strong>：往后 n 行数据</p> <p><strong>UNBOUNDED</strong>：起点</p> <ul> <li> <p><strong>UNBOUNDED PRECEDING</strong> 表示从前面的起点，</p> </li> <li> <p><strong>UNBOUNDED FOLLOWING</strong> 表示到后面的终点</p> </li> </ul> <p>老规矩，先看例子</p> <pre><code>SELECT *,   last_value(score) ov.r(PARTITION BY class ORDER BY score) last1,   last_value(score) over(PARTITION BY class ORDER BY score RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT row) last2,   last_value(score) over(PARTITION BY class ORDER BY score RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED following) last3,   last_value(score) over(PARTITION BY class ORDER BY score RANGE BETWEEN 3 PRECEDING AND 3 FOLLOWING) last4,   last_value(score) over(PARTITION BY class ORDER BY score ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING) last5 FROM stu_scores;</code></pre> <p><strong>结果：</strong></p> <table> <thead> <tr> <th>class</th> <th>id</th> <th>score</th> <th>last1</th> <th>last2</th> <th>last3</th> <th>last4</th> <th>last5</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>004</td> <td>71</td> <td>71</td> <td>71</td> <td>98</td> <td>71</td> <td>80</td> </tr> <tr> <td>1</td> <td>006</td> <td>80</td> <td>80</td> <td>80</td> <td>98</td> <td>80</td> <td>98</td> </tr> <tr> <td>1</td> <td>002</td> <td>98</td> <td>98</td> <td>98</td> <td>98</td> <td>98</td> <td>98</td> </tr> <tr> <td>2</td> <td>005</td> <td>77</td> <td>77</td> <td>77</td> <td>98</td> <td>80</td> <td>80</td> </tr> <tr> <td>2</td> <td>001</td> <td>80</td> <td>80</td> <td>80</td> <td>98</td> <td>80</td> <td>98</td> </tr> <tr> <td>2</td> <td>003</td> <td>98</td> <td>98</td> <td>98</td> <td>98</td> <td>98</td> <td>98</td> </tr> </tbody> </table> <p>用的都是 last_value 结果还不一样，为什么呢？</p> <p>这是因为，last_value 默认的窗口是<strong>RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW</strong>，</p> <p>表示当前行永远是最后一个值，因此 last1 和 last2 的结果是一样的。</p> <p>如果要获取每个分组的最后一个值，</p> <p>则需改成<strong>RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING</strong>，</p> <p>表示从最前一行作为起点，最后一行为终点，就是 last3 的结果（由于两个分组排序后最后一个数都是 98，看不出区别，大家可以去验证一下）</p> <p>至于 last4 和 last5 的区别，则是 RANGE 和 ROWS 的区别：</p> <p><strong>RANGE BETWEEN 3 PRECEDING AND 3 FOLLOWING：</strong></p> <p>表示当前行的值分别减 3 和 加 3，以第 4 行为例，原来的 score 是 77，各加减 3，则是 74 到 80 的范围</p> <p>80 刚好是下一行的值，因此它的结果为 80，其它行由于加减 3 后没有对应的值，因此为自身。</p> <p><strong>ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING：</strong></p> <p>表示当前行分别往前往后减一行，记住，rows 和 range 的区别就在于是当前行数还是当前行的值。</p> <p>因此在同一个分组内，第一行 last5 的值为下一行的值，第二行为下一行的值，以此类推，第二个分组也一样。</p> <h2 id="总结">总结</h2> <p>到这，窗口函数的内容就基本上都讲完了。这些可以说是数据分析和数据开发必备的技能，因此必须要熟练。</p> <p>至于如何才能熟练，还需要多实践。</p> <p>码字不易，如果觉得不错，麻烦动动小手点个赞，谢谢！</p> <p>持续关注不迷路，转载请注明出处！—— 大数据的奇妙冒险</p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2584.htm">SpringBoot快速开发利器：CLI 属实真牛逼！</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2586.htm">Java中序列化，有一部分字段不想进行序列化</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2776.htm" title="java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters">java8 LocalDate LocalTime LocalDateTime ChronoUnit DateTimeFormatter TemporalAdjusters</a></li>
+                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
+                        <li class="py-2"><a href="/html/category/article-2774.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2781.htm" title="C语言实现随机抽签">C语言实现随机抽签</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2780.htm" title="Redis缓存过期策略">Redis缓存过期策略</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

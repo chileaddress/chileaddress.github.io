@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2595.htm" />
+    <title>JS模板工具lodash.template的用法 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+        </head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>JS模板工具lodash.template的用法</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>underscore的template方法是比较常用的JS模板工具，它的好处是，你不用额外找工具了，通常你的项目都会加载一个underscore。</p> <p><strong>template</strong><code>_.template(templateString, [settings])</code><br /> 将 JavaScript 模板编译为可以用于页面呈现的函数, 对于通过JSON数据源生成复杂的HTML并呈现出来的操作非常有用。 模板函数可以使用&nbsp;&lt;%= … %&gt;插入变量, 也可以用&lt;% … %&gt;执行任意的 JavaScript 代码。 如果您希望插入一个值, 并让其进行HTML转义,请使用&lt;%- … %&gt;。 当你要给模板函数赋值的时候，可以传递一个含有与模板对应属性的<strong>data</strong>对象 。 如果您要写一个一次性的, 您可以传对象<strong>data</strong>&nbsp;作为第二个参数给模板<strong>template</strong>&nbsp;来直接呈现, 这样页面会立即呈现而不是返回一个模板函数. 参数<strong>settings</strong>&nbsp;是一个哈希表包含任何可以覆盖的设置&nbsp;_.templateSettings.</p> <pre class="has"><code class="language-javascript">var compiled = _.template("hello: &lt;%= name %&gt;"); compiled({name: 'moe'}); =&gt; "hello: moe"  var template = _.template("&lt;b&gt;&lt;%- value %&gt;&lt;/b&gt;"); template({value: '&lt;script&gt;'}); =&gt; "&lt;b&gt;&amp;lt;script&amp;gt;&lt;/b&gt;"</code></pre> <p>也可以在 JavaScript 代码中使用&nbsp;print. 有时候这会比使用&nbsp;&lt;%= ... %&gt;&nbsp;更方便.</p> <pre class="has"><code class="language-javascript">var compiled = _.template("&lt;% print('Hello ' + epithet); %&gt;"); compiled({epithet: "stooge"}); =&gt; "Hello stooge"</code></pre> <p>如果ERB式的分隔符您不喜欢, 您可以改变Underscore的模板设置, 使用别的符号来嵌入代码.定义一个<strong>interpolate</strong>&nbsp;正则表达式来逐字匹配嵌入代码的语句, 如果想插入转义后的HTML代码则需要定义一个<strong>escape</strong>&nbsp;正则表达式来匹配,还有一个<strong>evaluate</strong>&nbsp;正则表达式来匹配您想要直接一次性执行程序而不需要任何返回值的语句.您可以定义或省略这三个的任意一个.例如, 要执行<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://github.com/janl/mustache.js#readme"  rel="nofollow">Mustache.js</a>类型的模板:</p> <pre class="has"><code class="language-javascript">_.templateSettings = {   interpolate: /\{\{(.+?)\}\}/g };  var template = _.template("Hello {<!-- -->{ name }}!"); template({name: "Mustache"}); =&gt; "Hello Mustache!"</code></pre> <p>默认的,<strong>template</strong>&nbsp;通过&nbsp;with&nbsp;语句来取得 data 所有的值. 当然, 您也可以在<strong>variable</strong>&nbsp;设置里指定一个变量名. 这样能显著提升模板的渲染速度.</p> <pre class="has"><code class="language-javascript">_.template("Using 'with': &lt;%= data.answer %&gt;", {variable: 'data'})({answer: 'no'}); =&gt; "Using 'with': no"</code></pre> <p>预编译模板对调试不可重现的错误很有帮助. 这是因为预编译的模板可以提供错误的代码行号和堆栈跟踪, 有些模板在客户端(浏览器)上是不能通过编译的 在编译好的模板函数上, 有<strong>source</strong>&nbsp;属性可以提供简单的预编译功能.</p> <pre class="has"><code class="language-javascript">&lt;script&gt;   JST.project = &lt;%= _.template(jstText).source %&gt;; &lt;/script&gt;</code></pre> <p>nodejs中：推荐：</p> <p>data是填充的数组数据；</p> <p>file是html文件；</p> <p>返回的file是被填充好的html文件；</p> <pre class="has"><code class="language-javascript">      if(data) {         let compiled = _.template(file)         file = compiled(data)         // console.log(file)       }</code></pre> <p>把下面代码保存成html：</p> <pre class="has"><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;   &lt;meta charset="utf-8"&gt; &lt;/head&gt; &lt;body&gt;  &lt;div id="example1"&gt;&lt;/div&gt; &lt;div id="example2"&gt;&lt;/div&gt;  &lt;script type="text/template" id="tpl1"&gt; &lt;% _.each(datas, function (item) { %&gt;     &lt;div class="outer"&gt;         &lt;%= item.film %&gt; - &lt;%= item.url %&gt; - &lt;%= item.director %&gt;     &lt;/div&gt; &lt;% }); %&gt; &lt;/script&gt; &lt;script type="text/template" id="tpl2"&gt; &lt;% if ( 2 + 4 === 6 ) {     _.each(datas, function (item) { %&gt;         &lt;div class="outer"&gt;             &lt;%= item.film %&gt; - &lt;%= item.url %&gt; - &lt;%= item.director %&gt;         &lt;/div&gt;     &lt;% }); } %&gt; &lt;/script&gt;  &lt;script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"&gt;&lt;/script&gt; &lt;script src="http://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"&gt;&lt;/script&gt; &lt;script type="text/javascript"&gt; var datas = [     {         film: '电影名称1',         url: 'http://www.baidu.com',         director: '导演名称1'     },     {         film: '电影名称2',         url: 'http://www.baidu.com',         director: '导演名称2'     },     {         film: '电影名称3',         url: 'http://www.baidu.com',         director: '导演名称4'     },     {         film: '电影名称4',         url: 'http://www.baidu.com',         director: '导演名称4'     }, ];  $('#example1').html( _.template($('#tpl1').html(), datas) ); $('#example2').html( _.template($('#tpl2').html(), datas) ); &lt;/script&gt;  &lt;/body&gt; &lt;/html&gt;</code></pre> <p>_.template(templateString, [settings])</p> <p>下划线变量是underscore变量的别称。</p> <p>templateString是一个模板字符串，template函数负责解析这个模板字符串，所以这个模板字符串需要按规矩写，根据官方的介绍，这个字符串本质是js、标识符、html代码三者糅合的字符串。</p> <pre class="has"><code class="language-javascript">&lt;script type="text/template" id="tpl"&gt; &lt;% _.each(datas, function (item) { %&gt;     &lt;div class="outer"&gt;         &lt;%= item.film %&gt; - &lt;%= item.url %&gt; - &lt;%= item.director %&gt;     &lt;/div&gt; &lt;% }); %&gt; &lt;/script&gt;</code></pre> <p><code>type="text/template"</code>是为了让浏览器不把这个script内的内容当做js来解析，同时script的display:none还继续生效，保证模板字符串不会被显示出来。</p> <p>模板里凡是js代码，要被<code>&lt;% … %&gt;</code>包裹起来，比如<code>&lt;% _.each(datas, function (item) { %&gt;</code>和<code>&lt;% }); %&gt;</code>。对于列表内容，这句代码足够用了。</p> <p>模板里凡是变量代码，要被<code>&lt;%= … %&gt;</code>包裹起来，比如<code>&lt;%= item.film %&gt;</code>、<code>&lt;%= item.url %&gt;</code>和<code>&lt;%= item.director %&gt;</code>。</p> <p>所以，我们写代码的方式可以是先写JS代码，然后写HTML代码，然后把JS代码用<code>&lt;% … %&gt;</code>包裹起来，以及把HTML代码中的变量用<code>&lt;%= … %&gt;</code>包裹起来，这样就能满足90%的日常需要了。</p> <p>[settings]是一个json数组，数组的每个元素都是一个json对象，这个json数组负责提供内容。</p> <p></p> </div> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2594.htm">Metalama简介1. 不止是一个.NET跨平台的编译时AOP框架</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2596.htm">netty系列之:netty中各不同种类的channel详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2816.htm" title="SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码">SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码</a></li>
+                        <li class="py-2"><a href="/html/category/article-2781.htm" title="C语言实现随机抽签">C语言实现随机抽签</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2790.htm" title="JS 删除数组中某个元素的几种方式">JS 删除数组中某个元素的几种方式</a></li>
+                        <li class="py-2"><a href="/html/category/article-2764.htm" title="linux文件编辑VI命令详解_在线工具">linux文件编辑VI命令详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
+                        <li class="py-2"><a href="/html/category/article-2767.htm" title="Spring Boot 容器镜像分层构建">Spring Boot 容器镜像分层构建</a></li>
+                        <li class="py-2"><a href="/html/category/article-2778.htm" title="IDEA中配置maven环境">IDEA中配置maven环境</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
