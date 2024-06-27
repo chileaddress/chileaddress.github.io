@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-3442.htm" />
+    <title>C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e311768eec030d1b95bf25adcc77f433";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<p>在Excel中，可对单元格中的字符串设置多种不同样式，通常只需要获取到单元格直接设置样式即可，该方法设置的样式会应用于该单元格中的<span style="color: rgba(255, 0, 0, 1)">所有</span>字符。如果需要对单元格中某些字符设置样式，则可以参考本文中的方法。本文，将以C#及VB.NET代码为例，介绍如何<span style="color: rgba(153, 51, 0, 1)">在Excel同一个单元格中应用多种字体样式</span>，包括字体<strong><span style="color: rgba(153, 51, 0, 1)">加粗、倾斜、下划线、字号大小、字体颜色、上标、下标、字体</span></strong>等。在操作Excel单元格时，可参考使用本文方法。下面是具体方法和步骤。</p> <h1><span style="font-size: 18px; color: rgba(0, 128, 0, 1)">【引用dll】</span></h1> <p><span style="color: rgba(0, 0, 0, 1); background-color: rgba(153, 204, 0, 1)"><strong>方法1</strong></span></p> <p>在程序中引入Spire.Xls.dll文件；将 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.e-iceblue.cn/Introduce/Free-Spire-XLS-NET.html"   rel="nofollow">Free Spire.XLS for .NET</a> 下载到本地，解压，安装。安装完成后，找到安装路径下BIN文件夹中的Spire.Xls.dll。然后在Visual Studio中打开“解决方案资源管理器”，鼠标右键点击“引用”，“添加引用”，将本地路径BIN文件夹下的dll文件添加引用至程序。</p> <p><span style="background-color: rgba(153, 204, 255, 1)"><strong>方法2</strong></span></p> <p>通过 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.nuget.org/packages/FreeSpire.XLS/"   rel="nofollow">NuGet</a> 安装。可通过以下2种方法安装：</p> <p>1.可以在Visual Studio中打开“解决方案资源管理器”，鼠标右键点击“引用”，“管理NuGet包”，然后搜索“Free Spire.XLS”，点击“安装”。等待程序安装完成。</p> <p>  2.将以下内容复制到PM控制台安装。</p> <div> <p align="left"><em>Install-Package FreeSpire.XLS -Version 12.2.0</em></p> <hr> <p align="left"> </p> </div> <h1><span style="font-size: 18px; color: rgba(0, 128, 0, 1)">【在同一单元格应用多种字体样式】</span></h1> <p><strong>C#</strong></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">using</span><span style="color: rgba(0, 0, 0, 1)"> Spire.Xls;  </span><span style="color: rgba(0, 0, 255, 1)">namespace</span><span style="color: rgba(0, 0, 0, 1)"> AddFormatsToTextInCell {     </span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Program     {         </span><span style="color: rgba(0, 0, 255, 1)">static</span> <span style="color: rgba(0, 0, 255, 1)">void</span> Main(<span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">[] args)         {             </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">创建Workbook类的对象</span>             Workbook wb = <span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Workbook();              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取第一张工作表（新建的工作簿已默认包含3张worksheet工作表）</span>             Worksheet sheet = wb.Worksheets[<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">];              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置字体名称</span>             ExcelFont fontname =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontname.FontName </span>= <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">幼圆</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;                           </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置字体下标</span>             ExcelFont fontSubscript =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontSubscript.IsSubscript </span>= <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置字体上标</span>             ExcelFont fontsuperscript =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontsuperscript.IsSuperscript </span>= <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置加粗的字体样式</span>             ExcelFont fontBold =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontBold.IsBold </span>= <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置下划线字体样式          </span>             ExcelFont fontUnderline =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontUnderline.Underline </span>=<span style="color: rgba(0, 0, 0, 1)"> FontUnderlineType.Single;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置倾斜字体样式           </span>             ExcelFont fontItalic =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontItalic.IsItalic </span>= <span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置绿色字体样式            </span>             ExcelFont fontColor =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontColor.KnownColor </span>=<span style="color: rgba(0, 0, 0, 1)"> ExcelColors.Rose;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置字体字号大小</span>             ExcelFont fontsize =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont();             fontsize.Size </span>= <span style="color: rgba(128, 0, 128, 1)">15</span><span style="color: rgba(0, 0, 0, 1)">;                         </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">添加文本到A1单元格</span>             RichText richText = sheet.Range[<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">A1</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">].RichText;             richText.Text </span>= <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">这段文字是测试文字，仅供测试时使用！C6B2幼圆体</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">给指定字符添加字体样式</span>             richText.SetFont(<span style="color: rgba(128, 0, 128, 1)">0</span>, <span style="color: rgba(128, 0, 128, 1)">3</span><span style="color: rgba(0, 0, 0, 1)">, fontBold);             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">4</span>,<span style="color: rgba(128, 0, 128, 1)">6</span><span style="color: rgba(0, 0, 0, 1)">,fontItalic);             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">7</span>,<span style="color: rgba(128, 0, 128, 1)">9</span><span style="color: rgba(0, 0, 0, 1)">,fontUnderline);             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">10</span>,<span style="color: rgba(128, 0, 128, 1)">13</span><span style="color: rgba(0, 0, 0, 1)">, fontColor);             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">14</span>, <span style="color: rgba(128, 0, 128, 1)">17</span><span style="color: rgba(0, 0, 0, 1)">,fontsize);                         richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">19</span>,<span style="color: rgba(128, 0, 128, 1)">19</span><span style="color: rgba(0, 0, 0, 1)">,fontSubscript);             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">21</span>,<span style="color: rgba(128, 0, 128, 1)">21</span><span style="color: rgba(0, 0, 0, 1)">,fontsuperscript);             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">22</span><span style="color: rgba(0, 0, 0, 1)">, richText.Text.Length, fontname);              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置列宽</span>             sheet.Range[<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">A1</span><span style="color: rgba(128, 0, 0, 1)">"</span>].ColumnWidth = <span style="color: rgba(128, 0, 128, 1)">50</span><span style="color: rgba(0, 0, 0, 1)">;              </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">保存文档</span>             wb.SaveToFile(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Result.xlsx</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">,FileFormat.Version2013);         }     } }</span></pre> </div> <p>vb.net</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">Imports</span><span style="color: rgba(0, 0, 0, 1)"> Spire.Xls  </span><span style="color: rgba(0, 0, 255, 1)">Namespace</span><span style="color: rgba(0, 0, 0, 1)"> AddFormatsToTextInCell     </span><span style="color: rgba(0, 0, 255, 1)">Class</span><span style="color: rgba(0, 0, 0, 1)"> Program         </span><span style="color: rgba(0, 0, 255, 1)">Private</span> <span style="color: rgba(0, 0, 255, 1)">Shared</span> <span style="color: rgba(0, 0, 255, 1)">Sub</span> Main(args <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">String</span><span style="color: rgba(0, 0, 0, 1)">())             </span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">创建Workbook类的对象</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> wb <span style="color: rgba(0, 0, 255, 1)">As</span> <span style="color: rgba(0, 0, 255, 1)">New</span><span style="color: rgba(0, 0, 0, 1)"> Workbook()              </span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">获取第一张工作表（新建的工作簿已默认包含3张worksheet工作表）</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> sheet <span style="color: rgba(0, 0, 255, 1)">As</span> Worksheet = wb.Worksheets(<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">)              </span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置字体名称</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontname <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontname.FontName </span>= <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">幼圆</span><span style="color: rgba(128, 0, 0, 1)">"</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置字体下标</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontSubscript <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontSubscript.IsSubscript </span>= <span style="color: rgba(0, 0, 255, 1)">True</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置字体上标</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontsuperscript <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontsuperscript.IsSuperscript </span>= <span style="color: rgba(0, 0, 255, 1)">True</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置加粗的字体样式</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontBold <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontBold.IsBold </span>= <span style="color: rgba(0, 0, 255, 1)">True</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置下划线字体样式          </span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontUnderline <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontUnderline.Underline </span>= FontUnderlineType.[<span style="color: rgba(0, 0, 255, 1)">Single</span><span style="color: rgba(0, 0, 0, 1)">]              </span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置倾斜字体样式           </span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontItalic <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontItalic.IsItalic </span>= <span style="color: rgba(0, 0, 255, 1)">True</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置绿色字体样式            </span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontColor <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontColor.KnownColor </span>=<span style="color: rgba(0, 0, 0, 1)"> ExcelColors.Rose              </span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置字体字号大小</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> fontsize <span style="color: rgba(0, 0, 255, 1)">As</span> ExcelFont =<span style="color: rgba(0, 0, 0, 1)"> wb.CreateFont()             fontsize.Size </span>= <span style="color: rgba(128, 0, 128, 1)">15</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">添加文本到A1单元格</span>             <span style="color: rgba(0, 0, 255, 1)">Dim</span> richText <span style="color: rgba(0, 0, 255, 1)">As</span> RichText = sheet.Range(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">A1</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">).RichText             richText.Text </span>= <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">这段文字是测试文字，仅供测试时使用！C6B2幼圆体</span><span style="color: rgba(128, 0, 0, 1)">"</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">给指定字符添加字体样式</span>             richText.SetFont(<span style="color: rgba(128, 0, 128, 1)">0</span>, <span style="color: rgba(128, 0, 128, 1)">3</span><span style="color: rgba(0, 0, 0, 1)">, fontBold)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">4</span>, <span style="color: rgba(128, 0, 128, 1)">6</span><span style="color: rgba(0, 0, 0, 1)">, fontItalic)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">7</span>, <span style="color: rgba(128, 0, 128, 1)">9</span><span style="color: rgba(0, 0, 0, 1)">, fontUnderline)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">10</span>, <span style="color: rgba(128, 0, 128, 1)">13</span><span style="color: rgba(0, 0, 0, 1)">, fontColor)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">14</span>, <span style="color: rgba(128, 0, 128, 1)">17</span><span style="color: rgba(0, 0, 0, 1)">, fontsize)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">19</span>, <span style="color: rgba(128, 0, 128, 1)">19</span><span style="color: rgba(0, 0, 0, 1)">, fontSubscript)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">21</span>, <span style="color: rgba(128, 0, 128, 1)">21</span><span style="color: rgba(0, 0, 0, 1)">, fontsuperscript)             richText.SetFont(</span><span style="color: rgba(128, 0, 128, 1)">22</span><span style="color: rgba(0, 0, 0, 1)">, richText.Text.Length, fontname)              </span><span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">设置列宽</span>             sheet.Range(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">A1</span><span style="color: rgba(128, 0, 0, 1)">"</span>).ColumnWidth = <span style="color: rgba(128, 0, 128, 1)">50</span>              <span style="color: rgba(0, 128, 0, 1)">'</span><span style="color: rgba(0, 128, 0, 1)">保存文档</span>             wb.SaveToFile(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Result.xlsx</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">, FileFormat.Version2013)             System.Diagnostics.Process.Start(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Result.xlsx</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">)         </span><span style="color: rgba(0, 0, 255, 1)">End Sub</span>     <span style="color: rgba(0, 0, 255, 1)">End Class</span> <span style="color: rgba(0, 0, 255, 1)">End Namespace</span></pre> </div> <p>设置效果：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220505/7a42bd798d451dc2af882e3deac57c10.jpg" alt="C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具"></p> <p> </p> <p><strong>—END—</strong></p> <p> </p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-3441.htm">git 回滚到之前某一commit</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-2841.htm">React系列五——event事件</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2801.htm">手写事件发布订阅框架</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2751.htm">linux设置自动获取ip命令,详解如何设置CentOS 7开机自动获取IP地址</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2739.htm">element-plus  一个vue3.xUI框架 （element-ui的3.x 版初体验）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2697.htm">《Java&#8212;Socket二进制通讯读取一行》</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2639.htm">Spring cache源码分析</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2595.htm">JS模板工具lodash.template的用法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2585.htm">通俗易懂：窗口函数案例详解</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2576.htm">java sm3国密算法加密、验证工具类</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2566.htm">【javaScript案例】之搜索的数据显示</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2779.htm" title="哪个标点符号可以用作MySQL时间部分之间的分隔符？">哪个标点符号可以用作MySQL时间部分之间的分隔符？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-3140.htm" title="java 退出_JVM安全退出（如何优雅的关闭java服务）">java 退出_JVM安全退出（如何优雅的关闭java服务）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2798.htm" title="树的同构 Java">树的同构 Java</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-3442.htm" title="C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具">C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2780.htm" title="Redis缓存过期策略">Redis缓存过期策略</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
