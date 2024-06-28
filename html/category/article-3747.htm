@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-3747.htm" />
+    <title>docker容器编排原来这么丝滑~ - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e311768eec030d1b95bf25adcc77f433";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>docker容器编排原来这么丝滑~</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h1>前言：</h1> <p>请各大网友尊重本人原创知识分享，谨记本人博客：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://home.cnblogs.com/u/bgyb/"  target="_blank" rel="nofollow">南国以南i</a></p> <h1>概念介绍：</h1> <h2><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.docker.com/"  target="_blank" rel="nofollow">&nbsp;Docker</a></h2> <p>Docker 这个东西所扮演的角色，容易理解，它是一个容器引擎，也就是说实际上我们的容器最终是由Docker创建，运行在Docker中，其他相关的容器技术都是以Docker为基础，它是我们使用其他容器技术的核心。</p> <h2><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/compose/install/"  target="_blank" rel="nofollow">&nbsp;Docker-Compose</a></h2> <p>前面我们使用 Docker 的时候，定义 Dockerfile 文件，然后使用 docker build、docker run 等命令操作容器。然而微服务架构的应用系统一般包含若干个微服务，每个微服务一般都会部署多个实例，如果每个微服务都要手动启停，那么效率之低，维护量之大可想而知</p> <p><span style="font-size: 16px"><strong>优点：</strong></span></p> <p>根据定义的docker-compose.yaml配置文件批量容器编排，轻松高效的管理容器定义，Docker就会按照你声明的配置去把所有的容器启动起来及运行</p> <p><span style="font-size: 16px"><strong>缺点：</strong></span></p> <p>但是Docker-Compose只能管理当前主机上的Docker，也就是说不能去启动其他主机上的Docker容器</p> <p><span style="font-size: 16px"><strong>使用事项：</strong></span></p> <p>compose是docker官方的开源项目，需要安装！与它配对使用的是一个docker-compose.yaml文件，docker-compose命令必须在一个包含docker-compose.yaml文件目录下才能使用。</p> <h2>Compose 使用的三个步骤：</h2> <ul> <li> <p>使用<code class="highlighter-rouge">Dockerfile</code>定义应用程序的环境。</p> </li> <li> <p>使用<code class="highlighter-rouge">docker-cmpose.yaml</code>&nbsp;定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</p> </li> <li> <p>最后，执行<code class="highlighter-rouge">docker-cmpose up</code>&nbsp;命令来启动并运行整个应用程序。</p> </li> </ul> <p><strong><code class="highlighter-rouge">docker-cmpose.yaml</code></strong>的配置案例如下（配置参数参考下文）：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">version: "3.0"  # 对于docker版本号 services:  #定义服务   web:    #web引用，自己编写的程序，下面是应用配置     build: . #获取当前目录下Dockerfile文件编译     depends_on: #代表启动顺序       - db       - redis      ports:       - "5000:5000"  #端口暴露     volumes:  #挂载路径       - .:/code       - logvolume01:/var/log     links:       - redis   redis:   #redis应用     image: redis     deploy:       replicas: 6 #副本数  db: #db应用   images：postgres volumes:   logvolume01: {}</span></pre> </div> <h1>实践</h1> <h1 id="tid-iRSD8P">一、环境准备</h1> <h2>在 Linux 系统上安装 Docker</h2> <p><span style="font-size: 16px">使用compose必然需要docker</span></p> <h2>1.1 yum安装Docker</h2> <div class="cnblogs_code"> <pre>yum install docker<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">安装docker，需要root</span><span style="color: rgba(0, 0, 0, 1)"><br/></span></pre> </div> <h2>1.2 查看版本</h2> <div class="cnblogs_code"> <pre>docker --version<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">查看版本</span></pre> </div> <p><span style="font-size: 16px">样例输出：</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/abc399c8e9f28cf36d18efb5bbcc21e1.jpg" alt="docker容器编排原来这么丝滑~"></p> <h2>1.3 启动docker</h2> <div class="cnblogs_code"> <pre>sudo systemctl start docker.service<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">启动 Docker</span><span style="color: rgba(0, 0, 0, 1)"> sudo systemctl enable docker.service</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">关闭Docker</span></pre> </div> <h2>在 Linux 系统上安装 Compose</h2> <p><span style="font-size: 16px">由于<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/compose/install/"  target="_blank" rel="nofollow">compose</a>是docker官方的开源项目，需要安装！！！</span></p> <h2>1.1 下载compose</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)"> 国外</span>  sudo curl -L<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">https://github.com/docker/compose/releases/download/v1.29.2/docker-compose-$(uname -s)-$(uname -m)</span><span style="color: rgba(128, 0, 0, 1)">"</span> -o /usr/local/bin/docker-<span style="color: rgba(0, 0, 0, 1)">compose</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">国内（推荐）</span>  sudo curl -L<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">https://get.daocloud.io/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)</span><span style="color: rgba(128, 0, 0, 1)">"</span> -o /usr/local/bin/docker-compose</pre> </div> <h2>1.2 添加可执行权限</h2> <div class="cnblogs_code"> <pre>sudo chmod +x /usr/local/bin/docker-compose<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">授权</span></pre> </div> <h2>1.3 查看版本</h2> <div class="cnblogs_code"> <pre>docker-compose --version<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">查看版本</span></pre> </div> <p><span style="font-size: 16px">样例输出：</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/42b1017a7461ad2888a178623c4a5c10.jpg" alt="docker容器编排原来这么丝滑~"></p> <h1>二、项目实施</h1> <h2>2.1 创建项目</h2> <p><span style="font-size: 16px">此处以<span style="color: rgba(0, 0, 0, 1)"><strong><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/bgyb/p/12070279.html"  target="_blank" rel="nofollow">Springboot项目</a></strong></span>为例,其<strong>pom.xml依赖</strong>如下</span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">   &lt;</span><span style="color: rgba(128, 0, 0, 1)">dependencies</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 128, 0, 1)">&lt;!--</span><span style="color: rgba(0, 128, 0, 1)">web依赖</span><span style="color: rgba(0, 128, 0, 1)">--&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">dependency</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">groupId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>org.springframework.boot<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">groupId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">artifactId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>spring-boot-starter-web<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">artifactId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">dependency</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 128, 0, 1)">&lt;!--</span><span style="color: rgba(0, 128, 0, 1)">测试依赖</span><span style="color: rgba(0, 128, 0, 1)">--&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">dependency</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">groupId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>org.springframework.boot<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">groupId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">artifactId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>spring-boot-starter-test<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">artifactId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">scope</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>test<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">scope</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">dependency</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 128, 0, 1)">&lt;!--</span><span style="color: rgba(0, 128, 0, 1)">redis</span><span style="color: rgba(0, 128, 0, 1)">--&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">dependency</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">groupId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>org.springframework.boot<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">groupId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">artifactId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>spring-boot-starter-data-redis<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">artifactId</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">dependency</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">dependencies</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre> </div> <h2>2.2 新增application.properties配置</h2> <p><span style="font-size: 16px"><span style="color: rgba(255, 0, 0, 1)">注：</span>在此示例中，<code class="highlighter-rouge">redis</code>是应用程序网络上的 redis 容器的主机名</span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">#配置启动端口 server.port=8888 #配置redis地址，此处指定后续dockers镜像名称 spring.redis.host=redis</span></pre> </div> <h2>2.3 编写程序计数器</h2> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">package</span><span style="color: rgba(0, 0, 0, 1)"> com.example.compose;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.beans.factory.annotation.Autowired;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.data.redis.core.StringRedisTemplate;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.web.bind.annotation.GetMapping;</span><span style="color: rgba(0, 0, 255, 1)">import</span><span style="color: rgba(0, 0, 0, 1)"> org.springframework.web.bind.annotation.RestController;   @RestController</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> IndexController {</span><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * .      * 注入redis</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">     @Autowired</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 0, 1)"> StringRedisTemplate redisTemplate;</span><span style="color: rgba(0, 128, 0, 1)">/**</span><span style="color: rgba(0, 128, 0, 1)">      * .      * 程序计数器，每访问一次就+1      *      *</span><span style="color: rgba(128, 128, 128, 1)">@return</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">     @GetMapping(</span>"/hello"<span style="color: rgba(0, 0, 0, 1)">)</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 0, 1)"> String hello() {         Long views</span>= redisTemplate.opsForValue().increment("views"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 0, 255, 1)">return</span> "hello docker compose views:" +<span style="color: rgba(0, 0, 0, 1)"> views;     } }</span></pre> </div> <h2>2.4&nbsp;&nbsp;创建 Dockerfile</h2> <p><span style="font-size: 16px">在你的项目目录中，创建一个<code class="highlighter-rouge">Dockerfile。</code>有关编写 Dockerfile 更多信息，请参阅<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/develop/"  rel="nofollow">Docker 用户指南</a>&nbsp;和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/engine/reference/builder/"  rel="nofollow">Dockerfile 参考</a><br /></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">#指定jdk1.8 FROM java:8 #当前jar拷贝到容器中指定名称 COPY *.jar /app.jar #程序运行时指定程序端口 CMD ["--server-port=8888"] #暴露端口 EXPOSE 8888 #运行 ENTRYPOINT ["java", "-jar","/app.jar"]</span></pre> </div> <h2>2.4 编排服务</h2> <p><span style="font-size: 16px">在你的项目目录中创建一个名<code class="highlighter-rouge">docker-compose.yaml</code>的文件。定义了两个服务：<strong>composeapp</strong>和<strong>redis</strong>.</span><span><br /></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">version: '3.0'  #对应版本号  services:   composeapp:     build: . #表示获取当前目录下Dockerfile文件进行编译       #dockerfile: Dockerfile #指定当前目录下的文件     image: composeapp  #镜像名称     depends_on:  #优先启动       - redis     ports:  #端口映射       - "8888:8888"    redis:  #拉取镜像    image: "library/redis:alpine"</span></pre> </div> <p><span style="font-size: 16px"><span style="color: rgba(255, 0, 0, 1)"><strong>友情提示：</strong></span>上述版本号对比示例图。<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/compose/compose-file/compose-file-v3/"  target="_blank" rel="nofollow">官网对比链接</a></span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e9804dcf5d0a27fcda4145394d3c977e.jpg" alt="docker容器编排原来这么丝滑~"></p> <h2>2.5 将项目打包</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9c05696a9a7ed344b0c2ea1d82f26a69.jpg" alt="docker容器编排原来这么丝滑~"></p> <h1 id="tid-echesT">三、服务上传启动</h1> <h2>3.1 Linux创建一个目录</h2> <div class="cnblogs_code"> <pre> mkdir my_composeapp<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">创建目录</span><span style="color: rgba(0, 0, 0, 1)">  cd my_composeapp</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">进入</span></pre> </div> <h2>3.2 上传相关文件</h2> <p>上传项目打包后的<strong><code class="highlighter-rouge">jar</code>、<code class="highlighter-rouge">Dockerfile</code>、<code class="highlighter-rouge">docker-compose.yaml</code></strong>相关配置文件</p> <h2>3.3 启动compose服务</h2> <p><span style="color: rgba(255, 0, 0, 1)"><strong>注：<span style="color: rgba(0, 0, 0, 1)">docker-compose命令必须在一个包含docker-compose.yaml文件目录下才能使用</span></strong></span></p> <div class="cnblogs_code"> <pre>docker-<span style="color: rgba(0, 0, 0, 1)">compose up   docker</span>-compose up -d<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">-d【后台启动】</span><span style="color: rgba(0, 0, 0, 1)"> docker</span>-compose down<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">关闭 【ctrl + c】</span></pre> </div> <p><span style="font-size: 16px">样例输出：</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5a726c226e8cf3433a4358351036d272.jpg" alt="docker容器编排原来这么丝滑~"></p> <p><span style="font-size: 16px">项目启动，页面输出日志</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9c7f6eb84ca514b04d15b603d09fb2ed.jpg" alt="docker容器编排原来这么丝滑~"></p> <h2>3.4 查看运行的容器</h2> <p><span style="font-size: 16px">此处可见已拉取<strong>redis镜像并生成了容器、及已生成java项目运行容器</strong></span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d77bd14eeb4766339d7ec9c843aa7b49.jpg" alt="docker容器编排原来这么丝滑~"></p> <h2>3.5 访问样例</h2> <div class="cnblogs_code"> <pre>curl localhost:8888/hello<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">访问测试</span></pre> </div> <p><span style="font-size: 16px">样例输出：</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/01c7b765ad42cdc19de45d0074af6b2d.jpg" alt="docker容器编排原来这么丝滑~"></p> <p><span style="font-size: 16px">至此，<strong>docker-compose</strong>使用简直在方便了！！！大大简化了我们的部署工作。学废的小伙伴记得给自己加鸡腿~</span></p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-3442.htm">C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具</a></p>
+                                                        <p>下一个：<a href="/html/category/article-3748.htm">vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-2814.htm">DataLoader 和 Dataset</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2810.htm">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2765.htm">mongodb 数据块的迁移流程介绍 &#8211; xinghebuluo</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2718.htm">如何从AngularJS模板的HTML中调用encodeURIComponent？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2711.htm">动态指针时钟：利用pyqt5制作指针钟表显示实时时间</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2686.htm">权威分析@RequestParam和@RequestPart 的区别（官方文档）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2673.htm">java8新特性详解_JAVA8 十大新特性详解</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2658.htm">k8s单节点部署mysql_k8s deployment部署单个mysql容器实例 + service</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2654.htm">按照 Promise/A+ 规范逐行注释并实现 Promise_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2568.htm">面试必问的8个CSS响应式单位,你知道几个？</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-2794.htm" title="深入浅出谈谈Java并发编程：Volatile">深入浅出谈谈Java并发编程：Volatile</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
+                        <li class="py-2"><a href="/html/category/article-2772.htm" title="在Java的数字字面量中使用下划线">在Java的数字字面量中使用下划线</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2796.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/html/category/article-2799.htm" title="整理了25个Pandas实用技巧（上）">整理了25个Pandas实用技巧（上）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2842.htm" title="vue项目在打包时,如何去掉所有的console.log输出_vue.js_">vue项目在打包时,如何去掉所有的console.log输出_vue.js_</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">56</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
