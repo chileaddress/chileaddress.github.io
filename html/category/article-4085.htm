@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-2718.htm" />
-    <title>如何从AngularJS模板的HTML中调用encodeURIComponent？ - Chile Address</title>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-4085.htm" />
+    <title>解决flex布局,子元素大小自适应问题 - Chile Address</title>
         <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- Custom Theme files -->
@@ -98,17 +98,36 @@ var _hmt = _hmt || [];
                           <li class="active">正文</li>
                         </ol>
                         <div class="about-top">
-                            <h1>如何从AngularJS模板的HTML中调用encodeURIComponent？</h1>
+                            <h1>解决flex布局,子元素大小自适应问题</h1>
                         </div>
                         <div class="about-bottom">
-                              				  				  				<p>要创建一个调用encodeURIComponent的过滤器，以下是HTML-</p> <pre>&lt;div&nbsp;ng-app&nbsp;=&nbsp;"app"&gt; &nbsp;&nbsp;&nbsp;&lt;a&nbsp;href&nbsp;=&nbsp;"/foo/{{&nbsp;'bar&amp;baz'&nbsp;|&nbsp;encodeURIComponent&nbsp;}}"&gt;Demo&lt;/a&gt; &lt;/div&gt;</pre> <p>以下是我们的角度-</p> <pre>var&nbsp;app&nbsp;=&nbsp;angular.module('app',&nbsp;[]); app.filter('encodeURIComponent',&nbsp;function()&nbsp;{ &nbsp;&nbsp;&nbsp;return&nbsp;window.encodeURIComponent; });</pre> <div></div> 			                            <div class="clearfix"> </div>
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>在写uni-app时，发现子元素超出父元素高度范围，子元素高度会自适应，本以为是upx的问题，但是改为px还是自适应，然后又把flex注释掉发现问题解决了，问题就在flex布局。</p> <p><strong>父元素样式：</strong></p> <pre><code class="language-css">/* 宠物列表 */ .pet-list{ 	margin:10px 0px; 	width: 100%; 	height: 300px; 	padding: 0 10px 0 10px; 	display: flex; 	flex-direction: column; 	align-items: center; 	overflow-y: scroll; }</code></pre> <p><strong>子元素样式：</strong></p> <pre><code class="language-css">.pet-wrapper{ 	margin-bottom: 5px; 	width: 80%; 	height: 100px; 	background-color: #ffffff; 	border-radius: 10px; }</code></pre> <p>此时子元素数量较多，整体高度超出父元素高度时，子元素高度会自适应减小，要想保持子元素高度，需对子元素样式增加如下属性：</p> <p><img fetchpriority="high" decoding="async" alt="" height="227" src="http://img.555519.xyz/uploads3/20220609/833edc548035e5096a06f59cc11edb65.jpg"></p> </div> 			                            <div class="clearfix"> </div>
                         </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-2717.htm">Spring Cloud Feign 请求添加headers</a></p>
-                                                        <p>下一个：<a href="/html/category/article-2719.htm">docker存储路径修改</a></p>
+                                                        <p>上一个：<a href="/html/category/article-3774.htm">报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):</a></p>
+                                                        <p>下一个：<a href="/html/category/article-4086.htm">FreeRTOS实时操作系统队列基础_操作系统</a></p>
                                                     </div>
 
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-2820.htm">OpenSSL3.0.5安装</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2737.htm">Blazor 使用拖放（drag and drop）上传文件 , 粘贴文件上传</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2724.htm">python神经网络tf.name_scope和tf.variable_scope函数区别_python</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2715.htm">json数据交互——@RequestBody与@ResponseBody</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2698.htm">pip命令详解</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2641.htm">PyTorch的自动求导机制详细解析，PyTorch的核心魔法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2631.htm">MySQL主从复制和读写分离</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2627.htm">Spring cloud链路跟踪服务集成zipkin+mysql+sleuth+rabbitMq</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2582.htm">基于Debian搭建Hyperledger Fabric 2.4开发环境及运行简单案例</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2565.htm">关于springboot转发重定向以及受保护目录的一些规律</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
                                             </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
@@ -117,16 +136,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-2777.htm" title="maven的安装和配置以及如何在IDEA中配置maven">maven的安装和配置以及如何在IDEA中配置maven</a></li>
-                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2793.htm" title="OutOfMemoryError异常_在线工具">OutOfMemoryError异常_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-2809.htm" title="C++11（一）">C++11（一）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2841.htm" title="React系列五——event事件">React系列五——event事件</a></li>
                         <li class="py-2"><a href="/html/category/article-3442.htm" title="C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具">C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-2775.htm" title="springboot整合Dubbo与Feign的实现 (无注册中心)_java">springboot整合Dubbo与Feign的实现 (无注册中心)_java</a></li>
-                        <li class="py-2"><a href="/html/category/article-2804.htm" title="java中RabbitMQ高级应用_java">java中RabbitMQ高级应用_java</a></li>
-                        <li class="py-2"><a href="/html/category/article-3140.htm" title="java 退出_JVM安全退出（如何优雅的关闭java服务）">java 退出_JVM安全退出（如何优雅的关闭java服务）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
-                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
-                        <li class="py-2"><a href="/html/category/article-4086.htm" title="FreeRTOS实时操作系统队列基础_操作系统">FreeRTOS实时操作系统队列基础_操作系统</a></li>
-                        <li class="py-2"><a href="/html/category/article-2803.htm" title="JS实现导出Excel和CSV文件操作_javascript技巧">JS实现导出Excel和CSV文件操作_javascript技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
+                        <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2797.htm" title="Centos7 离线安装 KVM，并安装 Csr1000v">Centos7 离线安装 KVM，并安装 Csr1000v</a></li>
                     </ul>
     </div>
 </div>
