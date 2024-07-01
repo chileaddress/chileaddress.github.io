@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://chileaddress.github.io/html/category/article-4113.htm" />
+    <title>UnrealEngine创建自定义资产类型 - Chile Address</title>
+        <link href="/assets/addons/xcblog/css/chileaddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Custom Theme files -->
+    <link href="/assets/addons/xcblog/css/chileaddress/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/assets/addons/xcblog/img/chileaddress/favicon.ico" type="image/x-icon"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+    </script>
+    <!--Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <!--google fonts-->
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/jquery-1.11.0.min.js"></script>
+    <script src="/assets/addons/xcblog/js/frontend/chileaddress/bootstrap.min.js"></script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e311768eec030d1b95bf25adcc77f433";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <!--header-top start here-->
+    <div class="top-header">
+    </div>
+    <!--header-top end here-->
+    <!--header start here-->
+    <!-- NAVBAR
+		================================================== -->
+    <div class="header w3l">
+        <div class="fixed-header">
+            <div class="navbar-wrapper">
+                <div class="container">
+                    <nav class="navbar navbar-inverse navbar-static-top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">Chile Address</a>
+                                                            </div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <nav class="cl-effect-16" id="cl-effect-16">
+                                <ul class="nav navbar-nav">
+                                                                        <li>
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/html/category/">文章分类</a>
+                                    </li>
+                                                                        <li>
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--header end here-->
+    <!--about strat here-->
+    <div class="about">
+        <div class="container">
+            <div class="about-main">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ol class="breadcrumb">
+                          <li><a href="/">首页</a></li>
+                          <li><a href="/html/category/">文章分类</a></li>
+                          <li class="active">正文</li>
+                        </ol>
+                        <div class="about-top">
+                            <h1>UnrealEngine创建自定义资产类型</h1>
+                        </div>
+                        <div class="about-bottom">
+                              				  				  				<h1 id="导语">导语</h1> <blockquote> <p>这篇文章记录了将UObject实例保存在Asset文件的方法，用这个方法可以将自定义的UObject数据序列化保存到文件，可以用于自定义UE资源类型。</p> </blockquote> <h1 id="创建uobject类">创建UObject类</h1> <p>这一步比较简单，按照正常的方式创建C++类即可。</p> <p>在这里我创建一个简单的UCustomAsset派生自UObject，包含一个Value字段作为演示。</p> <pre><code class="language-cpp">UCLASS() class LEARNUI_API UCustomAsset final : public UObject { 	GENERATED_BODY() public: 	UPROPERTY(EditAnywhere, BlueprintReadWrite) 	FString Value; };</code></pre> <h1 id="创建asset">创建Asset</h1> <blockquote> <p>这一步是为了在Content窗口中添加右键菜单，像创建其他Asset一样快速创建CustomAsset。主要分为两步，创建对应的Factory和TypeAction类。</p> </blockquote> <h2 id="创建mydatafactory">创建MyDataFactory</h2> <p><code>MyDataFactory</code>中包含了具体的生成UObject实例的实现，我们接下来创建的Asset是由Factory实例化出来的。</p> <pre><code class="language-cpp">UCLASS() class LEARNUIEDITOR_API UMyDataFactory final : public UFactory { 	GENERATED_BODY() public: 	UMyDataFactory(){         // 指定是否可以通过菜单来创建         bCreateNew = true;         // 创建Asset之后是否自动打开编辑         bEditAfterNew = true;         // 指定支持的类型         SupportedClass = UMyData::StaticClass();     }     // 重载FactoryCreateNew方法，创建UMyData实例 	virtual UObject* FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn) override{ 	    return NewObject&lt;UMyData&gt;(InParent, InName, Flags);     } };</code></pre> <h2 id="创建mydatatypeaction">创建MyDataTypeAction</h2> <p><code>FMyDataTypeAction</code>定义了Asset的显示名称、类型、显示颜色和所在分类。</p> <pre><code class="language-cpp">// 至少需要重载以下四个方法 class FMyDataTypeAction final : public FAssetTypeActions_Base { public: 	virtual FText GetName() const override; 	virtual UClass* GetSupportedClass() const override; 	virtual FColor GetTypeColor() const override; 	virtual uint32 GetCategories() override; };</code></pre> <p>以上代码中，<code>GetCategories</code>可以返回引擎中已经注册的Category，也可以使用以下代码注册自己的Category。</p> <pre><code class="language-cpp">Category = FAssetToolsModule::GetModule().Get().RegisterAdvancedAssetCategory(FName("Custom"), FText::FromString("Custom"));</code></pre> <p>需要使用<code>FAssetToolsModule</code>注册<code>FMyDataTypeAction</code>以使其生效。</p> <pre><code class="language-cpp">IAssetTools&amp; AssetTool = FAssetToolsModule::GetModule().Get();  // 创建TypeAction实例并存储起来，方便在合适的时候调用UnregisterAssetTypeActions反注册 AssetTypeActions.Emplace(MakeShared&lt;FMyDataTypeAction&gt;());  for (TSharedPtr&lt;FAssetTypeActions_Base&gt; AssetType : AssetTypeActions) { 	AssetTool.RegisterAssetTypeActions(AssetType.ToSharedRef()); }</code></pre> <h1 id="效果">效果</h1> <p>在ContentBrowser的<code>Add/Import</code>菜单中，可以看到自定义的MyData类型。</p> <p><img decoding="async" src="https://picgo-1251759020.cos.ap-guangzhou.myqcloud.com/202204162015627.png" alt="UnrealEngine创建自定义资产类型" width="400px"/></p> <p>创建完成后，双击打开编辑窗口，可以修改UProperty字段的值。</p> <p><img decoding="async" src="https://picgo-1251759020.cos.ap-guangzhou.myqcloud.com/202204162017147.png" alt="UnrealEngine创建自定义资产类型" width="400px"/></p> 			                            <div class="clearfix"> </div>
+                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-4086.htm">FreeRTOS实时操作系统队列基础_操作系统</a></p>
+                                                        <p>下一个：<a href="/html/category/article-4114.htm">实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-2792.htm">toString() 和 new String()用法区别</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2781.htm">C语言实现随机抽签</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2768.htm">promise与async/await的使用及区别</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2759.htm">手把手教会将 Windows 窗体桌面应用从.NET Framework迁移到 .NET SDK/.NET 6 格式</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2735.htm">Vue的自定义拖动</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2728.htm">pandas apply() 函数用法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2691.htm">关于springboot启动时报错 [org/springframework/boot/autoconfigure/web/ServerPropertiesAutoConfiguration.clas</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2685.htm">动态矩阵（指针与堆内存分配）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2615.htm">Nacos服务发现基础应用</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-2596.htm">netty系列之:netty中各不同种类的channel详解</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-4114.htm" title="实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址">实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址</a></li>
+                        <li class="py-2"><a href="/html/category/article-2842.htm" title="vue项目在打包时,如何去掉所有的console.log输出_vue.js_">vue项目在打包时,如何去掉所有的console.log输出_vue.js_</a></li>
+                        <li class="py-2"><a href="/html/category/article-2797.htm" title="Centos7 离线安装 KVM，并安装 Csr1000v">Centos7 离线安装 KVM，并安装 Csr1000v</a></li>
+                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
+                        <li class="py-2"><a href="/html/category/article-2787.htm" title="Vue v-for更新监测/虚拟DOM/watch侦听器">Vue v-for更新监测/虚拟DOM/watch侦听器</a></li>
+                        <li class="py-2"><a href="/html/category/article-2792.htm" title="toString() 和 new String()用法区别">toString() 和 new String()用法区别</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2789.htm" title="在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？">在日期和时间部分之间使用&#8217;T&#8217;或&#8217;Space&#8217;以外的任何其他字符返回的MySQL返回值是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2790.htm" title="JS 删除数组中某个元素的几种方式">JS 删除数组中某个元素的几种方式</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">44</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--about end here-->
+        <!--copy rights start here-->
+    <div class="copy-rights">
+        <div class="container">
+            <div class="copy-rights-main">
+                <p>
+                    Chile Address 版权所有
+                    <br />
+                    Powered by WordPress
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
