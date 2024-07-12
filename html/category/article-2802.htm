@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
                             <h1>vue在进行增删改操作后刷新页面</h1>
                         </div>
                         <div class="about-bottom">
-                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>问题</h2> <p>通常在后台管理项目中，对数据进行增删改查是常规操作。在进行这些操作后，需要手动刷新才能更新列表。本文主要讨论进行增删改查相关操作后如何使当前页面显示操作后的最新数据。</p> <h2> <a id="___3" rel="nofollow"></a>解决方案 || 以删除为例：</h2> <p>1.强制刷新：this.$forceUpdate()<br /> 2.使用window.reload( ) 或 router.go(0)，但会使整个浏览器进行重载，页面闪烁。<br /> 3.重新调用接口:但性能较差，代码冗长。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/708f40bc45bafe613a2a5b5d6bf0c304.jpg" alt="vue在进行增删改操作后刷新页面"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/8a2db264ce84503a99eb2aca26cf99f3.jpg" alt="vue在进行增删改操作后刷新页面"><br /> 4.provide / inject ：（推荐）<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cn.vuejs.org/v2/api/#provide-inject"  rel="nofollow">点此查看VUE官方解释</a>：<br /> 允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在其上下游关系成立的时间里始终生效。</p> <ul> <li>首先在App.vue全局设置provide<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/3ea3db43a7938b61ca4b6da0153b3003.jpg" alt="vue在进行增删改操作后刷新页面"><img decoding="async" src="http://img.555519.xyz/uploads/20221207/7c87d57468246c87f50c5e846a7a5fb4.jpg" alt="vue在进行增删改操作后刷新页面"><img decoding="async" src="http://img.555519.xyz/uploads/20221207/8aeb732ba6964cccbfa100fddf81eeb6.jpg" alt="vue在进行增删改操作后刷新页面"> </li> <li>在需要刷新的操作页面内注入inject：[‘reload’]<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/856e6fc9d29882a684f89cf1d97d5768.jpg" alt="vue在进行增删改操作后刷新页面"> </li> <li>在调用接口操作成功后 this.reload( )</li> <li>比如在删除接口调用成功后：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/8bb0eac5abe095ba762fdcd1cfc60b03.jpg" alt="vue在进行增删改操作后刷新页面"> </li> </ul> <p>划重点</p> <ul> <li>provide：一个对象或返回一个对象的函数。该对象包含可注入其子孙的属性。</li> <li>inject：一个字符串数组，或一个对象，对象的 key 是本地的绑定名。</li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cn.vuejs.org/v2/api/#vm-nextTick"  rel="nofollow">$nextTick（点击查看vue相关文档）</a></li> </ul> <p>除此之外，provide和inject的用法主要是：在父组件中通过provider来提供变量，然后在子组件中通过inject来注入变量。</p> <p>需要注意的是这里不论子组件有多深，只要调用了inject那么就可以注入provider中的数据。而不是局限于只能从当前父组件的prop属性来获取数据。</p> </p></div> 			                            <div class="clearfix"> </div>
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> 问题</h2> <p>通常在后台管理项目中，对数据进行增删改查是常规操作。在进行这些操作后，需要手动刷新才能更新列表。本文主要讨论进行增删改查相关操作后如何使当前页面显示操作后的最新数据。</p> <h2> 解决方案 || 以删除为例：</h2> <p>1.强制刷新：this.$forceUpdate()<br /> 2.使用window.reload( ) 或 router.go(0)，但会使整个浏览器进行重载，页面闪烁。<br /> 3.重新调用接口:但性能较差，代码冗长。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/708f40bc45bafe613a2a5b5d6bf0c304.jpg" alt="vue在进行增删改操作后刷新页面"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/8a2db264ce84503a99eb2aca26cf99f3.jpg" alt="vue在进行增删改操作后刷新页面"><br /> 4.provide / inject ：（推荐）<br />点此查看VUE官方解释：<br /> 允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在其上下游关系成立的时间里始终生效。</p> <ul> <li>首先在App.vue全局设置provide<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/3ea3db43a7938b61ca4b6da0153b3003.jpg" alt="vue在进行增删改操作后刷新页面"><img decoding="async" src="http://img.555519.xyz/uploads/20221207/7c87d57468246c87f50c5e846a7a5fb4.jpg" alt="vue在进行增删改操作后刷新页面"><img decoding="async" src="http://img.555519.xyz/uploads/20221207/8aeb732ba6964cccbfa100fddf81eeb6.jpg" alt="vue在进行增删改操作后刷新页面"> </li> <li>在需要刷新的操作页面内注入inject：[‘reload’]<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/856e6fc9d29882a684f89cf1d97d5768.jpg" alt="vue在进行增删改操作后刷新页面"> </li> <li>在调用接口操作成功后 this.reload( )</li> <li>比如在删除接口调用成功后：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221207/8bb0eac5abe095ba762fdcd1cfc60b03.jpg" alt="vue在进行增删改操作后刷新页面"> </li> </ul> <p>划重点</p> <ul> <li>provide：一个对象或返回一个对象的函数。该对象包含可注入其子孙的属性。</li> <li>inject：一个字符串数组，或一个对象，对象的 key 是本地的绑定名。</li> <li>$nextTick（点击查看vue相关文档）</li> </ul> <p>除此之外，provide和inject的用法主要是：在父组件中通过provider来提供变量，然后在子组件中通过inject来注入变量。</p> <p>需要注意的是这里不论子组件有多深，只要调用了inject那么就可以注入provider中的数据。而不是局限于只能从当前父组件的prop属性来获取数据。</p> </p></div> 			                            <div class="clearfix"> </div>
                         </div>
 
                         <div class="col-md-12 mt-5">
@@ -117,16 +117,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
-                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
-                        <li class="py-2"><a href="/html/category/article-4341.htm" title="动物防疫站工作总结发言（动物防疫站工作总结发言材料）">动物防疫站工作总结发言（动物防疫站工作总结发言材料）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4567.htm" title="上海宠物医院检验情况（上海宠物医院在线咨询）">上海宠物医院检验情况（上海宠物医院在线咨询）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
-                        <li class="py-2"><a href="/html/category/article-2803.htm" title="JS实现导出Excel和CSV文件操作_javascript技巧">JS实现导出Excel和CSV文件操作_javascript技巧</a></li>
-                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
-                        <li class="py-2"><a href="/html/category/article-4532.htm" title="动物打完疫苗多久可以测抗体结果（动物打疫苗后多久能杀了吃）">动物打完疫苗多久可以测抗体结果（动物打疫苗后多久能杀了吃）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
-                        <li class="py-2"><a href="/html/category/article-2813.htm" title="FreeRTOS实时操作系统的任务通知方法_操作系统">FreeRTOS实时操作系统的任务通知方法_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-2802.htm" title="vue在进行增删改操作后刷新页面">vue在进行增删改操作后刷新页面</a></li>
+                        <li class="py-2"><a href="/html/category/article-4141.htm" title="如何从HTML表单获取键/值数据集？">如何从HTML表单获取键/值数据集？</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2819.htm" title="SpringBoot配置多个数据库源">SpringBoot配置多个数据库源</a></li>
+                        <li class="py-2"><a href="/html/category/article-4497.htm" title="动物疫苗工艺有哪些类型（动物疫苗工艺有哪些类型的）">动物疫苗工艺有哪些类型（动物疫苗工艺有哪些类型的）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-3441.htm" title="git 回滚到之前某一commit">git 回滚到之前某一commit</a></li>
+                        <li class="py-2"><a href="/html/category/article-4603.htm" title="巢湖银鱼的经典做法(巢湖银鱼介绍)">巢湖银鱼的经典做法(巢湖银鱼介绍)</a></li>
+                        <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4113.htm" title="UnrealEngine创建自定义资产类型">UnrealEngine创建自定义资产类型</a></li>
                     </ul>
     </div>
 </div>
@@ -138,7 +138,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>

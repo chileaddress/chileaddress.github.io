@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
                             <h1>Ajax URL路径的写法</h1>
                         </div>
                         <div class="about-bottom">
-                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="Ajax_URL_0" rel="nofollow"></a>Ajax URL路径的写法</h2> <p>在前后端使用ajax进行数据交互的时候，需要在前端代码中编写URL路径进入后端代码的controller中，从而获取数据。初次尝试前后端交互也许会遇到困难，在此，我列举了几种URL的写法供大家分享。</p> <h5> <a id="__2" rel="nofollow"></a>相对于网站根目录可以用"/"开始 (根目录是指服务器的根目录，不是你项目的根目录)</h5> <pre><code>$ajax({ 	url:"/getData.do"; }) </code></pre> <p><strong>该方式请求的路径为</strong>：http://localhost:8080/getData.do</p> <h5> <a id="_11" rel="nofollow"></a>“…/”表示页面目录的上一级目录</h5> <pre><code>$ajax({ 	url:"../getData.do; }) </code></pre> <p><strong>该方法请求的路径是</strong>：http://localhost:8080/projectname/getData.do</p> <h5> <a id="_19" rel="nofollow"></a>项目的根路径</h5> <pre><code>$ajax({ 	url:"getData.do"; })	 </code></pre> <p><strong>该方式的请求路径</strong>：http://localhost:8080/projectname/getData.do</p> <h5> <a id="_26" rel="nofollow"></a>全路径</h5> <pre><code>$ajax({ 	url:"http://localhost:8080/projectname/getdata.do"; })	 </code></pre> <p><strong>该方式的请求路径</strong>：http://localhost:8080/projectname/getdata.do</p> <p><strong>.do的含义</strong><br /> 比如你的页面路径是：http://localhost:8080/projectname/resource/index.html</p> <p>url请求最后加.do是为了服务器区分这个请求是静态资源还是servlet请求（后边有.do就是servlet请求）</p> <h2> <a id="springMVC_39" rel="nofollow"></a>springMVC如果是这样写的请求映射</h2> <pre><code>@RequestMapping("/user") @Controller public  class UserController{ @RequestMapping("/register") public @ResponseBody JsonMessageObject register(@RequestBody UserInfoPo userInfoPo){ </code></pre> <p>如果我们要请求register这个方法，url：…/user/register.do这样写<br /> 因为页面路径是这样http://localhost:8080/projectname/resource/index.html<br /> 让servlet映射请求跟在项目路径http://localhost:8080/projectname后面就可以了<br /> 最终请求的路径是http://localhost:8080/projectname/user/register.do</p> </p></div> 			                            <div class="clearfix"> </div>
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> Ajax URL路径的写法</h2> <p>在前后端使用ajax进行数据交互的时候，需要在前端代码中编写URL路径进入后端代码的controller中，从而获取数据。初次尝试前后端交互也许会遇到困难，在此，我列举了几种URL的写法供大家分享。</p> <h5> 相对于网站根目录可以用"/"开始 (根目录是指服务器的根目录，不是你项目的根目录)</h5> <pre><code>$ajax({ 	url:"/getData.do"; }) </code></pre> <p><strong>该方式请求的路径为</strong>：http://localhost:8080/getData.do</p> <h5> “…/”表示页面目录的上一级目录</h5> <pre><code>$ajax({ 	url:"../getData.do; }) </code></pre> <p><strong>该方法请求的路径是</strong>：http://localhost:8080/projectname/getData.do</p> <h5> 项目的根路径</h5> <pre><code>$ajax({ 	url:"getData.do"; })	 </code></pre> <p><strong>该方式的请求路径</strong>：http://localhost:8080/projectname/getData.do</p> <h5> 全路径</h5> <pre><code>$ajax({ 	url:"http://localhost:8080/projectname/getdata.do"; })	 </code></pre> <p><strong>该方式的请求路径</strong>：http://localhost:8080/projectname/getdata.do</p> <p><strong>.do的含义</strong><br /> 比如你的页面路径是：http://localhost:8080/projectname/resource/index.html</p> <p>url请求最后加.do是为了服务器区分这个请求是静态资源还是servlet请求（后边有.do就是servlet请求）</p> <h2> springMVC如果是这样写的请求映射</h2> <pre><code>@RequestMapping("/user") @Controller public  class UserController{ @RequestMapping("/register") public @ResponseBody JsonMessageObject register(@RequestBody UserInfoPo userInfoPo){ </code></pre> <p>如果我们要请求register这个方法，url：…/user/register.do这样写<br /> 因为页面路径是这样http://localhost:8080/projectname/resource/index.html<br /> 让servlet映射请求跟在项目路径http://localhost:8080/projectname后面就可以了<br /> 最终请求的路径是http://localhost:8080/projectname/user/register.do</p> </p></div> 			                            <div class="clearfix"> </div>
                         </div>
 
                         <div class="col-md-12 mt-5">
@@ -117,16 +117,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-4086.htm" title="FreeRTOS实时操作系统队列基础_操作系统">FreeRTOS实时操作系统队列基础_操作系统</a></li>
-                        <li class="py-2"><a href="/html/category/article-2812.htm" title="synchronized详解">synchronized详解</a></li>
-                        <li class="py-2"><a href="/html/category/article-2816.htm" title="SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码">SpringBoot/Cloud项目-前台上传图片文件，Java转成Base64保存到数据库完整代码</a></li>
-                        <li class="py-2"><a href="/html/category/article-3774.htm" title="报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):">报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):</a></li>
+                        <li class="py-2"><a href="/html/category/article-2841.htm" title="React系列五——event事件">React系列五——event事件</a></li>
+                        <li class="py-2"><a href="/html/category/article-4567.htm" title="上海宠物医院检验情况（上海宠物医院在线咨询）">上海宠物医院检验情况（上海宠物医院在线咨询）</a></li>
                         <li class="py-2"><a href="/html/category/article-4421.htm" title="深圳宠物领养中心免费（深圳宠物狗领养）">深圳宠物领养中心免费（深圳宠物狗领养）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2822.htm" title="centos 7redis设置开机自动启动">centos 7redis设置开机自动启动</a></li>
-                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
-                        <li class="py-2"><a href="/html/category/article-4568.htm" title="瑞鹏宠物中心医院在哪里啊（瑞鹏宠物医院总院电话）">瑞鹏宠物中心医院在哪里啊（瑞鹏宠物医院总院电话）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2815.htm" title="编译实战 | 手摸手教你在Windows环境下运行Redis6.x">编译实战 | 手摸手教你在Windows环境下运行Redis6.x</a></li>
+                        <li class="py-2"><a href="/html/category/article-2801.htm" title="手写事件发布订阅框架">手写事件发布订阅框架</a></li>
+                        <li class="py-2"><a href="/html/category/article-2802.htm" title="vue在进行增删改操作后刷新页面">vue在进行增删改操作后刷新页面</a></li>
                         <li class="py-2"><a href="/html/category/article-2811.htm" title="LevelDB 学习笔记5：版本控制_在线工具">LevelDB 学习笔记5：版本控制_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-2803.htm" title="JS实现导出Excel和CSV文件操作_javascript技巧">JS实现导出Excel和CSV文件操作_javascript技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-3774.htm" title="报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):">报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):</a></li>
+                        <li class="py-2"><a href="/html/category/article-4141.htm" title="如何从HTML表单获取键/值数据集？">如何从HTML表单获取键/值数据集？</a></li>
+                        <li class="py-2"><a href="/html/category/article-3748.htm" title="vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_">vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_</a></li>
                     </ul>
     </div>
 </div>
@@ -138,7 +138,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>

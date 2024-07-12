@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
                             <h1>vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_</h1>
                         </div>
                         <div class="about-bottom">
-                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">路由跳转router-link清除历史记录</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">官方文档提供了如下三种方式</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue跳转后不记录历史记录</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>路由跳转router-link清除历史记录</h2> <p>1.在vue项目中说起路由跳转，我们最先想到的就是router-link标签以及this.$router.push函数。</p> <p>router-link和this.\$router.push的实现原理是一样的，在点击router-link时，内部调用的就是this.$router.push。</p> <p>2.this.\$router.push这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。</p> <p><strong>那在我们使用路由跳转的时候如何去掉历史记录呢？</strong></p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>官方文档提供了如下三种方式</h3> <p>1.使用router-link标签时去掉历史记录：加上replace属性</p> <div class="ay1code"> <pre class="brush:js;">&lt;router-link to='/project_selection' replace class='btn_none' tag="a"&gt;项目列表&lt;/router-link&gt;</pre> </div> <p>2.使用this.\$router.push标签时去掉历史记录：加上replace属性，默认值为false</p> <div class="ay1code"> <pre class="brush:js;">this.$router.push({path: '/project_selection',replace:true})</pre> </div> <p>3.使用this.\$router.replace标签时去掉历史记录</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> <p>所有内容源自于官网：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://router.vuejs.org/zh/guide/essentials/navigation.html"   target="_blank" rel="nofollow">vue路由核心插件</a></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue跳转后不记录历史记录</h2> <p>vue路由跳转一般情况下是使用push，</p> <div class="ay1code"> <pre class="brush:js;"> this.$router.push({                  path: "/testTeam/testTeam",                });</pre> </div> <p>若是特殊需求，页面跳转后不记录到历史记录中，将push改为replace即可</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> 			                            <div class="clearfix"> </div>
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li>路由跳转router-link清除历史记录</li> <ul class="second_class_ul"> <li>官方文档提供了如下三种方式</li> </ul> <li>vue跳转后不记录历史记录</li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"></p> <h2>路由跳转router-link清除历史记录</h2> <p>1.在vue项目中说起路由跳转，我们最先想到的就是router-link标签以及this.$router.push函数。</p> <p>router-link和this.\$router.push的实现原理是一样的，在点击router-link时，内部调用的就是this.$router.push。</p> <p>2.this.\$router.push这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。</p> <p><strong>那在我们使用路由跳转的时候如何去掉历史记录呢？</strong></p> <p class="maodian"></p> <h3>官方文档提供了如下三种方式</h3> <p>1.使用router-link标签时去掉历史记录：加上replace属性</p> <div class="ay1code"> <pre class="brush:js;"><router-link to='/project_selection' replace class='btn_none' tag="a">项目列表</router-link></pre> </div> <p>2.使用this.\$router.push标签时去掉历史记录：加上replace属性，默认值为false</p> <div class="ay1code"> <pre class="brush:js;">this.$router.push({path: '/project_selection',replace:true})</pre> </div> <p>3.使用this.\$router.replace标签时去掉历史记录</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> <p>所有内容源自于官网：vue路由核心插件</p> <p class="maodian"></p> <h2>vue跳转后不记录历史记录</h2> <p>vue路由跳转一般情况下是使用push，</p> <div class="ay1code"> <pre class="brush:js;"> this.$router.push({                  path: "/testTeam/testTeam",                });</pre> </div> <p>若是特殊需求，页面跳转后不记录到历史记录中，将push改为replace即可</p> <div class="ay1code"> <pre class="brush:js;">this.$router.replace({path: '/project_selection'})</pre> </div> 			                            <div class="clearfix"> </div>
                         </div>
 
                         <div class="col-md-12 mt-5">
@@ -136,16 +136,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-3140.htm" title="java 退出_JVM安全退出（如何优雅的关闭java服务）">java 退出_JVM安全退出（如何优雅的关闭java服务）</a></li>
-                        <li class="py-2"><a href="/html/category/article-4141.htm" title="如何从HTML表单获取键/值数据集？">如何从HTML表单获取键/值数据集？</a></li>
-                        <li class="py-2"><a href="/html/category/article-2814.htm" title="DataLoader 和 Dataset">DataLoader 和 Dataset</a></li>
-                        <li class="py-2"><a href="/html/category/article-2817.htm" title="uni-app 63egg.js后端用户上线和下线深度剖析">uni-app 63egg.js后端用户上线和下线深度剖析</a></li>
-                        <li class="py-2"><a href="/html/category/article-4532.htm" title="动物打完疫苗多久可以测抗体结果（动物打疫苗后多久能杀了吃）">动物打完疫苗多久可以测抗体结果（动物打疫苗后多久能杀了吃）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2795.htm" title="Python开发桌面小程序功能_python_">Python开发桌面小程序功能_python_</a></li>
-                        <li class="py-2"><a href="/html/category/article-4387.htm" title="成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）">成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）</a></li>
-                        <li class="py-2"><a href="/html/category/article-3748.htm" title="vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_">vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_</a></li>
-                        <li class="py-2"><a href="/html/category/article-4086.htm" title="FreeRTOS实时操作系统队列基础_操作系统">FreeRTOS实时操作系统队列基础_操作系统</a></li>
-                        <li class="py-2"><a href="/html/category/article-3773.htm" title="如何使用Iintelij IDEA将maven项目打包成war包，并将war包放到tomcat上运行">如何使用Iintelij IDEA将maven项目打包成war包，并将war包放到tomcat上运行</a></li>
+                        <li class="py-2"><a href="/html/category/article-4496.htm" title="进军预制菜是什么意思">进军预制菜是什么意思</a></li>
+                        <li class="py-2"><a href="/html/category/article-4386.htm" title="宠物粮供应商电话（宠物粮供应商电话是多少）">宠物粮供应商电话（宠物粮供应商电话是多少）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2807.htm" title="vue生命周期 钩子函数">vue生命周期 钩子函数</a></li>
+                        <li class="py-2"><a href="/html/category/article-2802.htm" title="vue在进行增删改操作后刷新页面">vue在进行增删改操作后刷新页面</a></li>
+                        <li class="py-2"><a href="/html/category/article-2810.htm" title="netty系列之:netty中的核心MessageToByte编码器">netty系列之:netty中的核心MessageToByte编码器</a></li>
+                        <li class="py-2"><a href="/html/category/article-4497.htm" title="动物疫苗工艺有哪些类型（动物疫苗工艺有哪些类型的）">动物疫苗工艺有哪些类型（动物疫苗工艺有哪些类型的）</a></li>
+                        <li class="py-2"><a href="/html/category/article-2821.htm" title="vscode for c/c++（ACM配置）">vscode for c/c++（ACM配置）</a></li>
+                        <li class="py-2"><a href="/html/category/article-4420.htm" title="同安宠物领养中心电话多少 同安宠物领养中心电话多少号">同安宠物领养中心电话多少 同安宠物领养中心电话多少号</a></li>
+                        <li class="py-2"><a href="/html/category/article-3747.htm" title="docker容器编排原来这么丝滑~">docker容器编排原来这么丝滑~</a></li>
+                        <li class="py-2"><a href="/html/category/article-4421.htm" title="深圳宠物领养中心免费（深圳宠物狗领养）">深圳宠物领养中心免费（深圳宠物狗领养）</a></li>
                     </ul>
     </div>
 </div>
@@ -157,7 +157,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>

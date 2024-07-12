@@ -101,7 +101,7 @@ var _hmt = _hmt || [];
                             <h1>Redis缓存过期机制</h1>
                         </div>
                         <div class="about-bottom">
-                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="Redis_0" rel="nofollow"></a>Redis缓存过期机制</h3> <h5><a id="Rediskey_2" rel="nofollow"></a>一、给Redis设置过过期时间的key，过期后有下面两种处理方式</h5> <p>1.（主动）定期删除</p> <blockquote> <p>他会定时去抽查我们随机的key，时间默认是1秒10次，如果抽查到的key是已经过期的就会被删除<br /> 2.（被动）惰性删除<br /> 当过期的key被请求到的时候，我们redis才会被动的去检测下这个key有没有过期，如果过期了就会把它从内存中删除</p> </blockquote> <h5><a id="_9" rel="nofollow"></a>二、内存淘汰管理机制</h5> <p>1.MEMORY MANAGEMENT</p> <blockquote> <p>最大的阈值maxmemory，当内存超过这个之后就会去清理我们那些没有设置过期时间的key</p> </blockquote> <p>2.下面是处理超内存后的集中方式</p> <blockquote> <p>volatile-lru --&gt;<br /> allkeys-lru<br /> volatile-lfu --&gt;清理设置过期时间，最少用到的key值<br /> allkeys-lfu --&gt; 会帮我请清理一些不怎么被用到的存在时间比较久的缓存<br /> volatile-random --&gt; 随机删除设置过过期时间的一些key<br /> allkeys-random --&gt; 随机删除一些key<br /> volatile-ttl --&gt; 删除即将到期的key值<br /> noeviction --&gt; 内存满后直接提示一个错误，告知内存已满（默认被使用）<br /> LRU means Least Recently Used 最少被使用 – 时间方面<br /> LFU means Least Frequently Used 最少被使用 – 次数方面</p> </blockquote> </div> 			                            <div class="clearfix"> </div>
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3>Redis缓存过期机制</h3> <h5>一、给Redis设置过过期时间的key，过期后有下面两种处理方式</h5> <p>1.（主动）定期删除</p> <blockquote> <p>他会定时去抽查我们随机的key，时间默认是1秒10次，如果抽查到的key是已经过期的就会被删除<br /> 2.（被动）惰性删除<br /> 当过期的key被请求到的时候，我们redis才会被动的去检测下这个key有没有过期，如果过期了就会把它从内存中删除</p> </blockquote> <h5>二、内存淘汰管理机制</h5> <p>1.MEMORY MANAGEMENT</p> <blockquote> <p>最大的阈值maxmemory，当内存超过这个之后就会去清理我们那些没有设置过期时间的key</p> </blockquote> <p>2.下面是处理超内存后的集中方式</p> <blockquote> <p>volatile-lru --><br /> allkeys-lru<br /> volatile-lfu -->清理设置过期时间，最少用到的key值<br /> allkeys-lfu --> 会帮我请清理一些不怎么被用到的存在时间比较久的缓存<br /> volatile-random --> 随机删除设置过过期时间的一些key<br /> allkeys-random --> 随机删除一些key<br /> volatile-ttl --> 删除即将到期的key值<br /> noeviction --> 内存满后直接提示一个错误，告知内存已满（默认被使用）<br /> LRU means Least Recently Used 最少被使用 – 时间方面<br /> LFU means Least Frequently Used 最少被使用 – 次数方面</p> </blockquote> </div> 			                            <div class="clearfix"> </div>
                         </div>
 
                         <div class="col-md-12 mt-5">
@@ -117,16 +117,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-3774.htm" title="报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):">报错解决Module build failed (from ./node_modules/babel-loader/lib/index.js):</a></li>
-                        <li class="py-2"><a href="/html/category/article-2842.htm" title="vue项目在打包时,如何去掉所有的console.log输出_vue.js_">vue项目在打包时,如何去掉所有的console.log输出_vue.js_</a></li>
-                        <li class="py-2"><a href="/html/category/article-2807.htm" title="vue生命周期 钩子函数">vue生命周期 钩子函数</a></li>
-                        <li class="py-2"><a href="/html/category/article-2798.htm" title="树的同构 Java">树的同构 Java</a></li>
-                        <li class="py-2"><a href="/html/category/article-4387.htm" title="成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）">成人考兽医资格证需要什么条件呢（成人学历可以考兽医吗）</a></li>
-                        <li class="py-2"><a href="/html/category/article-2808.htm" title="使用 Vert.X Future/Promise 编写异步代码_在线工具">使用 Vert.X Future/Promise 编写异步代码_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-2818.htm" title="Go 语言接口及使用接口实现链表插入">Go 语言接口及使用接口实现链表插入</a></li>
-                        <li class="py-2"><a href="/html/category/article-4420.htm" title="同安宠物领养中心电话多少 同安宠物领养中心电话多少号">同安宠物领养中心电话多少 同安宠物领养中心电话多少号</a></li>
-                        <li class="py-2"><a href="/html/category/article-4497.htm" title="动物疫苗工艺有哪些类型（动物疫苗工艺有哪些类型的）">动物疫苗工艺有哪些类型（动物疫苗工艺有哪些类型的）</a></li>
+                        <li class="py-2"><a href="/html/category/article-3773.htm" title="如何使用Iintelij IDEA将maven项目打包成war包，并将war包放到tomcat上运行">如何使用Iintelij IDEA将maven项目打包成war包，并将war包放到tomcat上运行</a></li>
                         <li class="py-2"><a href="/html/category/article-3442.htm" title="C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具">C#/VB.NET 在Excel单元格中应用多种字体格式_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-4114.htm" title="实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址">实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址</a></li>
+                        <li class="py-2"><a href="/html/category/article-2820.htm" title="OpenSSL3.0.5安装">OpenSSL3.0.5安装</a></li>
+                        <li class="py-2"><a href="/html/category/article-2800.htm" title="浅谈软件性能提升相关的概念">浅谈软件性能提升相关的概念</a></li>
+                        <li class="py-2"><a href="/html/category/article-2803.htm" title="JS实现导出Excel和CSV文件操作_javascript技巧">JS实现导出Excel和CSV文件操作_javascript技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-4603.htm" title="巢湖银鱼的经典做法(巢湖银鱼介绍)">巢湖银鱼的经典做法(巢湖银鱼介绍)</a></li>
+                        <li class="py-2"><a href="/html/category/article-4341.htm" title="动物防疫站工作总结发言（动物防疫站工作总结发言材料）">动物防疫站工作总结发言（动物防疫站工作总结发言材料）</a></li>
+                        <li class="py-2"><a href="/html/category/article-5588.htm" title="动物医院诊疗范围有哪些项目要求（动物医院诊室）">动物医院诊疗范围有哪些项目要求（动物医院诊室）</a></li>
+                        <li class="py-2"><a href="/html/category/article-3441.htm" title="git 回滚到之前某一commit">git 回滚到之前某一commit</a></li>
                     </ul>
     </div>
 </div>
@@ -138,7 +138,7 @@ var _hmt = _hmt || [];
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">20</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">24</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
